@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:omny_business/modules/auth/auth.dart';
-import 'package:omny_business/routes/routes.dart';
 import 'package:omny_business/shared/shared.dart';
 import 'package:get/get.dart';
 
@@ -47,19 +46,7 @@ class AuthScreen extends GetView<AuthController> {
           ),
         ),
         SizedBox(height: 50.0),
-        GradientButton(
-          text: 'Sign In',
-          onPressed: () {
-            Get.toNamed(Routes.AUTH + Routes.LOGIN, arguments: controller);
-          },
-        ),
         SizedBox(height: 20.0),
-        BorderButton(
-          text: 'Sign Up',
-          onPressed: () {
-            Get.toNamed(Routes.AUTH + Routes.REGISTER, arguments: controller);
-          },
-        ),
         SizedBox(height: 62.0),
         Text(
           'This is a demo only used for test.',
