@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:omny_business/models/models.dart';
-import 'package:omny_business/models/response/users_response.dart';
-
 import 'api.dart';
 
 class ApiRepository {
@@ -10,24 +8,19 @@ class ApiRepository {
 
   final ApiProvider apiProvider;
 
-  Future<LoginResponse?> login(LoginRequest data) async {
-    final res = await apiProvider.login('/api/login', data);
-    if (res.statusCode == 200) {
+  Future<LoginResponse> login(LoginRequest data) async {
+    try {
+      final res = await apiProvider.post('/auth/authenticate', data);
       return LoginResponse.fromJson(res.body);
+    } catch (error) {
+      throw error;
     }
   }
 
   Future<RegisterResponse?> register(RegisterRequest data) async {
-    final res = await apiProvider.register('/api/register', data);
+    final res = await apiProvider.post('/api/register', data);
     if (res.statusCode == 200) {
       return RegisterResponse.fromJson(res.body);
-    }
-  }
-
-  Future<UsersResponse?> getUsers() async {
-    final res = await apiProvider.getUsers('/api/users?page=1&per_page=12');
-    if (res.statusCode == 200) {
-      return UsersResponse.fromJson(res.body);
     }
   }
 }

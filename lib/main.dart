@@ -24,7 +24,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       enableLog: true,
       initialRoute: Routes.SPLASH,
-      defaultTransition: Transition.fade,
+      defaultTransition: Transition.cupertino,
       getPages: AppPages.routes,
       initialBinding: AppBinding(),
       smartManagement: SmartManagement.keepFactory,

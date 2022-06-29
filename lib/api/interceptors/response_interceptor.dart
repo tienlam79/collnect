@@ -1,31 +1,32 @@
 import 'dart:async';
 
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:omny_business/models/models.dart';
-import 'package:omny_business/shared/shared.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/request/request.dart';
+import 'package:omny_business/models/models.dart';
+import 'package:omny_business/shared/shared.dart';
 
 FutureOr<dynamic> responseInterceptor(
     Request request, Response response) async {
   EasyLoading.dismiss();
-
   if (response.statusCode != 200) {
     handleErrorStatus(response);
-    return;
+    return throw Future.error('Api request error');
   }
-
   return response;
 }
 
 void handleErrorStatus(Response response) {
   switch (response.statusCode) {
     case 400:
-      final message = ErrorResponse.fromJson(response.body);
-      CommonWidget.toast(message.error);
+      final error = ErrorResponse.fromJson(response.body);
+      CommonWidget.toast(error.error);
+      break;
+    case 500:
+      CommonWidget.toast(response.statusText ?? 'Something went wrong.');
       break;
     default:
+      break;
   }
-
   return;
 }
