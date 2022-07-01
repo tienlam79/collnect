@@ -1,22 +1,19 @@
-import 'dart:convert';
-
 class LoginResponse {
   LoginResponse({
-    required this.token,
+    required this.expiredAt,
+    required this.checkCode,
   });
 
-  String token;
-
-  factory LoginResponse.fromRawJson(String str) =>
-      LoginResponse.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
+  DateTime expiredAt;
+  String checkCode;
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) => LoginResponse(
-        token: json["token"],
+        expiredAt: DateTime.parse(json["expired_at"]),
+        checkCode: json["check_code"],
       );
 
   Map<String, dynamic> toJson() => {
-        "token": token,
+        "expired_at": expiredAt.toIso8601String(),
+        "check_code": checkCode,
       };
 }

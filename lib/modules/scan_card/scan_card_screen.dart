@@ -108,6 +108,7 @@ class _QRViewExampleState extends State<ScanCardScreen> {
   }
 
   void _onQRViewCreated(QRViewController c) {
+    var parentController = Get.arguments;
     if (controller == null) {
       if (Platform.isAndroid) {
         c.pauseCamera();
@@ -119,7 +120,7 @@ class _QRViewExampleState extends State<ScanCardScreen> {
     });
     c.scannedDataStream.listen((scanData) {
       if (scanData.code != null) {
-        // reloadCardController.setCode(scanData.code);
+        parentController.setCode(scanData.code);
         Get.until((route) => route.settings.name == Routes.ACTIVATED_CARD);
       }
     });

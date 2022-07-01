@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:omny_business/shared/shared.dart';
-import 'package:omny_business/shared/widgets/common/login_wrapper.dart';
 import 'verification_controller.dart';
 import 'widgets/verification_code_input.dart';
 
@@ -40,7 +39,7 @@ class VerificationScreen extends GetView<VerificationController> {
                     (CommonConstants.hPadding * 2)) /
                 inputNumber,
             onChangeCode: controller.onChangeCode,
-            onCompleted: controller.onLogin,
+            onCompleted: controller.onGenerateToken,
           ),
           SpacingSm(),
           Obx(
@@ -52,7 +51,7 @@ class VerificationScreen extends GetView<VerificationController> {
                     onEnd: controller.onEndTimer,
                     builder:
                         (BuildContext context, Duration value, Widget? child) {
-                      final minutes = value.inMinutes;
+                      // final minutes = value.inMinutes;
                       final seconds = value.inSeconds % 60;
                       return Center(
                         child: Text(
@@ -88,7 +87,8 @@ class VerificationScreen extends GetView<VerificationController> {
             () => PrimaryButton(
               text: 'submit'.tr,
               disabled: controller.code.value.length < inputNumber,
-              onPressed: () => {},
+              onPressed: () =>
+                  controller.onGenerateToken(controller.code.value),
             ),
           ),
         ],

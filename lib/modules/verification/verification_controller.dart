@@ -1,6 +1,9 @@
 import 'package:omny_business/api/api.dart';
 import 'package:get/get.dart';
+import 'package:omny_business/models/models.dart';
 import 'package:omny_business/routes/routes.dart';
+import 'package:omny_business/shared/constants/storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class VerificationController extends GetxController {
   final ApiRepository apiRepository;
@@ -22,25 +25,45 @@ class VerificationController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-    // yourIdController.dispose();
-    // passwordController.dispose();
   }
-
-  // void onForgotPassword() {}
-  // void onRegister() {}
-  // void onLogin() {}
 
   void onChangeCode(String value) {
     code.value = value;
   }
 
-  void onLogin(code) {
-    Get.offAllNamed(Routes.HOME);
+  void onGenerateToken(String code) async {
+    try {
+      List params = Get.arguments;
+      String username = params[0];
+      String checkCode = params[1];
+      GenerateTokenRequest payload = new GenerateTokenRequest(
+        username: username,
+        password: '$code@$checkCode',
+      );
+      var res = await apiRepository.generateToken(payload);
+      final prefs = Get.find<SharedPreferences>();
+      if (res.accessToken.isNotEmpty && res.refreshToken.isNotEmpty) {
+        prefs.setString(StorageConstants.token, res.accessToken);
+        prefs.setString(StorageConstants.refreshToken, res.refreshToken);
+        Get.offAllNamed(Routes.HOME);
+      }
+    } catch (error) {}
   }
 
   void onEndTimer() {
     isStartTimer.value = false;
   }
 
-  void onResentCode() {}
+  void onResentCode() async {
+    try {
+      List params = Get.arguments;
+      String username = params[0];
+      String checkCode = params[1];
+      SendVerificationCodeRequest payload = new SendVerificationCodeRequest(
+        username: username,
+        checkCode: checkCode,
+      );
+      await apiRepository.sendVerificationCode(payload);
+    } catch (error) {}
+  }
 }

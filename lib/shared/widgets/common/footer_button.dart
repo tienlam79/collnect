@@ -18,7 +18,7 @@ class FooterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ColorConstants.lightScaffoldBackgroundColor,
+      // color: ColorConstants.lightScaffoldBackgroundColor,
       padding: const EdgeInsets.fromLTRB(CommonConstants.hPadding, 0,
           CommonConstants.hPadding, CommonConstants.hPadding),
       child: PrimaryButton(

@@ -42,5 +42,12 @@ const Map<String, String> en_US = {
   'transaction_id': 'Transaction ID: @id',
   'successfully': "Successfully",
   'back_to_home': "Back to Home",
-  'reload_card': "Reload card"
+  'reload_card': "Reload card",
+  'register_title': "Register to you OMNY business",
+  'first_name': "First name",
+  'last_name': "Last name",
+  'username': "Username",
+  "email": "Email",
+  'phone_number': "Phone number",
+  'register': "Register",
 };

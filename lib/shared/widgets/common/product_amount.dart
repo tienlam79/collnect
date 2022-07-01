@@ -30,8 +30,8 @@ class ProductAmount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double minValue = product.minPrice ?? 0.0;
-    double maxValue = product.maxPrice ?? 0.0;
+    double minValue = product.minPrice;
+    double maxValue = product.maxPrice;
     return Container(
       child: Column(
         children: [

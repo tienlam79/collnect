@@ -20,17 +20,24 @@ class ActivatedCardController extends GetxController {
   RxDouble selectedAmount = 0.0.obs;
   RxString prefixCode = ''.obs;
   RxString code = ''.obs;
+  RxString cardNumber = ''.obs;
+  RxString fullCardNumber = ''.obs;
   Rx<Product> product = new Product(
     id: 0,
     name: '',
+    prefix: '',
     sku: '',
+    productFilter: '',
+    minPrice: 0.0,
+    maxPrice: 0.0,
     priceType: PriceType.OPEN,
     priceList: [],
-    minPrice: 0,
-    maxPrice: 100.0,
-    suggestPriceList: [10.0, 15.0, 20.0, 25.0, 30.0],
-    destAmountList: [100.0, 150.0, 200.0, 250.0, 300.0],
+    suggestPriceList: [],
+    feeList: [],
   ).obs;
+
+  RxBool isManual = false.obs;
+
   @override
   void onInit() {
     super.onInit();
@@ -48,6 +55,22 @@ class ActivatedCardController extends GetxController {
           ? double.parse(amountController.text)
           : 0.0;
     });
+
+    cardNumberController.addListener(() {
+      if (isManual.value == true) {
+        fullCardNumber.value = cardNumberController.text;
+      }
+    });
+
+    debounce(
+      fullCardNumber,
+      (_) {
+        if (fullCardNumber.value.length >= 1) {
+          getProduct();
+        }
+      },
+      time: Duration(seconds: 1),
+    );
   }
 
   @override
@@ -68,19 +91,42 @@ class ActivatedCardController extends GetxController {
   }
 
   void onSelectAmount(double value) {
-    print('...valyes..$value');
     amountController.text = Formatter.removeDecimalZeroFormat(value);
     selectedAmount.value = value;
   }
 
-  void setCode() {
-    String cardNumber = '6375003176485918';
-    String prefix = '79936689999000';
+  void setCode(String cardValue) {
+    // String cardNumber = '6375003176485918';
+    // String prefix = '79936689999000';
 
-    cardNumberController.text = cardNumber;
-    prefixCardNumberController.text = prefix;
+    // cardNumberController.text = cardNumber;
+    // prefixCardNumberController.text = prefix;
 
-    prefixCode.value = prefix;
-    code.value = cardNumber;
+    // prefixCode.value = '';
+    // code.value = cardValue;
+    fullCardNumber.value = cardValue;
+  }
+
+  void getProduct() async {
+    try {
+      final payload = new ProductRequest(
+        filterCode: cardNumber.value,
+        filterType: CardType.ACTIVATION,
+      );
+      final res = await apiRepository.getProduct(payload);
+      product.value = res;
+      String cardCode = fullCardNumber.value.replaceAll(res.prefix, '');
+      cardNumber.value = cardCode;
+      cardNumberController.text = cardCode;
+      prefixCardNumberController.text = res.prefix;
+      prefixCode.value = res.prefix;
+      print('...product...${res.toJson()}');
+    } catch (error) {
+      print('...getProduct errro...${error.toString()}');
+    }
+  }
+
+  void setManual() {
+    isManual.value = true;
   }
 }

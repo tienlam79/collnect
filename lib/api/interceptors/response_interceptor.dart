@@ -9,6 +9,7 @@ import 'package:omny_business/shared/shared.dart';
 FutureOr<dynamic> responseInterceptor(
     Request request, Response response) async {
   EasyLoading.dismiss();
+  print('response.statusCode. ${response.statusCode}');
   if (response.statusCode != 200) {
     handleErrorStatus(response);
     return throw Future.error('Api request error');
@@ -20,7 +21,7 @@ void handleErrorStatus(Response response) {
   switch (response.statusCode) {
     case 400:
       final error = ErrorResponse.fromJson(response.body);
-      CommonWidget.toast(error.error);
+      CommonWidget.toast(error.message ?? 'Something went wrong.');
       break;
     case 500:
       CommonWidget.toast(response.statusText ?? 'Something went wrong.');

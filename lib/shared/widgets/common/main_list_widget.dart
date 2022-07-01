@@ -22,6 +22,7 @@ class MainListWidget extends StatefulWidget {
   final Color? appBarBackgroundColor;
   final double? elevation;
   final double? titleSpacing;
+  final bool extendBodyBehindAppBar;
   MainListWidget({
     required this.child,
     this.titleText = '',
@@ -42,6 +43,7 @@ class MainListWidget extends StatefulWidget {
     this.appBarBackgroundColor,
     this.elevation,
     this.titleSpacing,
+    this.extendBodyBehindAppBar = false,
   });
 
   @override
@@ -91,6 +93,7 @@ class _MainListWidgetState extends State<MainListWidget> {
       bottomNavigationBar: widget.bottomNavigationBar,
       resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
       backgroundColor: widget.backgroundColor,
+      extendBodyBehindAppBar: widget.extendBodyBehindAppBar,
       appBar: AppBar(
         elevation: widget.elevation,
         centerTitle: widget.centerTitle,

@@ -37,7 +37,7 @@ class ActivatedCardScreen extends GetView<ActivatedCardController> {
       ],
       footer: Obx(
         () => Visibility(
-          visible: controller.code.value != '',
+          visible: controller.cardNumber.value != '',
           child: SecondaryButton(
             onPressed: () => Get.toNamed(Routes.RESULT),
             disabled: controller.selectedAmount.value == 0.0,
@@ -110,7 +110,7 @@ class ActivatedCardScreen extends GetView<ActivatedCardController> {
             ),
           ),
         SpacingSm(),
-        Obx(() => controller.code.value != ''
+        Obx(() => controller.cardNumber.value != '' || controller.isManual.value
             ? _buildProductInputAmount(context)
             : _buildScanBarCodeButton(context)),
       ],
@@ -157,17 +157,42 @@ class ActivatedCardScreen extends GetView<ActivatedCardController> {
     );
   }
 
+  Widget _buildManualForm(BuildContext context) {
+    return Column(
+      children: [
+        _buildCardNumberField(context),
+        if (controller.product.value.id != 0)
+          ProductAmount(
+            amountController: controller.amountController,
+            selectedAmount: controller.selectedAmount,
+            product: controller.product.value,
+            onSelectSuggestAmount: controller.onSelectAmount,
+          ),
+        Obx(
+          () => Visibility(
+            child: Column(
+              children: [SpacingSm(), _buildFee(context)],
+            ),
+            visible: controller.selectedAmount.value != 0.0,
+          ),
+        )
+      ],
+    );
+  }
+
   Widget _buildProductInputAmount(BuildContext context) {
     return Column(
       children: [
-        _buildPrefixCardNumberField(context),
+        if (controller.prefixCode.value != '')
+          _buildPrefixCardNumberField(context),
         _buildCardNumberField(context),
-        ProductAmount(
-          amountController: controller.amountController,
-          selectedAmount: controller.selectedAmount,
-          product: controller.product.value,
-          onSelectSuggestAmount: controller.onSelectAmount,
-        ),
+        if (controller.product.value.id != 0)
+          ProductAmount(
+            amountController: controller.amountController,
+            selectedAmount: controller.selectedAmount,
+            product: controller.product.value,
+            onSelectSuggestAmount: controller.onSelectAmount,
+          ),
         Obx(
           () => Visibility(
             child: Column(
@@ -201,7 +226,7 @@ class ActivatedCardScreen extends GetView<ActivatedCardController> {
         ),
       ),
       TextButton(
-        onPressed: () => controller.setCode(),
+        onPressed: controller.setManual,
         child: Text('enter_manual_omny_card_number'.tr),
       ),
     ]);

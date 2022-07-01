@@ -1,27 +1,36 @@
-import 'dart:convert';
-
 class RegisterResponse {
   RegisterResponse({
-    required this.id,
-    required this.token,
+    required this.email,
+    required this.password,
+    required this.username,
+    required this.firstName,
+    required this.lastName,
+    required this.phone,
   });
 
-  int id;
-  String token;
-
-  factory RegisterResponse.fromRawJson(String str) =>
-      RegisterResponse.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
+  String email;
+  String password;
+  String username;
+  String firstName;
+  String lastName;
+  String phone;
 
   factory RegisterResponse.fromJson(Map<String, dynamic> json) =>
       RegisterResponse(
-        id: json["id"],
-        token: json["token"],
+        email: json["email"],
+        password: json["password"],
+        username: json["username"],
+        firstName: json["first_name"],
+        lastName: json["last_name"],
+        phone: json["phone"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "token": token,
+        "email": email,
+        "password": password,
+        "username": username,
+        "first_name": firstName,
+        "last_name": lastName,
+        "phone": phone,
       };
 }

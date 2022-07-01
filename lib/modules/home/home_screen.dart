@@ -28,7 +28,7 @@ class HomeScreen extends GetView<HomeController> {
       ),
       actions: [
         TextButton(
-          onPressed: () => {},
+          onPressed: controller.onLogout,
           child: Text(
             'logout'.tr,
             style: Theme.of(context).textTheme.headline5!.copyWith(
@@ -59,7 +59,7 @@ class HomeScreen extends GetView<HomeController> {
               .copyWith(color: Colors.white),
         ),
         subtitle: Text(
-          '\$${controller.creditBalance.value}',
+          '\$${Formatter.formatLocaleMoney(controller.profile.value.balance)}',
           style: Theme.of(context)
               .textTheme
               .headline3!

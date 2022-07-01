@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:omny_business/api/api.dart';
 import 'package:get/get.dart';
+import 'package:omny_business/models/models.dart';
 import 'package:omny_business/routes/app_pages.dart';
 
 class LoginController extends GetxController {
@@ -37,8 +38,16 @@ class LoginController extends GetxController {
   }
 
   void onForgotPassword() {}
-  void onRegister() {}
-  void onLogin() {
-    Get.toNamed(Routes.VERIFICATION);
+  void onLogin() async {
+    try {
+      LoginRequest loginPayload =
+          new LoginRequest(username: yourId.value, password: password.value);
+      var res = await apiRepository.login(loginPayload);
+      SendVerificationCodeRequest payload = new SendVerificationCodeRequest(
+          username: yourId.value, checkCode: res.checkCode);
+      await apiRepository.sendVerificationCode(payload);
+      Get.toNamed(Routes.VERIFICATION,
+          arguments: [yourId.value, res.checkCode]);
+    } catch (error) {}
   }
 }

@@ -23,13 +23,15 @@ class ReloadCardController extends GetxController {
   Rx<Product> product = new Product(
     id: 0,
     name: '',
+    prefix: '',
     sku: '',
+    productFilter: '',
+    minPrice: 0.0,
+    maxPrice: 0.0,
     priceType: PriceType.OPEN,
     priceList: [],
-    minPrice: 0,
-    maxPrice: 100.0,
-    suggestPriceList: [10.0, 15.0, 20.0, 25.0, 30.0],
-    destAmountList: [100.0, 150.0, 200.0, 250.0, 300.0],
+    suggestPriceList: [],
+    feeList: [],
   ).obs;
   @override
   void onInit() {

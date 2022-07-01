@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:omny_business/routes/routes.dart';
 import 'package:omny_business/shared/shared.dart';
 import 'login_controller.dart';
 
@@ -60,12 +61,13 @@ class LoginScreen extends GetView<LoginController> {
           ),
           Center(
             child: TextButton(
-              onPressed: controller.onRegister,
+              onPressed: () => Get.toNamed(Routes.REGISTER),
               child: Text(
                 'register_new_business'.tr,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    color: ColorConstants.primaryButtonBackgroundColor),
+                  color: ColorConstants.primaryButtonBackgroundColor,
+                ),
               ),
             ),
           ),
