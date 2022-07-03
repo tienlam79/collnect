@@ -57,5 +57,6 @@ const Map<String, String> en_US = {
   "select_reload_plan": "Select reload plan",
   "fee": "Fee",
   "credit_reload": "Credit reload",
-  "service_fee": "Service fee"
+  "service_fee": "Service fee",
+  "service_fee_type": "Service fee (@type)"
 };

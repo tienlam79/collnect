@@ -143,4 +143,17 @@ class ApiRepository {
       throw error;
     }
   }
+
+  Future<AchOrder> createACH(CreateAchRequest payload) async {
+    try {
+      print('...sdd..${payload.toJson()}');
+      final res = await apiProvider.postMethod(
+        '/business-api/retailer/ach-requests',
+        payload,
+      );
+      return AchOrder.fromJson(res.body);
+    } catch (error) {
+      throw error;
+    }
+  }
 }

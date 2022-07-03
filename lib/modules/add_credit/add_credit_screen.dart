@@ -10,7 +10,7 @@ import '../activated_card/widgets/prepaid_credit.dart';
 class AddCreditScreen extends GetView<AddCreditController> {
   AddCreditScreen({Key? key}) : super(key: key);
 
-  HomeController homeController = Get.find();
+  final HomeController homeController = Get.find();
 
   @override
   Widget build(BuildContext context) {

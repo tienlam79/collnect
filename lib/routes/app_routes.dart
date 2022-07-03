@@ -14,4 +14,5 @@ abstract class Routes {
   static const SCAN_CARD = '/scan-card';
   static const RESULT = '/result';
   static const ADD_CREDIT = '/add-credit';
+  static const ADD_CREDIT_RESULT = '/add-credit-result';
 }

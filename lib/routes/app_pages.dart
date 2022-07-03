@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:omny_business/modules/add_credit/add_credit_binding.dart';
 import 'package:omny_business/modules/add_credit/add_credit_screen.dart';
+import 'package:omny_business/modules/add_credit_result/add_credit_result.dart';
 
 import '../modules/activated_card/activated_card.dart';
 import '../modules/home/home.dart';
@@ -91,6 +92,11 @@ class AppPages {
       name: Routes.ADD_CREDIT,
       page: () => AddCreditScreen(),
       binding: AddCreditBinding(),
+    ),
+    GetPage(
+      name: Routes.ADD_CREDIT_RESULT,
+      page: () => AddCreditResultScreen(),
+      binding: AddCreditResultBinding(),
     ),
   ];
 }

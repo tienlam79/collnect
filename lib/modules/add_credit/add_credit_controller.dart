@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:omny_business/api/api.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/models/ach_option.dart';
+import 'package:omny_business/models/models.dart';
 import 'package:omny_business/modules/home/home.dart';
+import 'package:omny_business/routes/app_pages.dart';
+import 'package:uuid/uuid.dart';
 
 class AddCreditController extends GetxController {
   final ApiRepository apiRepository;
@@ -45,7 +47,18 @@ class AddCreditController extends GetxController {
     }
   }
 
-  void onSubmit() {}
+  void onSubmit() async {
+    try {
+      var uuid = Uuid();
+      var payload = new CreateAchRequest(
+        cid: uuid.v1(),
+        amount: amountController.text,
+        type: selectedOption.value.type,
+      );
+      var res = await apiRepository.createACH(payload);
+      Get.offNamed(Routes.ADD_CREDIT_RESULT, arguments: res);
+    } catch (error) {}
+  }
 
   void onSelectOption(AchOption option) {
     selectedOption.value = option;
