@@ -2,10 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/shared/constants/constants.dart';
 import 'package:omny_business/shared/shared.dart';
-
-import '../../utils/formatter.dart';
 
 class SuggestAmount extends StatelessWidget {
   final RxList<double> suggestAmounts;

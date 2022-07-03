@@ -31,7 +31,7 @@ const Map<String, String> en_US = {
       "Point your phone's camera to the OMNY card holder to scan",
   "instruction": "Instruction",
   'how_to_scan_omny_card': "How to scan OMNY card",
-  'enter_amount_range': 'Enter load amount (range \$@min - \$@max)',
+  'PRODUCT_FORM_range': 'Enter load amount (range \$@min - \$@max)',
   'activate_load_card': "Activate & Load Card",
   'omny_card_prefix': "OMNY card prefix",
   'omny_card_number': "OMNY card number",
@@ -50,4 +50,12 @@ const Map<String, String> en_US = {
   "email": "Email",
   'phone_number': "Phone number",
   'register': "Register",
+  'reload_amount': "Reload amount",
+  "reload_credit": "Reload credit",
+  "your_business_id": "Your business ID",
+  "enter_reload_amount": "Enter credit amount",
+  "select_reload_plan": "Select reload plan",
+  "fee": "Fee",
+  "credit_reload": "Credit reload",
+  "service_fee": "Service fee"
 };

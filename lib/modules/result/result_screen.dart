@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:omny_business/models/enum_values/card_type.dart';
 import 'package:omny_business/modules/result/result.dart';
 import 'package:omny_business/routes/routes.dart';
 import 'package:omny_business/shared/shared.dart';
@@ -25,7 +26,7 @@ class ResultScreen extends GetView<ResultController> {
           SpacingXs(),
           _buildCardNumber(context),
           SpacingXs(),
-          _buildFee(context)
+          if (controller.order.value.fee != 0.0) _buildFee(context)
         ],
       ),
     );
@@ -74,14 +75,23 @@ class ResultScreen extends GetView<ResultController> {
     return CustomCard(
       child: Column(
         children: [
-          ItemTile(
-            title: 'omny_card_prefix'.tr,
-            value: controller.order.value.product.name,
-          ),
+          if (controller.order.value.product.productFilter ==
+              CardType.ACTIVATION)
+            ItemTile(
+              title: 'omny_card_prefix'.tr,
+              value: controller.order.value.product.name,
+            ),
           ItemTile(
             title: 'omny_card_number'.tr,
             value: controller.order.value.productPin,
-          )
+          ),
+          if (controller.order.value.product.productFilter ==
+              CardType.RELOAD) ...[
+            SpacingSm(),
+            TotalAmount(
+                total: controller.order.value.amount.toString(),
+                label: 'reload_amount'.tr)
+          ]
         ],
       ),
     );

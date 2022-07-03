@@ -91,10 +91,6 @@ class ActivatedCardController extends GetxController {
     prefixCardNumberController.dispose();
   }
 
-  void onNext() {
-    // isShowScanBarCodeForm.value = true;
-  }
-
   void onSelectAmount(double value) {
     amountController.text = Formatter.removeDecimalZeroFormat(value);
     selectedAmount.value = value;
@@ -119,7 +115,7 @@ class ActivatedCardController extends GetxController {
         prefixCode.value = res.prefix;
         cardNumber.value = cardCode;
         cardNumberController.text = cardCode;
-        Get.offAndToNamed(Routes.ACTIVATED_CARD + Routes.ENTER_AMOUNT,
+        Get.offAndToNamed(Routes.ACTIVATED_CARD + Routes.PRODUCT_FORM,
             arguments: this);
       }
     } catch (error) {
@@ -153,7 +149,7 @@ class ActivatedCardController extends GetxController {
     cardNumber.value = '';
     prefixCode.value = '';
     resetProduct();
-    Get.toNamed(Routes.ACTIVATED_CARD + Routes.ENTER_AMOUNT, arguments: this);
+    Get.toNamed(Routes.ACTIVATED_CARD + Routes.PRODUCT_FORM, arguments: this);
   }
 
   RxDouble get fee {

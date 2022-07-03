@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:omny_business/models/models.dart';
+import 'package:omny_business/routes/routes.dart';
 import 'package:omny_business/shared/shared.dart';
 import 'home_controller.dart';
 
@@ -74,7 +75,7 @@ class HomeScreen extends GetView<HomeController> {
           height: 40,
           child: PrimaryButton(
             text: 'add_credit'.tr,
-            onPressed: () => {},
+            onPressed: () => Get.toNamed(Routes.ADD_CREDIT),
             size: 40,
           ),
         ),

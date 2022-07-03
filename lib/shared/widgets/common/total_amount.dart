@@ -7,8 +7,10 @@ class TotalAmount extends StatelessWidget {
   const TotalAmount({
     Key? key,
     required this.total,
+    this.label = 'total_amount',
   }) : super(key: key);
   final String total;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class TotalAmount extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'total_amount'.tr,
+          label,
           style: Theme.of(context).textTheme.subtitle1,
         ),
         Text(

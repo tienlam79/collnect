@@ -7,8 +7,8 @@ import 'package:omny_business/shared/utils/helpers.dart';
 import 'widgets/customer_info.dart';
 import 'widgets/prepaid_credit.dart';
 
-class EnterAmount extends StatelessWidget {
-  EnterAmount({Key? key}) : super(key: key);
+class ActivatedCardProductForm extends StatelessWidget {
+  ActivatedCardProductForm({Key? key}) : super(key: key);
 
   final ActivatedCardController controller = Get.arguments;
 
@@ -17,7 +17,7 @@ class EnterAmount extends StatelessWidget {
     return MainListWidget(
       titleText: 'activated_new_card'.tr,
       titleSpacing: CommonConstants.titleSpacing,
-      actions: [PrepaidCredit(amount: 500.0)],
+      actions: [PrepaidCredit()],
       footer: Obx(
         () => Visibility(
           visible: controller.product.value.id != 0.0,

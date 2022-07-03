@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:omny_business/models/ach_option.dart';
 import 'package:omny_business/models/models.dart';
 import 'api.dart';
 
@@ -123,6 +124,21 @@ class ApiRepository {
         '/business-api/retailer/orders/$id',
       );
       return Order.fromJson(res.body);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  Future<List<AchOption>> getAchOptions() async {
+    try {
+      final res = await apiProvider.getMethod(
+        '/business-api/retailer/ach-options',
+      );
+      print('...res..${res.body}');
+      List<AchOption> results = res.body
+          .map<AchOption>((entry) => AchOption.fromJson(entry))
+          .toList();
+      return results;
     } catch (error) {
       throw error;
     }

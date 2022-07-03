@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:omny_business/modules/activated_card/activated_card_controller.dart';
 import 'package:omny_business/modules/activated_card/widgets/customer_info.dart';
-import 'package:omny_business/routes/app_pages.dart';
 import 'package:omny_business/shared/shared.dart';
-import 'package:permission_handler/permission_handler.dart';
+import 'package:omny_business/shared/utils/helpers.dart';
 import 'widgets/prepaid_credit.dart';
 
 class ScanBarCode extends StatelessWidget {
@@ -17,7 +16,7 @@ class ScanBarCode extends StatelessWidget {
     return MainListWidget(
       titleText: 'activated_new_card'.tr,
       titleSpacing: CommonConstants.titleSpacing,
-      actions: [PrepaidCredit(amount: 500.0)],
+      actions: [PrepaidCredit()],
       child: _buildForm(context),
     );
   }
@@ -39,7 +38,7 @@ class ScanBarCode extends StatelessWidget {
     return Column(children: [
       GradientButton(
         height: 100,
-        onPressed: () => getCameraPermission(context),
+        onPressed: () => Helpers.checkCameraPermission(context, controller),
         child: ListTile(
           leading: Image.asset(
             ImageConstants.barCodeWhiteIcon,
@@ -60,41 +59,5 @@ class ScanBarCode extends StatelessWidget {
         child: Text('enter_manual_omny_card_number'.tr),
       ),
     ]);
-  }
-
-  void getCameraPermission(BuildContext context) async {
-    var status = await Permission.camera.status;
-    if (status.isPermanentlyDenied) {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) => AlertInfo(
-          body: Container(),
-          // body: EnableCameraPermission(),
-          showCloseButton: false,
-        ),
-      );
-      return;
-    }
-    if (!status.isGranted) {
-      final result = await Permission.camera.request();
-
-      if (result.isGranted) {
-        Get.toNamed(Routes.SCAN_CARD, arguments: controller);
-      } else {
-        // showDialog(
-        //   context: context,
-        //   builder: (BuildContext context) => AlertInfo(
-        //     body: EnableCameraPermission(),
-        //     showCloseButton: false,
-        //   ),
-        // );
-        Get.snackbar(
-          "Permisson Denied",
-          "Please enable camera to scan barcodes",
-        );
-      }
-    } else {
-      Get.toNamed(Routes.SCAN_CARD, arguments: controller);
-    }
   }
 }

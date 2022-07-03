@@ -12,6 +12,7 @@ export 'button/secondary_button.dart';
 export 'button/gradient_button.dart';
 export 'alert/alert_confirm.dart';
 export 'alert/alert_info.dart';
+export 'radio/gradient_radio.dart';
 export 'common/item_tile.dart';
 export 'common/main_list_widget.dart';
 export 'common/login_wrapper.dart';

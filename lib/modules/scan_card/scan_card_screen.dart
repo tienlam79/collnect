@@ -20,7 +20,6 @@ class _QRViewExampleState extends State<ScanCardScreen> {
   Barcode? result;
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-  ActivatedCardController reloadCardController = Get.arguments;
 
   // In order to get hot reload to work we need to pause the camera if the platform
   // is android, or resume the camera if the platform is iOS.

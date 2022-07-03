@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:omny_business/shared/shared.dart';
 
 import '../spacing/spacing_xs.dart';
 import 'custom_card.dart';
@@ -10,9 +11,15 @@ class FeeCard extends StatelessWidget {
     Key? key,
     required this.amount,
     required this.fee,
+    this.amountLabel,
+    this.feeLabel,
+    this.totalLabel,
   }) : super(key: key);
   final double fee;
   final double amount;
+  final String? amountLabel;
+  final String? feeLabel;
+  final String? totalLabel;
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +31,15 @@ class FeeCard extends StatelessWidget {
             dense: true,
             visualDensity: VisualDensity(horizontal: 0, vertical: -4),
             title: Text(
-              'load_amount'.tr,
+              amountLabel ?? 'load_amount'.tr,
               style: Theme.of(context).textTheme.subtitle1,
             ),
-            trailing: Text(
-              '\$$amount',
-              style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+            trailing: AmountText(
+              amount: amount,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyText1!
+                  .copyWith(fontWeight: FontWeight.bold),
             ),
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
@@ -40,21 +48,25 @@ class FeeCard extends StatelessWidget {
               dense: true,
               visualDensity: VisualDensity(horizontal: 0, vertical: -4),
               title: Text(
-                'insurance_fee'.tr,
+                feeLabel ?? 'insurance_fee'.tr,
                 style: Theme.of(context).textTheme.subtitle1,
               ),
-              trailing: Text(
-                '\$$fee',
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+              trailing: AmountText(
+                amount: fee,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1!
+                    .copyWith(fontWeight: FontWeight.bold),
               ),
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 0, vertical: 0)),
           SpacingXs(),
           Divider(),
           SpacingXs(),
-          TotalAmount(total: '$total'),
+          TotalAmount(
+            total: '$total',
+            label: totalLabel ?? 'total_amount'.tr,
+          ),
         ],
       ),
     );

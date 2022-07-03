@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:omny_business/modules/add_credit/add_credit_binding.dart';
+import 'package:omny_business/modules/add_credit/add_credit_screen.dart';
 
 import '../modules/activated_card/activated_card.dart';
 import '../modules/home/home.dart';
@@ -40,23 +42,30 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-        name: Routes.ACTIVATED_CARD,
-        page: () => ActivatedCardScreen(),
-        binding: ActivatedCardBinding(),
-        children: [
-          GetPage(
-            name: Routes.SCAN_BAR_CODE,
-            page: () => ScanBarCode(),
-          ),
-          GetPage(
-            name: Routes.ENTER_AMOUNT,
-            page: () => EnterAmount(),
-          ),
-        ]),
+      name: Routes.ACTIVATED_CARD,
+      page: () => ActivatedCardScreen(),
+      binding: ActivatedCardBinding(),
+      children: [
+        GetPage(
+          name: Routes.SCAN_BAR_CODE,
+          page: () => ScanBarCode(),
+        ),
+        GetPage(
+          name: Routes.PRODUCT_FORM,
+          page: () => ActivatedCardProductForm(),
+        ),
+      ],
+    ),
     GetPage(
       name: Routes.RELOAD_CARD,
       page: () => ReloadCardScreen(),
       binding: ReloadCardBinding(),
+      children: [
+        GetPage(
+          name: Routes.PRODUCT_FORM,
+          page: () => ReloadCardProductForm(),
+        ),
+      ],
     ),
     GetPage(
       name: Routes.SCAN_PRE_ORDER,
@@ -77,6 +86,11 @@ class AppPages {
       name: Routes.REGISTER,
       page: () => RegisterScreen(),
       binding: RegisterBinding(),
+    ),
+    GetPage(
+      name: Routes.ADD_CREDIT,
+      page: () => AddCreditScreen(),
+      binding: AddCreditBinding(),
     ),
   ];
 }

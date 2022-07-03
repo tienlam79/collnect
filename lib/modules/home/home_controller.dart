@@ -9,8 +9,6 @@ class HomeController extends GetxController {
   final ApiRepository apiRepository;
   HomeController({required this.apiRepository});
 
-  RxString name = 'NYSTORE01'.obs;
-  RxDouble creditBalance = 500.0.obs;
   final List<Feature> featureList = [
     new Feature(
       icon: ImageConstants.reloadIcon,
