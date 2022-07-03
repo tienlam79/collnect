@@ -5,6 +5,8 @@ import 'package:omny_business/routes/app_pages.dart';
 import 'package:omny_business/shared/shared.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import '../activated_card/widgets/prepaid_credit.dart';
+
 class ReloadCardScreen extends GetView<ReloadCardController> {
   const ReloadCardScreen({Key? key}) : super(key: key);
 
@@ -13,28 +15,7 @@ class ReloadCardScreen extends GetView<ReloadCardController> {
     return MainListWidget(
       titleText: 'reload_card'.tr,
       titleSpacing: CommonConstants.titleSpacing,
-      actions: [
-        Padding(
-          padding: const EdgeInsets.only(right: CommonConstants.hPadding),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'prepaid_credit'.tr,
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-              Text(
-                '\$500',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText1!
-                    .copyWith(fontWeight: FontWeight.w700),
-              ),
-            ],
-          ),
-        ),
-      ],
+      actions: [PrepaidCredit()],
       footer: Obx(
         () => Visibility(
           visible: controller.code.value != '',

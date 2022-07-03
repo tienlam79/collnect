@@ -1,5 +1,7 @@
 import 'package:omny_business/api/api.dart';
 import 'package:get/get.dart';
+import 'package:omny_business/models/enum_values/card_type.dart';
+import 'package:omny_business/models/enum_values/order_status.dart';
 import 'package:omny_business/models/order.dart';
 
 class ResultController extends GetxController {
@@ -9,16 +11,20 @@ class ResultController extends GetxController {
   });
 
   Rx<Order> order = new Order(
-    id: 12345678,
-    topupPhone: '6786349090',
-    topupName: 'John',
-    amount: 20.0,
-    cardNumber: '79936690000000',
-    prefixCardNumber: '1234567890',
+    id: 0,
+    cid: '',
+    productPin: '',
+    amount: 0.0,
+    baseAmount: 0.0,
+    fee: 0.0,
+    transactionId: 0,
+    product: new OrderProduct(name: ''),
   ).obs;
   @override
   void onInit() {
     super.onInit();
+    Order args = Get.arguments;
+    order.value = args;
   }
 
   @override
@@ -30,4 +36,6 @@ class ResultController extends GetxController {
   void onClose() {
     super.onClose();
   }
+
+  void getOrder() {}
 }

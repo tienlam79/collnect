@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:omny_business/api/api.dart';
 import 'package:get/get.dart';
 import 'package:omny_business/models/models.dart';
+import 'package:omny_business/routes/routes.dart';
 import 'package:omny_business/shared/utils/formatter.dart';
+import 'package:uuid/uuid.dart';
 
 class ActivatedCardController extends GetxController {
   final ApiRepository apiRepository;
@@ -22,6 +24,7 @@ class ActivatedCardController extends GetxController {
   RxString code = ''.obs;
   RxString cardNumber = ''.obs;
   RxString fullCardNumber = ''.obs;
+  RxBool isScanCode = false.obs;
   Rx<Product> product = new Product(
     id: 0,
     name: '',
@@ -57,16 +60,16 @@ class ActivatedCardController extends GetxController {
     });
 
     cardNumberController.addListener(() {
-      if (isManual.value == true) {
-        fullCardNumber.value = cardNumberController.text;
-      }
+      fullCardNumber.value = cardNumberController.text;
     });
 
     debounce(
       fullCardNumber,
       (_) {
-        if (fullCardNumber.value.length >= 1) {
+        if (fullCardNumber.value.length > 0) {
           getProduct();
+        } else {
+          resetProduct();
         }
       },
       time: Duration(seconds: 1),
@@ -84,10 +87,12 @@ class ActivatedCardController extends GetxController {
     phoneController.dispose();
     nameController.dispose();
     amountController.dispose();
+    cardNumberController.dispose();
+    prefixCardNumberController.dispose();
   }
 
   void onNext() {
-    isShowScanBarCodeForm.value = true;
+    // isShowScanBarCodeForm.value = true;
   }
 
   void onSelectAmount(double value) {
@@ -96,15 +101,8 @@ class ActivatedCardController extends GetxController {
   }
 
   void setCode(String cardValue) {
-    // String cardNumber = '6375003176485918';
-    // String prefix = '79936689999000';
-
-    // cardNumberController.text = cardNumber;
-    // prefixCardNumberController.text = prefix;
-
-    // prefixCode.value = '';
-    // code.value = cardValue;
     fullCardNumber.value = cardValue;
+    isScanCode.value = true;
   }
 
   void getProduct() async {
@@ -115,18 +113,77 @@ class ActivatedCardController extends GetxController {
       );
       final res = await apiRepository.getProduct(payload);
       product.value = res;
-      String cardCode = fullCardNumber.value.replaceAll(res.prefix, '');
-      cardNumber.value = cardCode;
-      cardNumberController.text = cardCode;
-      prefixCardNumberController.text = res.prefix;
-      prefixCode.value = res.prefix;
-      print('...product...${res.toJson()}');
+      if (isScanCode.value) {
+        String cardCode = fullCardNumber.value.replaceAll(res.prefix, '');
+        prefixCardNumberController.text = res.prefix;
+        prefixCode.value = res.prefix;
+        cardNumber.value = cardCode;
+        cardNumberController.text = cardCode;
+        Get.offAndToNamed(Routes.ACTIVATED_CARD + Routes.ENTER_AMOUNT,
+            arguments: this);
+      }
     } catch (error) {
-      print('...getProduct errro...${error.toString()}');
+    } finally {
+      isScanCode.value = false;
     }
   }
 
+  void resetProduct() {
+    selectedAmount.value = 0.0;
+    amountController.text = '';
+    product.value = new Product(
+      id: 0,
+      name: '',
+      prefix: '',
+      sku: '',
+      productFilter: '',
+      minPrice: 0.0,
+      maxPrice: 0.0,
+      priceType: PriceType.OPEN,
+      priceList: [],
+      suggestPriceList: [],
+      feeList: [],
+    );
+  }
+
   void setManual() {
-    isManual.value = true;
+    isScanCode.value = false;
+    prefixCardNumberController.text = '';
+    cardNumberController.text = '';
+    cardNumber.value = '';
+    prefixCode.value = '';
+    resetProduct();
+    Get.toNamed(Routes.ACTIVATED_CARD + Routes.ENTER_AMOUNT, arguments: this);
+  }
+
+  RxDouble get fee {
+    if (product.value.priceType == PriceType.OPEN) {
+      return product.value.feeList.length > 0
+          ? product.value.feeList[0].obs
+          : 0.0.obs;
+    }
+    int priceIndex = product.value.priceList
+        .indexWhere((element) => selectedAmount.value == element);
+    double fee = priceIndex > -1 && product.value.feeList.length > 0
+        ? product.value.feeList[priceIndex]
+        : 0.0;
+    return fee.obs;
+  }
+
+  void onSubmit() async {
+    try {
+      var uuid = Uuid();
+      var payload = new CreateOrderRequest(
+        cid: uuid.v1(),
+        productPin: cardNumberController.text,
+        amount: selectedAmount.value.toString(),
+        product: product.value.id,
+        customerName: nameController.text,
+        customerPhone: phoneText.value,
+      );
+      final res = await apiRepository.createOrder(payload);
+      Get.until((route) => route.settings.name == '/home');
+      Get.toNamed(Routes.RESULT, arguments: res);
+    } catch (error) {}
   }
 }

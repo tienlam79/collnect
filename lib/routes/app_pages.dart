@@ -40,10 +40,19 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: Routes.ACTIVATED_CARD,
-      page: () => ActivatedCardScreen(),
-      binding: ActivatedCardBinding(),
-    ),
+        name: Routes.ACTIVATED_CARD,
+        page: () => ActivatedCardScreen(),
+        binding: ActivatedCardBinding(),
+        children: [
+          GetPage(
+            name: Routes.SCAN_BAR_CODE,
+            page: () => ScanBarCode(),
+          ),
+          GetPage(
+            name: Routes.ENTER_AMOUNT,
+            page: () => EnterAmount(),
+          ),
+        ]),
     GetPage(
       name: Routes.RELOAD_CARD,
       page: () => ReloadCardScreen(),

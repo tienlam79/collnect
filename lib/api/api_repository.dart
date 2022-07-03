@@ -83,11 +83,46 @@ class ApiRepository {
 
   Future<Product> getProduct(ProductRequest payload) async {
     try {
-      print('...payload ${payload.toJson()}');
       final res = await apiProvider.getMethod('/product-api/product',
           query: payload.toJson());
-      print('===res.body ${res.body}');
       return Product.fromJson(res.body);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  Future<dynamic> getBusinessOrders() async {
+    try {
+      final res = await apiProvider.getMethod(
+        '/business-api/retailer/orders',
+      );
+      // return Product.fromJson(res.body);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  Future<Order> createOrder(CreateOrderRequest payload) async {
+    print('..payload. ${payload.toJson()}');
+    try {
+      final res = await apiProvider.postMethod(
+        '/business-api/retailer/orders',
+        payload,
+      );
+      print('res,,${res.body}');
+      return Order.fromJson(res.body);
+    } catch (error) {
+      print('errro,,${error.toString()}');
+      throw error;
+    }
+  }
+
+  Future<Order> getOrder(int id) async {
+    try {
+      final res = await apiProvider.getMethod(
+        '/business-api/retailer/orders/$id',
+      );
+      return Order.fromJson(res.body);
     } catch (error) {
       throw error;
     }

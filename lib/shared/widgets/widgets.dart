@@ -20,3 +20,4 @@ export 'common/suggest_amount.dart';
 export 'common/gradient_text.dart';
 export 'common/total_amount.dart';
 export 'common/fee_card.dart';
+export 'common/amount_text.dart';

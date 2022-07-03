@@ -20,7 +20,9 @@ class HomeScreen extends GetView<HomeController> {
       ),
       title: Obx(
         () => Text(
-          'welcome'.trParams({'name': controller.name.value}),
+          'welcome'.trParams({
+            'name': controller.profile.value.username ?? '',
+          }),
           style: Theme.of(context).appBarTheme.titleTextStyle!.copyWith(
                 color: Colors.white,
               ),
@@ -58,12 +60,14 @@ class HomeScreen extends GetView<HomeController> {
               .bodyText1!
               .copyWith(color: Colors.white),
         ),
-        subtitle: Text(
-          '\$${Formatter.formatLocaleMoney(controller.profile.value.balance)}',
-          style: Theme.of(context)
-              .textTheme
-              .headline3!
-              .copyWith(color: Colors.white, fontWeight: FontWeight.w800),
+        subtitle: Obx(
+          () => Text(
+            '\$${Formatter.formatLocaleMoney(controller.profile.value.balance)}',
+            style: Theme.of(context)
+                .textTheme
+                .headline3!
+                .copyWith(color: Colors.white, fontWeight: FontWeight.w800),
+          ),
         ),
         trailing: SizedBox(
           width: 136,

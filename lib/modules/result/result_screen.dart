@@ -43,7 +43,8 @@ class ResultScreen extends GetView<ResultController> {
         ),
         Obx(
           () => Text(
-              'transaction_id'.trParams({'id': '${controller.order.value.id}'}),
+              'transaction_id'
+                  .trParams({'id': '${controller.order.value.transactionId}'}),
               style: Theme.of(context).textTheme.subtitle1),
         ),
       ],
@@ -56,11 +57,13 @@ class ResultScreen extends GetView<ResultController> {
         children: [
           ItemTile(
             title: 'customer_phone_number'.tr,
-            value: controller.order.value.topupPhone,
+            value: Formatter.formatPhoneNumber(
+                controller.order.value.customerPhone ?? '',
+                CommonConstants.USCountryCode),
           ),
           ItemTile(
             title: 'name'.tr,
-            value: controller.order.value.topupName,
+            value: controller.order.value.customerName ?? '',
           )
         ],
       ),
@@ -73,11 +76,11 @@ class ResultScreen extends GetView<ResultController> {
         children: [
           ItemTile(
             title: 'omny_card_prefix'.tr,
-            value: controller.order.value.prefixCardNumber,
+            value: controller.order.value.product.name,
           ),
           ItemTile(
             title: 'omny_card_number'.tr,
-            value: controller.order.value.cardNumber,
+            value: controller.order.value.productPin,
           )
         ],
       ),
@@ -87,7 +90,7 @@ class ResultScreen extends GetView<ResultController> {
   Widget _buildFee(BuildContext context) {
     return FeeCard(
       amount: controller.order.value.amount,
-      fee: 10.0,
+      fee: controller.order.value.fee,
     );
   }
 }

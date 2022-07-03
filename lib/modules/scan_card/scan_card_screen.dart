@@ -121,7 +121,7 @@ class _QRViewExampleState extends State<ScanCardScreen> {
     c.scannedDataStream.listen((scanData) {
       if (scanData.code != null) {
         parentController.setCode(scanData.code);
-        Get.until((route) => route.settings.name == Routes.ACTIVATED_CARD);
+        // Get.until((route) => route.settings.name == Routes.ACTIVATED_CARD);
       }
     });
   }
