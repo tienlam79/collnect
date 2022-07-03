@@ -10,7 +10,6 @@ class ColorConstants {
   static Color darkGray = Color(0xFF9F9F9F);
   static Color black = Color(0xFF000000);
   static Color white = Color(0xFFFFFFFF);
-  // static Color borderColor = hexToColor('#E0E0E0');
   static Color lightPrimaryTextColor = hexToColor('#000000');
   static Color lightSecodaryTextColor = hexToColor('#666666');
   static Color primaryColor = hexToColor('#183FB9');

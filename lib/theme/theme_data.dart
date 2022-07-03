@@ -278,6 +278,22 @@ class ThemeConfig {
         borderInputColor: ColorConstants.borderInputColor,
         iconColor: ColorConstants.iconColor,
       );
+  static ThemeData get blueTheme => createTheme(
+        brightness: Brightness.light,
+        background: ColorConstants.lightScaffoldBackgroundColor,
+        cardBackground: ColorConstants.secondaryAppColor,
+        primaryText: ColorConstants.lightPrimaryTextColor,
+        secondaryText: ColorConstants.lightSecodaryTextColor,
+        accentColor: ColorConstants.secondaryAppColor,
+        divider: ColorConstants.divivedColor,
+        buttonBackground: Colors.black38,
+        buttonText: Colors.white,
+        disabled: ColorConstants.secondaryAppColor,
+        error: Colors.red,
+        labelInputColor: ColorConstants.labelInputColor,
+        borderInputColor: ColorConstants.borderInputColor,
+        iconColor: ColorConstants.iconColor,
+      );
 
   static ThemeData get darkTheme => createTheme(
         brightness: Brightness.dark,
