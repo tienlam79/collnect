@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:omny_business/shared/constants/colors.dart';
+import 'package:omny_business/shared/constants/common.dart';
 
 class InputField extends StatefulWidget {
   final TextEditingController? controller;
@@ -81,7 +82,7 @@ class InputField extends StatefulWidget {
 
 class _TextFieldFocusState extends State<InputField> {
   FocusNode _focus = FocusNode();
-  Color _borderColor = ColorConstants.borderInputColor;
+  Color _borderColor = ColorConstants.lightBorderInputColor;
   double _borderWidth = 1.0;
   var formKey = GlobalKey<FormState>();
   bool autoValidate = false;
@@ -127,14 +128,14 @@ class _TextFieldFocusState extends State<InputField> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       height: widget.height,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
         color: widget.enabled == true
             ? Colors.white
-            : ColorConstants.borderInputColor,
+            : ColorConstants.lightBorderInputColor,
         // gradient: LinearGradient(
         //   colors: [
         //     Colors.black,

@@ -80,7 +80,7 @@ class RegisterScreen extends GetView<RegisterController> {
             children: [
               Flexible(
                 flex: 1,
-                child: SecondaryButton(
+                child: PrimaryButton(
                   text: 'back'.tr,
                   onPressed: controller.onBack,
                 ),

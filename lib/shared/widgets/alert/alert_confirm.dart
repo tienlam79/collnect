@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:omny_business/shared/widgets/button/primary_button.dart';
-import 'package:omny_business/shared/widgets/button/secondary_button.dart';
 import 'package:omny_business/shared/widgets/spacing/spacing_sm.dart';
 
 class AlertConfirm extends StatelessWidget {
@@ -40,7 +39,7 @@ class AlertConfirm extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
-                        child: SecondaryButton(
+                        child: PrimaryButton(
                           text: cancelButtonText,
                           onPressed: () => Get.back(),
                         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:omny_business/shared/constants/colors.dart';
+import 'package:omny_business/shared/constants/common.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String text;
@@ -25,7 +26,11 @@ class PrimaryButton extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).buttonTheme.colorScheme!.background.withOpacity(0.2),
+            // color: Theme.of(context)
+            //     .elevatedButtonTheme
+            //     .style
+            //     !.backgroundColor
+            //     ?.withOpacity(0.2),
             spreadRadius: 0,
             blurRadius: 20,
             offset: Offset(0, 4), // changes position of shadow
@@ -34,16 +39,10 @@ class PrimaryButton extends StatelessWidget {
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          // primary: color,
-          primary: disabled
-              ? ColorConstants.disabledButtonBackgroundColor
-              : ColorConstants.primaryButtonBackgroundColor,
+          // primary: disabled
+          //     ? ColorConstants.disabledButtonBackgroundColor
+          //     : ColorConstants.primaryButtonBackgroundColor,
           minimumSize: Size.fromHeight(size),
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-            // <-- Radius
-          ),
         ),
         onPressed: disabled ? () => {} : onPressed as void Function()?,
         child: text != ''

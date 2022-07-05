@@ -83,22 +83,17 @@ class ThemeConfig {
         size: 24,
       ),
       errorColor: errorColor,
-      buttonTheme: ButtonThemeData(
-        textTheme: ButtonTextTheme.primary,
-        colorScheme: ColorScheme(
-          brightness: brightness,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          onPrimary: Colors.red,
           primary: buttonBackground,
-          secondary: Colors.red,
-          surface: Colors.yellow,
-          background: buttonBackground,
-          error: errorColor,
-          onPrimary: buttonText,
-          onSecondary: buttonText,
-          onSurface: buttonText,
-          onBackground: buttonText,
-          onError: buttonText,
+          shadowColor: buttonBackground,
+          padding:
+              const EdgeInsets.symmetric(horizontal: CommonConstants.hPadding),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
+          ),
         ),
-        // padding: const EdgeInsets.all(16.0),
       ),
       // cupertinoOverrideTheme: CupertinoThemeData(
       //   brightness: brightness,
@@ -150,7 +145,7 @@ class ThemeConfig {
           borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
           borderSide: BorderSide(
             color: enabledBorderInputColor,
-            width: ,
+            width: 2.0,
           ),
         ),
         prefixStyle: TextStyle(

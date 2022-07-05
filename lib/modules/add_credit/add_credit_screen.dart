@@ -19,7 +19,7 @@ class AddCreditScreen extends GetView<AddCreditController> {
       titleSpacing: CommonConstants.titleSpacing,
       actions: [PrepaidCredit()],
       footer: Obx(
-        () => SecondaryButton(
+        () => PrimaryButton(
           onPressed: controller.onSubmit,
           disabled: controller.amount.value == 0.0 ||
               controller.selectedOption.value.order == 0,

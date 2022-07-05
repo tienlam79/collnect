@@ -21,7 +21,7 @@ class ActivatedCardProductForm extends StatelessWidget {
       footer: Obx(
         () => Visibility(
           visible: controller.product.value.id != 0.0,
-          child: SecondaryButton(
+          child: PrimaryButton(
             onPressed: controller.onSubmit,
             disabled: !Helpers.checkValidAmount(
                 controller.product.value, controller.selectedAmount.value),

@@ -50,7 +50,7 @@ class AmountField extends StatelessWidget {
             fontSize: 36,
             fontWeight: FontWeight.w700,
             height: 1.2,
-            color: ColorConstants.alertIconColor,
+            // color: ColorConstants.seco,
           ),
         ),
       ),
