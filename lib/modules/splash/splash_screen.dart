@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
         children: [
           Icon(
             Icons.hourglass_bottom,
-            color: ColorConstants.darkGray,
+            color: Colors.red,
             size: 30.0,
           ),
           Text(

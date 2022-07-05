@@ -17,7 +17,7 @@ class LoginWrapper extends StatelessWidget {
           fit: BoxFit.contain,
           alignment: Alignment.topCenter,
         ),
-        color: ColorConstants.secondaryBackgroundColor,
+        // color: ColorConstants.secondaryBackgroundColor,
       ),
       child: SafeArea(
         child: Container(

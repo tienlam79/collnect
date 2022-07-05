@@ -51,8 +51,8 @@ class LoginScreen extends GetView<LoginController> {
                     child: Text(
                       'forgot_your_password'.tr,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: ColorConstants.primaryButtonBackgroundColor),
+                      // style: TextStyle(
+                      //     color: ColorConstants.primaryButtonBackgroundColor),
                     ),
                   ),
                 ),
@@ -65,9 +65,9 @@ class LoginScreen extends GetView<LoginController> {
               child: Text(
                 'register_new_business'.tr,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: ColorConstants.primaryButtonBackgroundColor,
-                ),
+                // style: TextStyle(
+                //   color: ColorConstants.primaryButtonBackgroundColor,
+                // ),
               ),
             ),
           ),

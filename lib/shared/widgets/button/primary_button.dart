@@ -25,7 +25,7 @@ class PrimaryButton extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: ColorConstants.primaryButtonBackgroundColor.withOpacity(0.2),
+            color: Theme.of(context).buttonTheme.colorScheme!.background.withOpacity(0.2),
             spreadRadius: 0,
             blurRadius: 20,
             offset: Offset(0, 4), // changes position of shadow

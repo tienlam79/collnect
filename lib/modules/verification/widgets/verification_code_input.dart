@@ -84,20 +84,18 @@ class _VerificationCodeInputState extends State<VerificationCodeInput> {
           vertical: 9.0,
           horizontal: 0.0,
         ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.0),
-          borderSide: BorderSide(
-            color: ColorConstants.borderInputColor,
-            width: 1.0,
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.0),
-          borderSide: BorderSide(
-            color: ColorConstants.focusedBorderInputColor,
-            width: 2,
-          ),
-        ),
+        // enabledBorder: OutlineInputBorder(
+        //   borderRadius: BorderRadius.circular(8.0),
+        //   borderSide: BorderSide(
+        //     width: 1.0,
+        //   ),
+        // ),
+        // focusedBorder: OutlineInputBorder(
+        //   borderRadius: BorderRadius.circular(8.0),
+        //   borderSide: BorderSide(
+        //     width: 2,
+        //   ),
+        // ),
       ),
     );
   }

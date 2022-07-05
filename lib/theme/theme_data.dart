@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:omny_business/shared/shared.dart';
 
@@ -7,17 +6,22 @@ class ThemeConfig {
     required Brightness brightness,
     required Color background,
     required Color primaryText,
-    Color? secondaryText,
-    required Color accentColor,
-    Color? divider,
-    Color? buttonBackground,
+    required Color buttonBackground,
     required Color buttonText,
-    Color? cardBackground,
-    Color? disabled,
-    required Color error,
+    required Color secondaryText,
+    required Color errorColor,
     required Color labelInputColor,
     required Color borderInputColor,
+    required Color enabledBorderInputColor,
     required Color iconColor,
+    required Color primaryColor,
+    required Color appBarBackgroundColor,
+    // Color? accentColor,
+    // Color? divider,
+    // required Color? buttonBackground,
+    // required Color buttonText,
+    // Color? cardBackground,
+    // Color? disabled,
   }) {
     final baseTextTheme = brightness == Brightness.dark
         ? Typography.blackMountainView
@@ -27,32 +31,30 @@ class ThemeConfig {
       brightness: brightness,
       canvasColor: background,
       cardColor: background,
-      dividerColor: divider,
-      dividerTheme: DividerThemeData(
-        color: divider,
-        space: 1,
-        thickness: 1,
-      ),
-      cardTheme: CardTheme(
-        color: cardBackground,
-        margin: EdgeInsets.zero,
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
-        ),
-        // shape: ShapeBorder()
-      ),
+      // dividerColor: divider,
+      // dividerTheme: DividerThemeData(
+      //   color: divider,
+      //   space: 1,
+      //   thickness: 1,
+      // ),
+      // cardTheme: CardTheme(
+      //   color: cardBackground,
+      //   margin: EdgeInsets.zero,
+      //   clipBehavior: Clip.antiAliasWithSaveLayer,
+      //   shape: RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
+      //   ),
+      // ),
       backgroundColor: background,
-      primaryColor: accentColor,
-      textSelectionTheme: TextSelectionThemeData(
-        selectionColor: accentColor,
-        selectionHandleColor: accentColor,
-        cursorColor: accentColor,
-      ),
+      primaryColor: primaryColor,
+      // textSelectionTheme: TextSelectionThemeData(
+      //   selectionColor: accentColor,
+      //   selectionHandleColor: accentColor,
+      //   cursorColor: accentColor,
+      // ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          primary: ColorConstants
-              .secondaryBackgroundColor, // This is a custom color variable
+          primary: secondaryText, // This is a custom color variable
           textStyle: TextStyle(
             fontWeight: FontWeight.w400,
             fontSize: 18,
@@ -61,9 +63,9 @@ class ThemeConfig {
           ),
         ),
       ),
-      toggleableActiveColor: accentColor,
+      // toggleableActiveColor: accentColor,
       appBarTheme: AppBarTheme(
-        backgroundColor: Colors.white,
+        backgroundColor: appBarBackgroundColor,
         iconTheme: IconThemeData(
           color: iconColor,
           size: 24,
@@ -80,35 +82,35 @@ class ThemeConfig {
         color: iconColor,
         size: 24,
       ),
-      errorColor: error,
+      errorColor: errorColor,
       buttonTheme: ButtonThemeData(
         textTheme: ButtonTextTheme.primary,
         colorScheme: ColorScheme(
           brightness: brightness,
-          primary: accentColor,
-          secondary: accentColor,
-          surface: background,
-          background: background,
-          error: error,
+          primary: buttonBackground,
+          secondary: Colors.red,
+          surface: Colors.yellow,
+          background: buttonBackground,
+          error: errorColor,
           onPrimary: buttonText,
           onSecondary: buttonText,
           onSurface: buttonText,
           onBackground: buttonText,
           onError: buttonText,
         ),
-        padding: const EdgeInsets.all(16.0),
+        // padding: const EdgeInsets.all(16.0),
       ),
-      cupertinoOverrideTheme: CupertinoThemeData(
-        brightness: brightness,
-        primaryColor: accentColor,
-      ),
+      // cupertinoOverrideTheme: CupertinoThemeData(
+      //   brightness: brightness,
+      //   primaryColor: accentColor,
+      // ),
       inputDecorationTheme: InputDecorationTheme(
         fillColor: Colors.transparent,
         filled: true,
         isDense: true,
         suffixIconColor: secondaryText,
         contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-        errorStyle: TextStyle(color: error),
+        errorStyle: TextStyle(color: errorColor),
         floatingLabelStyle: TextStyle(
           fontFamily: 'Lato',
           fontWeight: FontWeight.w400,
@@ -130,19 +132,39 @@ class ThemeConfig {
           fontSize: 20,
           fontWeight: FontWeight.w300,
         ),
-        border: InputBorder.none,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
+          borderSide: BorderSide(
+            color: borderInputColor,
+            width: 1,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
+          borderSide: BorderSide(
+            color: enabledBorderInputColor,
+            width: 2,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
+          borderSide: BorderSide(
+            color: enabledBorderInputColor,
+            width: ,
+          ),
+        ),
         prefixStyle: TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w600,
           color: labelInputColor,
         ),
         // style: TextStyle(background: )
-        errorBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.red, width: 1.0),
-        ),
+        // errorBorder: UnderlineInputBorder(
+        //   borderSide: BorderSide(color: Colors.red, width: 1.0),
+        // ),
       ),
       fontFamily: 'Lato',
-      unselectedWidgetColor: hexToColor('#DADCDD'),
+      // unselectedWidgetColor: hexToColor('#DADCDD'),
       primaryTextTheme: ThemeData.light().textTheme.apply(
             fontFamily: 'Lato',
           ),
@@ -162,7 +184,7 @@ class ThemeConfig {
           height: 1.2,
         ),
         headline3: baseTextTheme.headline3!.copyWith(
-          color: secondaryText,
+          color: primaryText,
           fontSize: 20,
           fontWeight: FontWeight.w600,
           fontFamily: 'Lato',
@@ -263,52 +285,37 @@ class ThemeConfig {
   }
 
   static ThemeData get lightTheme => createTheme(
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         background: ColorConstants.lightScaffoldBackgroundColor,
-        cardBackground: ColorConstants.secondaryAppColor,
         primaryText: ColorConstants.lightPrimaryTextColor,
         secondaryText: ColorConstants.lightSecodaryTextColor,
-        accentColor: ColorConstants.secondaryAppColor,
-        divider: ColorConstants.divivedColor,
-        buttonBackground: Colors.black38,
-        buttonText: Colors.white,
-        disabled: ColorConstants.secondaryAppColor,
-        error: Colors.red,
-        labelInputColor: ColorConstants.labelInputColor,
-        borderInputColor: ColorConstants.borderInputColor,
+        buttonBackground: ColorConstants.lightButtonBackgroundColor,
+        buttonText: ColorConstants.lightButtonBackgroundColor,
+        labelInputColor: ColorConstants.lightLabelInputColor,
+        borderInputColor: ColorConstants.lightBorderInputColor,
+        enabledBorderInputColor: ColorConstants.lightEnabledBorderInputColor,
         iconColor: ColorConstants.iconColor,
+        appBarBackgroundColor: Colors.white,
+        errorColor: Colors.red,
+        primaryColor: ColorConstants.lightPrimaryColor,
+        // cardBackground: ColorConstants.secondaryAppColor,
+        // accentColor: ColorConstants.secondaryAppColor,
+        // divider: ColorConstants.divivedColor,
+        // disabled: ColorConstants.secondaryAppColor,
       );
   static ThemeData get blueTheme => createTheme(
         brightness: Brightness.light,
-        background: ColorConstants.lightScaffoldBackgroundColor,
-        cardBackground: ColorConstants.secondaryAppColor,
-        primaryText: ColorConstants.lightPrimaryTextColor,
-        secondaryText: ColorConstants.lightSecodaryTextColor,
-        accentColor: ColorConstants.secondaryAppColor,
-        divider: ColorConstants.divivedColor,
-        buttonBackground: Colors.black38,
-        buttonText: Colors.white,
-        disabled: ColorConstants.secondaryAppColor,
-        error: Colors.red,
-        labelInputColor: ColorConstants.labelInputColor,
-        borderInputColor: ColorConstants.borderInputColor,
+        background: ColorConstants.blueScaffoldBackgroundColor,
+        primaryText: ColorConstants.bluePrimiaryTextColor,
+        secondaryText: ColorConstants.blueSecondaryTextColor,
+        buttonBackground: ColorConstants.blueButtonBackgroundColor,
+        buttonText: ColorConstants.blueButtonTextColor,
+        labelInputColor: ColorConstants.blueLabelInputColor,
+        borderInputColor: ColorConstants.blueBorderInputColor,
+        primaryColor: ColorConstants.bluePrimaryColor,
+        appBarBackgroundColor: ColorConstants.blueScaffoldBackgroundColor,
         iconColor: ColorConstants.iconColor,
-      );
-
-  static ThemeData get darkTheme => createTheme(
-        brightness: Brightness.dark,
-        background: ColorConstants.darkScaffoldBackgroundColor,
-        cardBackground: ColorConstants.secondaryDarkAppColor,
-        primaryText: Colors.white,
-        secondaryText: Colors.black,
-        accentColor: ColorConstants.secondaryDarkAppColor,
-        divider: Colors.black45,
-        buttonBackground: Colors.white,
-        buttonText: ColorConstants.secondaryDarkAppColor,
-        disabled: ColorConstants.secondaryDarkAppColor,
-        error: Colors.red,
-        labelInputColor: ColorConstants.labelInputColor,
-        borderInputColor: ColorConstants.borderInputColor,
-        iconColor: ColorConstants.iconColor,
+        errorColor: Colors.red,
+        enabledBorderInputColor: ColorConstants.blueBorderInputColor,
       );
 }

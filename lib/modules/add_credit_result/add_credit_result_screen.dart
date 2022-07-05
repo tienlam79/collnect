@@ -46,8 +46,11 @@ class AddCreditResultScreen extends GetView<AddCreditResultController> {
   Widget _buildHeader(BuildContext context) {
     return Column(
       children: [
-        Icon(Icons.check_circle,
-            size: 40, color: ColorConstants.secondaryButtonBackgroundColor),
+        Icon(
+          Icons.check_circle,
+          size: 40,
+          color: ColorConstants.lightButtonBackgroundColor,
+        ),
         SpacingSm(),
         Text('successfully'.tr, style: Theme.of(context).textTheme.headline5),
         SizedBox(

@@ -102,13 +102,23 @@ class _TextFieldFocusState extends State<InputField> {
   void _onFocusChange() {
     if (_focus.hasFocus) {
       setState(() {
-        _borderColor = ColorConstants.focusedBorderInputColor;
-        _borderWidth = 2.0;
+        _borderColor = Theme.of(context)
+            .inputDecorationTheme
+            .enabledBorder!
+            .borderSide
+            .color;
+        _borderWidth = Theme.of(context)
+            .inputDecorationTheme
+            .enabledBorder!
+            .borderSide
+            .width;
       });
     } else {
       setState(() {
-        _borderColor = ColorConstants.borderInputColor;
-        _borderWidth = 1.0;
+        _borderColor =
+            Theme.of(context).inputDecorationTheme.border!.borderSide.color;
+        _borderWidth =
+            Theme.of(context).inputDecorationTheme.border!.borderSide.width;
       });
     }
   }
@@ -154,6 +164,9 @@ class _TextFieldFocusState extends State<InputField> {
           prefixIconConstraints: widget.prefixIconConstraints,
           labelStyle: widget.labelStyle,
           counterText: widget.counterText,
+          border: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          focusedBorder: InputBorder.none,
           hintStyle: TextStyle(
             fontSize: 16,
             height: 1.5,

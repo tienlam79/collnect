@@ -40,8 +40,9 @@ class AlertInfo extends StatelessWidget {
                 child: IconButton(
                   padding: const EdgeInsets.all(0),
                   onPressed: () => Get.back(),
-                  icon: Icon(Icons.highlight_off,
-                      color: ColorConstants.alertIconColor),
+                  icon: Icon(
+                    Icons.highlight_off,
+                  ),
                 ),
               ),
             ),

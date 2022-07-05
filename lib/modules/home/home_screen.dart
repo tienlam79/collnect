@@ -43,15 +43,15 @@ class HomeScreen extends GetView<HomeController> {
       ],
       centerTitle: false,
       showBackIcon: false,
-      backgroundColor: ColorConstants.secondaryBackgroundColor,
-      appBarBackgroundColor: ColorConstants.secondaryBackgroundColor,
+      backgroundColor: ColorConstants.primaryColor,
+      appBarBackgroundColor: ColorConstants.primaryColor,
       elevation: 0,
     );
   }
 
   Widget _buildCreditBalance(BuildContext context) {
     return Card(
-      color: ColorConstants.creditCardBackgroundColor,
+      color: ColorConstants.lightButtonBackgroundColor,
       elevation: 0,
       child: ListTile(
         title: Text(
@@ -99,7 +99,7 @@ class HomeScreen extends GetView<HomeController> {
         title: Text(
           item.title.toUpperCase(),
           style: Theme.of(context).textTheme.headline2!.copyWith(
-                color: ColorConstants.white,
+                // color: ColorConstants.white,
                 fontWeight: FontWeight.w800,
                 fontSize: 24,
               ),
@@ -107,7 +107,7 @@ class HomeScreen extends GetView<HomeController> {
         subtitle: Text(
           item.subTitle,
           style: Theme.of(context).textTheme.headline4!.copyWith(
-                color: ColorConstants.white,
+                // color: ColorConstants.white,
                 fontWeight: FontWeight.w800,
               ),
         ),

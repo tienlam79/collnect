@@ -74,8 +74,8 @@ class VerificationScreen extends GetView<VerificationController> {
                       child: Text(
                         'resent_verification_code'.tr,
                         style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                              color:
-                                  ColorConstants.primaryButtonBackgroundColor,
+                              // color:
+                              //     ColorConstants.primaryButtonBackgroundColor,
                               fontWeight: FontWeight.w400,
                             ),
                       ),
