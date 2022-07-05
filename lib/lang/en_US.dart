@@ -58,5 +58,6 @@ const Map<String, String> en_US = {
   "fee": "Fee",
   "credit_reload": "Credit reload",
   "service_fee": "Service fee",
-  "service_fee_type": "Service fee (@type)"
+  "service_fee_type": "Service fee (@type)",
+  "activate_without_phone_number": "Activate without phone number"
 };

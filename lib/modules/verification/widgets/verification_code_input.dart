@@ -72,9 +72,12 @@ class _VerificationCodeInputState extends State<VerificationCodeInput> {
       onChanged: (value) => _change(value, index),
       textAlign: TextAlign.center,
       keyboardType: TextInputType.number,
-      style: Theme.of(context).textTheme.headline1!.copyWith(
-            fontSize: 35,
-          ),
+      style: TextStyle(
+        fontSize: 35,
+        height: 1.2,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
@@ -82,24 +85,11 @@ class _VerificationCodeInputState extends State<VerificationCodeInput> {
           vertical: 9.0,
           horizontal: 0.0,
         ),
-        // enabledBorder: OutlineInputBorder(
-        //   borderRadius: BorderRadius.circular(8.0),
-        //   borderSide: BorderSide(
-        //     width: 1.0,
-        //   ),
-        // ),
-        // focusedBorder: OutlineInputBorder(
-        //   borderRadius: BorderRadius.circular(8.0),
-        //   borderSide: BorderSide(
-        //     width: 2,
-        //   ),
-        // ),
       ),
     );
   }
 
   void _change(String value, int index) {
-    print('=== value==== $value - $index');
     if (value.length > 1 && index < widget.length ||
         index == 0 && value.isNotEmpty) {
       if (index == widget.length - 1) {

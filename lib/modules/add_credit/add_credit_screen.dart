@@ -35,7 +35,7 @@ class AddCreditScreen extends GetView<AddCreditController> {
             titleStyle: Theme.of(context)
                 .textTheme
                 .subtitle1!
-                .copyWith(color: ColorConstants.lightSecodaryTextColor),
+                .copyWith(color: ColorConstants.lightLabelInputColor),
             valueStyle: TextStyle(
               fontSize: 36,
               height: CommonConstants.lineHeight,
@@ -82,7 +82,7 @@ class AddCreditScreen extends GetView<AddCreditController> {
           style: Theme.of(context)
               .textTheme
               .bodyText1!
-              .copyWith(color: ColorConstants.lightSecodaryTextColor),
+              .copyWith(color: ColorConstants.lightLabelInputColor),
         ),
         SpacingXs(),
         Obx(
@@ -145,7 +145,7 @@ class AddCreditScreen extends GetView<AddCreditController> {
           ),
           subtitle: Text(option.description ?? '',
               style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                    color: ColorConstants.lightSecodaryTextColor,
+                    color: ColorConstants.lightLabelInputColor,
                     fontSize: 14,
                   )),
           trailing: Column(
@@ -156,7 +156,7 @@ class AddCreditScreen extends GetView<AddCreditController> {
                   style: Theme.of(context)
                       .textTheme
                       .bodyText1!
-                      .copyWith(color: ColorConstants.lightSecodaryTextColor)),
+                      .copyWith(color: ColorConstants.lightLabelInputColor)),
               AmountText(
                 amount: option.fee,
                 style: Theme.of(context)

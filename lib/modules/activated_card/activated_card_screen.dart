@@ -12,16 +12,24 @@ class ActivatedCardScreen extends GetView<ActivatedCardController> {
   @override
   Widget build(BuildContext context) {
     return MainListWidget(
-      titleText: 'activated_new_card'.tr,
-      titleSpacing: CommonConstants.titleSpacing,
-      actions: [PrepaidCredit()],
-      child: EnterPhoneNumber(
-        phoneController: controller.phoneController,
-        nameController: controller.nameController,
-        phoneText: controller.phoneText,
-        onNext: () => Get.toNamed(Routes.ACTIVATED_CARD + Routes.SCAN_BAR_CODE,
-            arguments: controller),
-      ),
-    );
+        titleText: 'activated_new_card'.tr,
+        titleSpacing: CommonConstants.titleSpacing,
+        actions: [PrepaidCredit()],
+        child: Column(
+          children: [
+            EnterPhoneNumber(
+              phoneController: controller.phoneController,
+              nameController: controller.nameController,
+              phoneText: controller.phoneText,
+              onNext: () => Get.toNamed(
+                  Routes.ACTIVATED_CARD + Routes.SCAN_BAR_CODE,
+                  arguments: controller),
+            ),
+            TextButton(
+              onPressed: () => {},
+              child: GradientText('activate_without_phone_number'.tr),
+            ),
+          ],
+        ));
   }
 }

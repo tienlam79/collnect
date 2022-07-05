@@ -2,11 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:omny_business/shared/shared.dart';
 import 'package:omny_business/shared/widgets/common/footer_button.dart';
+import 'package:omny_business/theme/theme_data.dart';
 import 'register_controller.dart';
 
 class RegisterScreen extends GetView<RegisterController> {
   @override
   Widget build(BuildContext context) {
+    return Theme(
+      data: ThemeConfig.blueTheme,
+      child: _buildContent(context),
+    );
+  }
+
+  Widget _buildContent(BuildContext context) {
     return MainListWidget(
       showBackIcon: false,
       appBarBackgroundColor: Colors.transparent,

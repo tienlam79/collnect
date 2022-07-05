@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 
 class ColorConstants {
   static Color blueScaffoldBackgroundColor = hexToColor('#183FB9');
-  static Color bluePrimiaryTextColor = Colors.white;
-  static Color blueSecondaryTextColor = hexToColor('#FFC96E');
+  static Color bluePrimaryTextColor = Colors.white;
+  static Color blueSecondaryTextColor = hexToColor('#000000');
   static Color blueButtonBackgroundColor = hexToColor('#FFC96E');
-  static Color blueButtonTextColor = Colors.black;
+  static Color blueButtonTextColor = hexToColor('#000000');
   static Color blueLabelInputColor = hexToColor('#666666');
   static Color blueBorderInputColor = hexToColor('#E0E0E0');
   static Color bluePrimaryColor = hexToColor('#183FB9');
+  static Color blueDisabledButtonBackgroundColor = hexToColor('#C6C6C6');
 
   static Color lightScaffoldBackgroundColor = hexToColor('#F0F0F9');
   static Color lightPrimaryTextColor = hexToColor('#000000');
@@ -18,11 +19,16 @@ class ColorConstants {
   static Color lightLabelInputColor = hexToColor('#666666');
   static Color lightBorderInputColor = hexToColor('#E0E0E0');
   static Color lightPrimaryColor = hexToColor('#183FB9');
-  static Color lightEnabledBorderInputColor = hexToColor('#18BA71');
+  static Color lightEnabledBorderInputColor = hexToColor('#183FB9');
+  static Color lightDisabledButtonBackgroundColor = hexToColor('#C6C6C6');
+  static Color lightAppBarTextColor = hexToColor('#333333');
+  static Color lightIconColor = hexToColor('#333333');
 
   static Color iconColor = hexToColor('#666666');
   static Color primaryColor = hexToColor('#183FB9');
   static Color lightGray = Color(0xFFF6F6F6);
+  static Color lightGreen = hexToColor('#18BA71');
+  static Color lightBlue = hexToColor('#2147BB');
 
   // static Color darkScaffoldBackgroundColor = hexToColor('#2F2E2E');
   // static Color secondaryAppColor = hexToColor('#18BA71');

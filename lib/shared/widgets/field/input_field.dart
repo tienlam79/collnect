@@ -103,11 +103,7 @@ class _TextFieldFocusState extends State<InputField> {
   void _onFocusChange() {
     if (_focus.hasFocus) {
       setState(() {
-        _borderColor = Theme.of(context)
-            .inputDecorationTheme
-            .enabledBorder!
-            .borderSide
-            .color;
+        _borderColor = Theme.of(context).primaryColor;
         _borderWidth = Theme.of(context)
             .inputDecorationTheme
             .enabledBorder!

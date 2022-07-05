@@ -16,6 +16,8 @@ class ThemeConfig {
     required Color iconColor,
     required Color primaryColor,
     required Color appBarBackgroundColor,
+    required Color surface,
+    required Color appBarTextColor,
     // Color? accentColor,
     // Color? divider,
     // required Color? buttonBackground,
@@ -31,30 +33,11 @@ class ThemeConfig {
       brightness: brightness,
       canvasColor: background,
       cardColor: background,
-      // dividerColor: divider,
-      // dividerTheme: DividerThemeData(
-      //   color: divider,
-      //   space: 1,
-      //   thickness: 1,
-      // ),
-      // cardTheme: CardTheme(
-      //   color: cardBackground,
-      //   margin: EdgeInsets.zero,
-      //   clipBehavior: Clip.antiAliasWithSaveLayer,
-      //   shape: RoundedRectangleBorder(
-      //     borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
-      //   ),
-      // ),
       backgroundColor: background,
       primaryColor: primaryColor,
-      // textSelectionTheme: TextSelectionThemeData(
-      //   selectionColor: accentColor,
-      //   selectionHandleColor: accentColor,
-      //   cursorColor: accentColor,
-      // ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          primary: secondaryText, // This is a custom color variable
+          primary: buttonBackground, // This is a custom color variable
           textStyle: TextStyle(
             fontWeight: FontWeight.w400,
             fontSize: 18,
@@ -63,7 +46,7 @@ class ThemeConfig {
           ),
         ),
       ),
-      // toggleableActiveColor: accentColor,
+      dividerTheme: DividerThemeData(color: iconColor),
       appBarTheme: AppBarTheme(
         backgroundColor: appBarBackgroundColor,
         iconTheme: IconThemeData(
@@ -71,7 +54,7 @@ class ThemeConfig {
           size: 24,
         ),
         titleTextStyle: TextStyle(
-          color: primaryText,
+          color: appBarTextColor,
           fontSize: 18,
           fontWeight: FontWeight.w800,
           height: 1.2,
@@ -83,11 +66,24 @@ class ThemeConfig {
         size: 24,
       ),
       errorColor: errorColor,
+      colorScheme: ColorScheme(
+        brightness: brightness,
+        primary: buttonBackground,
+        onPrimary: buttonBackground,
+        secondary: secondaryText,
+        onSecondary: secondaryText,
+        onSurface: surface,
+        surface: surface,
+        background: background,
+        onBackground: background,
+        error: errorColor,
+        onError: errorColor,
+      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          onPrimary: Colors.red,
+          onPrimary: buttonBackground,
           primary: buttonBackground,
-          shadowColor: buttonBackground,
+          elevation: 0,
           padding:
               const EdgeInsets.symmetric(horizontal: CommonConstants.hPadding),
           shape: RoundedRectangleBorder(
@@ -95,15 +91,12 @@ class ThemeConfig {
           ),
         ),
       ),
-      // cupertinoOverrideTheme: CupertinoThemeData(
-      //   brightness: brightness,
-      //   primaryColor: accentColor,
-      // ),
       inputDecorationTheme: InputDecorationTheme(
         fillColor: Colors.transparent,
         filled: true,
         isDense: true,
         suffixIconColor: secondaryText,
+        focusColor: Colors.red,
         contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
         errorStyle: TextStyle(color: errorColor),
         floatingLabelStyle: TextStyle(
@@ -153,13 +146,8 @@ class ThemeConfig {
           fontWeight: FontWeight.w600,
           color: labelInputColor,
         ),
-        // style: TextStyle(background: )
-        // errorBorder: UnderlineInputBorder(
-        //   borderSide: BorderSide(color: Colors.red, width: 1.0),
-        // ),
       ),
       fontFamily: 'Lato',
-      // unselectedWidgetColor: hexToColor('#DADCDD'),
       primaryTextTheme: ThemeData.light().textTheme.apply(
             fontFamily: 'Lato',
           ),
@@ -220,7 +208,7 @@ class ThemeConfig {
           height: 1.2,
         ),
         button: baseTextTheme.button!.copyWith(
-          color: primaryText,
+          color: buttonText,
           fontSize: 20.0,
           fontWeight: FontWeight.w700,
           fontFamily: 'Lato',
@@ -285,23 +273,21 @@ class ThemeConfig {
         primaryText: ColorConstants.lightPrimaryTextColor,
         secondaryText: ColorConstants.lightSecodaryTextColor,
         buttonBackground: ColorConstants.lightButtonBackgroundColor,
-        buttonText: ColorConstants.lightButtonBackgroundColor,
+        buttonText: ColorConstants.lightButtonTextColor,
         labelInputColor: ColorConstants.lightLabelInputColor,
         borderInputColor: ColorConstants.lightBorderInputColor,
         enabledBorderInputColor: ColorConstants.lightEnabledBorderInputColor,
-        iconColor: ColorConstants.iconColor,
+        iconColor: ColorConstants.lightIconColor,
         appBarBackgroundColor: Colors.white,
         errorColor: Colors.red,
         primaryColor: ColorConstants.lightPrimaryColor,
-        // cardBackground: ColorConstants.secondaryAppColor,
-        // accentColor: ColorConstants.secondaryAppColor,
-        // divider: ColorConstants.divivedColor,
-        // disabled: ColorConstants.secondaryAppColor,
+        surface: ColorConstants.lightDisabledButtonBackgroundColor,
+        appBarTextColor: ColorConstants.lightAppBarTextColor,
       );
   static ThemeData get blueTheme => createTheme(
         brightness: Brightness.light,
         background: ColorConstants.blueScaffoldBackgroundColor,
-        primaryText: ColorConstants.bluePrimiaryTextColor,
+        primaryText: ColorConstants.bluePrimaryTextColor,
         secondaryText: ColorConstants.blueSecondaryTextColor,
         buttonBackground: ColorConstants.blueButtonBackgroundColor,
         buttonText: ColorConstants.blueButtonTextColor,
@@ -312,5 +298,7 @@ class ThemeConfig {
         iconColor: ColorConstants.iconColor,
         errorColor: Colors.red,
         enabledBorderInputColor: ColorConstants.blueBorderInputColor,
+        surface: ColorConstants.lightDisabledButtonBackgroundColor,
+        appBarTextColor: ColorConstants.bluePrimaryColor,
       );
 }

@@ -10,7 +10,7 @@ class FooterButton extends StatelessWidget {
     this.disabled = false,
   }) : super(key: key);
 
-  final Function onPressed;
+  final void Function()? onPressed;
   final bool disabled;
   final String text;
 

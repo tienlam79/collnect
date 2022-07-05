@@ -21,14 +21,16 @@ class PrepaidCredit extends StatelessWidget {
         children: [
           Text(
             'prepaid_credit'.tr,
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                  color: ColorConstants.lightAppBarTextColor,
+                ),
           ),
           AmountText(
             amount: controller.profile.value.balance,
-            style: Theme.of(context)
-                .textTheme
-                .bodyText1!
-                .copyWith(fontWeight: FontWeight.w700),
+            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: ColorConstants.lightAppBarTextColor,
+                ),
           ),
         ],
       ),

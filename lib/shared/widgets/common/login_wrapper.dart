@@ -17,10 +17,11 @@ class LoginWrapper extends StatelessWidget {
           fit: BoxFit.contain,
           alignment: Alignment.topCenter,
         ),
-        // color: ColorConstants.secondaryBackgroundColor,
+        color: ColorConstants.primaryColor,
       ),
       child: SafeArea(
         child: Container(
+          // color: ColorConstants.blueScaffoldBackgroundColor,
           padding: const EdgeInsets.all(CommonConstants.hPadding),
           child: child,
         ),

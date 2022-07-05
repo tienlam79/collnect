@@ -56,7 +56,7 @@ class ScanBarCode extends StatelessWidget {
       ),
       TextButton(
         onPressed: controller.setManual,
-        child: Text('enter_manual_omny_card_number'.tr),
+        child: GradientText('enter_manual_omny_card_number'.tr),
       ),
     ]);
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:omny_business/shared/constants/colors.dart';
 
 import 'number_field.dart';
 
@@ -46,11 +47,12 @@ class AmountField extends StatelessWidget {
         child: Text(
           '\$',
           style: TextStyle(
-            fontSize: 36,
-            fontWeight: FontWeight.w700,
-            height: 1.2,
-            // color: ColorConstants.seco,
-          ),
+              fontSize: 36,
+              fontWeight: FontWeight.w700,
+              height: 1.2,
+              color: ColorConstants.lightSecodaryTextColor
+              // color: ColorConstants.seco,
+              ),
         ),
       ),
     );

@@ -40,7 +40,7 @@ class GradientButton extends StatelessWidget {
             ? null
             : [
                 BoxShadow(
-                  color: hexToColor('#183FB9'),
+                  color: ColorConstants.primaryColor,
                   offset: Offset(0.0, 1.5),
                   blurRadius: 1.5,
                 ),
@@ -54,9 +54,9 @@ class GradientButton extends StatelessWidget {
             child: text != ""
                 ? Text(
                     text,
-                    style: Theme.of(context).textTheme.headline3!.copyWith(
+                    style: Theme.of(context).textTheme.button!.copyWith(
                           fontWeight: FontWeight.w700,
-                          color: Colors.white,
+                          color: disabled ? Colors.black : Colors.white,
                         ),
                     // style: TextStyle(
                     //   color: Colors.white,

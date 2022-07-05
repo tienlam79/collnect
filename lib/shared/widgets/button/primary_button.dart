@@ -4,7 +4,7 @@ class PrimaryButton extends StatelessWidget {
   final String text;
   final Widget? child;
   final double size;
-  final Function? onPressed;
+  final void Function()? onPressed;
   final bool disabled;
   final String variant;
 
@@ -22,32 +22,34 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            // color: Theme.of(context)
-            //     .elevatedButtonTheme
-            //     .style
-            //     !.backgroundColor
-            //     ?.withOpacity(0.2),
-            spreadRadius: 0,
-            blurRadius: 20,
-            offset: Offset(0, 4), // changes position of shadow
-          ),
-        ],
+        boxShadow: disabled
+            ? null
+            : [
+                BoxShadow(
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+                  spreadRadius: 0,
+                  blurRadius: 20,
+                  offset: Offset(0, 4), // changes position of shadow
+                ),
+              ],
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          // primary: disabled
-          //     ? ColorConstants.disabledButtonBackgroundColor
-          //     : ColorConstants.primaryButtonBackgroundColor,
+          primary: disabled
+              ? Theme.of(context).colorScheme.surface
+              : Theme.of(context).colorScheme.primary,
           minimumSize: Size.fromHeight(size),
         ),
-        onPressed: disabled ? () => {} : onPressed as void Function()?,
+        onPressed: disabled ? () => {} : onPressed,
         child: text != ''
             ? Text(
                 text,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.button,
+                style: Theme.of(context).textTheme.button!.copyWith(
+                      color: disabled
+                          ? Colors.black
+                          : Theme.of(context).textTheme.button!.color,
+                    ),
               )
             : child,
       ),

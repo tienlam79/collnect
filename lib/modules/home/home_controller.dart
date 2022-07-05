@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:omny_business/models/models.dart';
 import 'package:omny_business/routes/routes.dart';
 import 'package:omny_business/shared/constants/constants.dart';
+import 'package:omny_business/theme/theme_data.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeController extends GetxController {
@@ -79,5 +80,14 @@ class HomeController extends GetxController {
       // storage.setString(StorageConstants.playerId, '');
       Get.offAllNamed(Routes.LOGIN);
     }
+  }
+
+  void changeLightTheme() {
+    Get.changeTheme(ThemeConfig.lightTheme);
+  }
+
+  void onAddCredit() {
+    changeLightTheme();
+    Get.toNamed(Routes.ADD_CREDIT);
   }
 }

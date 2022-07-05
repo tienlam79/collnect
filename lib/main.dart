@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:omny_business/shared/shared.dart';
 import 'package:get/get.dart';
+import 'package:omny_business/theme/theme_data.dart';
 
 import 'app_binding.dart';
 import 'di.dart';
@@ -30,12 +31,33 @@ class App extends StatelessWidget {
       smartManagement: SmartManagement.keepFactory,
       title: 'Flutter GetX Boilerplate',
       // darkTheme: ThemeConfig.darkTheme,
-      theme: ThemeConfig.blueTheme,
+      theme: ThemeConfig.lightTheme,
       locale: TranslationService.locale,
       fallbackLocale: TranslationService.fallbackLocale,
       translations: TranslationService(),
       builder: EasyLoading.init(),
+      routingCallback: onRoutingCallback,
     );
+  }
+
+  void onRoutingCallback(Routing? routing) {
+    // if ([
+    //       Routes.HOME,
+    //       Routes.LOGIN,
+    //       Routes.REGISTER,
+    //       Routes.VERIFICATION,
+    //       '/HomeScreen'
+    //     ].indexWhere((element) => routing?.current == element) >
+    //     -1) {
+    //   if (Get.theme != ThemeConfig.blueTheme) {
+    //     Get.changeTheme(ThemeConfig.blueTheme);
+    //   }
+    // }
+    // if (routing?.current == Routes.HOME ||
+    //     routing?.current == '/HomeScreen' &&
+    //         Get.theme != ThemeConfig.blueTheme) {
+    //   Get.changeTheme(ThemeConfig.blueTheme);
+    // }
   }
 }
 

@@ -24,7 +24,7 @@ class CustomerInfo extends StatelessWidget {
           titleStyle: Theme.of(context)
               .textTheme
               .subtitle1!
-              .copyWith(color: ColorConstants.lightSecodaryTextColor),
+              .copyWith(color: ColorConstants.lightLabelInputColor),
           valueStyle: TextStyle(
             fontSize: 36,
             height: CommonConstants.lineHeight,
@@ -38,7 +38,7 @@ class CustomerInfo extends StatelessWidget {
             titleStyle: Theme.of(context)
                 .textTheme
                 .subtitle1!
-                .copyWith(color: ColorConstants.lightSecodaryTextColor),
+                .copyWith(color: ColorConstants.lightLabelInputColor),
             valueStyle: TextStyle(
               fontSize: 30,
               height: CommonConstants.lineHeight,
