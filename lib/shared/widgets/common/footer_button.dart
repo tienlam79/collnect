@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:omny_business/shared/constants/colors.dart';
 import 'package:omny_business/shared/constants/constants.dart';
 import 'package:omny_business/shared/widgets/button/primary_button.dart';
 

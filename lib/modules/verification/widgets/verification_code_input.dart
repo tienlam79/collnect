@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:omny_business/shared/constants/colors.dart';
-import 'package:omny_business/shared/shared.dart';
 
 class VerificationCodeInput extends StatefulWidget {
   final ValueChanged<String> onCompleted;

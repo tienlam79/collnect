@@ -33,7 +33,6 @@ class AddCreditController extends GetxController {
       amount.value = amountController.text != ''
           ? double.parse(amountController.text)
           : 0.0;
-      ;
     });
   }
 

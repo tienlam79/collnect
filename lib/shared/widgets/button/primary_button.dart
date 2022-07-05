@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:omny_business/shared/constants/colors.dart';
-import 'package:omny_business/shared/constants/common.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String text;

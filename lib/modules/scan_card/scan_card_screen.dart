@@ -2,8 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/modules/activated_card/activated_card_controller.dart';
-import 'package:omny_business/routes/app_pages.dart';
 import 'package:omny_business/shared/shared.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 

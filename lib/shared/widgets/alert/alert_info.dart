@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/shared/constants/colors.dart';
 
 class AlertInfo extends StatelessWidget {
   final String title;

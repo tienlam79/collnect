@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:omny_business/shared/shared.dart';
 
-import '../spacing/spacing_xs.dart';
 import 'custom_card.dart';
-import 'total_amount.dart';
 
 class FeeCard extends StatelessWidget {
   FeeCard({

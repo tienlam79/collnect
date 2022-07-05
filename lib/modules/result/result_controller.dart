@@ -1,7 +1,5 @@
 import 'package:omny_business/api/api.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/models/enum_values/card_type.dart';
-import 'package:omny_business/models/enum_values/order_status.dart';
 import 'package:omny_business/models/order.dart';
 
 class ResultController extends GetxController {
