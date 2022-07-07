@@ -1,4 +1,4 @@
-package com.example.omny_business
+package com.lunextelecom.omnyretailer
 
 import io.flutter.embedding.android.FlutterActivity
 

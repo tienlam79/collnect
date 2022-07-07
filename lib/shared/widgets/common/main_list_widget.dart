@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:omny_business/flavor_config.dart';
 import 'package:omny_business/shared/constants/common.dart';
 
 class MainListWidget extends StatefulWidget {
@@ -116,12 +117,13 @@ class _MainListWidgetState extends State<MainListWidget> {
               )
             : null,
         actions: widget.actions,
-        title: widget.titleText != ''
-            ? Text(
-                widget.titleText,
-                style: widget.titleStyle,
-              )
-            : widget.title,
+        title: Text(FlavorConfig.instance.name),
+        // title: widget.titleText != ''
+        //     ? Text(
+        //         widget.titleText,
+        //         style: widget.titleStyle,
+        //       )
+        //     : widget.title,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

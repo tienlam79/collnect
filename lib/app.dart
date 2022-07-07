@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:omny_business/flavor_config.dart';
 import 'package:omny_business/shared/shared.dart';
 import 'package:get/get.dart';
 import 'package:omny_business/theme/theme_data.dart';
@@ -10,12 +11,10 @@ import 'lang/lang.dart';
 import 'routes/routes.dart';
 import 'theme/theme.dart';
 
-void main() async {
+Future<Widget> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DenpendencyInjection.init();
-
-  runApp(App());
-  configLoading();
+  return App();
 }
 
 class App extends StatelessWidget {
@@ -29,8 +28,7 @@ class App extends StatelessWidget {
       getPages: AppPages.routes,
       initialBinding: AppBinding(),
       smartManagement: SmartManagement.keepFactory,
-      title: 'Flutter GetX Boilerplate',
-      // darkTheme: ThemeConfig.darkTheme,
+      title: FlavorConfig.instance.name,
       theme: ThemeConfig.lightTheme,
       locale: TranslationService.locale,
       fallbackLocale: TranslationService.fallbackLocale,

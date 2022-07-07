@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:omny_business/flavor_config.dart';
 import 'package:omny_business/routes/routes.dart';
 import 'package:omny_business/shared/shared.dart';
 import 'package:omny_business/theme/theme_data.dart';
@@ -19,7 +20,7 @@ class LoginScreen extends GetView<LoginController> {
                 children: [
                   SpacingMd(),
                   Text(
-                    'login_title'.tr,
+                    FlavorConfig.instance.name,
                     maxLines: 2,
                     style: Theme.of(context).textTheme.headline1!.copyWith(
                           fontSize: 29,
