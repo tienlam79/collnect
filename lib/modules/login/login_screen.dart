@@ -20,7 +20,7 @@ class LoginScreen extends GetView<LoginController> {
                 children: [
                   SpacingMd(),
                   Text(
-                    FlavorConfig.instance.name,
+                    'login_title'.tr,
                     maxLines: 2,
                     style: Theme.of(context).textTheme.headline1!.copyWith(
                           fontSize: 29,

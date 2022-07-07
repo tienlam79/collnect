@@ -117,13 +117,12 @@ class _MainListWidgetState extends State<MainListWidget> {
               )
             : null,
         actions: widget.actions,
-        title: Text(FlavorConfig.instance.name),
-        // title: widget.titleText != ''
-        //     ? Text(
-        //         widget.titleText,
-        //         style: widget.titleStyle,
-        //       )
-        //     : widget.title,
+        title: widget.titleText != ''
+            ? Text(
+                widget.titleText,
+                style: widget.titleStyle,
+              )
+            : widget.title,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -57,11 +57,6 @@ android {
             applicationIdSuffix ".dev"
             versionNameSuffix "-dev"
         }
-        qa {
-            dimension "flavors"
-            applicationIdSuffix ".qa"
-            versionNameSuffix "-qa"
-        }
         prod {
             dimension "flavors"
         }
