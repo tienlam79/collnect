@@ -21,7 +21,6 @@ class VerificationScreen extends GetView<VerificationController> {
             Text(
               'verification'.tr,
               style: Theme.of(context).textTheme.headline3!.copyWith(
-                    color: Colors.white,
                     fontWeight: FontWeight.w800,
                   ),
             ),

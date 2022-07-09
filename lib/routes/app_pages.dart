@@ -7,7 +7,6 @@ import '../modules/activated_card/activated_card.dart';
 import '../modules/home/home.dart';
 import '../modules/login/login.dart';
 import '../modules/modules.dart';
-import '../modules/register/register.dart';
 import '../modules/reload_card/reload_card.dart';
 import '../modules/result/result_binding.dart';
 import '../modules/result/result_screen.dart';
@@ -82,11 +81,6 @@ class AppPages {
       name: Routes.RESULT,
       page: () => ResultScreen(),
       binding: ResultBinding(),
-    ),
-    GetPage(
-      name: Routes.REGISTER,
-      page: () => RegisterScreen(),
-      binding: RegisterBinding(),
     ),
     GetPage(
       name: Routes.ADD_CREDIT,

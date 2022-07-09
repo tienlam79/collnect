@@ -40,6 +40,7 @@ class PhoneField extends StatelessWidget {
       fontSize: 44,
       fontWeight: FontWeight.bold,
       height: 1.2,
+      color: Colors.black,
     ),
     this.height = 88.0,
     this.hintText,

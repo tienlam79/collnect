@@ -8,20 +8,17 @@ class LoginController extends GetxController {
   final ApiRepository apiRepository;
   LoginController({required this.apiRepository});
 
-  final yourIdController = TextEditingController(text: '');
-  final passwordController = TextEditingController(text: '');
+  final phoneController = TextEditingController(text: '');
+  final nameController = TextEditingController(text: '');
 
-  RxString yourId = ''.obs;
-  RxString password = ''.obs;
+  RxString phoneNumber = ''.obs;
 
   @override
   void onInit() {
-    yourIdController.addListener(() {
-      yourId.value = yourIdController.text;
+    phoneController.addListener(() {
+      phoneNumber.value = phoneController.text.replaceAll('-', '');
     });
-    passwordController.addListener(() {
-      password.value = passwordController.text;
-    });
+
     super.onInit();
   }
 
@@ -33,21 +30,18 @@ class LoginController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-    yourIdController.dispose();
-    passwordController.dispose();
+    phoneController.dispose();
+    nameController.dispose();
   }
 
-  void onForgotPassword() {}
   void onLogin() async {
     try {
-      LoginRequest loginPayload =
-          new LoginRequest(username: yourId.value, password: password.value);
-      var res = await apiRepository.login(loginPayload);
-      SendVerificationCodeRequest payload = new SendVerificationCodeRequest(
-          username: yourId.value, checkCode: res.checkCode);
-      await apiRepository.sendVerificationCode(payload);
+      print('.....123');
+      VerificationCodeRequest loginPayload =
+          new VerificationCodeRequest(phone: phoneNumber.value);
+      var res = await apiRepository.sendVerificationCode(loginPayload);
       Get.toNamed(Routes.VERIFICATION,
-          arguments: [yourId.value, res.checkCode]);
+          arguments: [phoneNumber.value, res.checkCode, nameController.text]);
     } catch (error) {}
   }
 }

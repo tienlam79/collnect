@@ -1,6 +1,6 @@
 export 'request/login_request.dart';
 export 'request/register_request.dart';
-export 'request/send_verification_code_request.dart';
+export 'request/verification_code_request.dart';
 export 'request/generate_token_request.dart';
 export 'request/refresh_token_request.dart';
 export 'request/product_request.dart';

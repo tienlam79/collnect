@@ -8,9 +8,11 @@ void main() async {
     flavor: Flavor.PRODUCTION,
     values: FlavorValues(
       baseUrl: 'https://test-omnyapp.lunexgroup.com',
+      sku: 1000,
     ),
-    name: 'OMNY Retailer Prod',
+    name: 'OMNY Locator Prod',
   );
   Widget app = await initializeApp();
   runApp(app);
+  configLoading();
 }

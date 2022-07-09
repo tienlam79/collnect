@@ -3,8 +3,12 @@ import 'package:omny_locator/api/api_constants.dart';
 enum Flavor { DEV, QA, PRODUCTION }
 
 class FlavorValues {
-  FlavorValues({required this.baseUrl});
+  FlavorValues({
+    required this.baseUrl,
+    required this.sku,
+  });
   final String baseUrl;
+  final int sku;
 }
 
 class FlavorConfig {
@@ -16,6 +20,7 @@ class FlavorConfig {
     Flavor.DEV,
     FlavorValues(
       baseUrl: ApiConstants.baseUrl,
+      sku: 1000,
     ),
     'OMNY Retailer Dev',
   );

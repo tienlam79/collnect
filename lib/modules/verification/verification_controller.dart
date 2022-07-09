@@ -12,21 +12,6 @@ class VerificationController extends GetxController {
   RxString code = ''.obs;
   RxBool isStartTimer = true.obs;
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
   void onChangeCode(String value) {
     code.value = value;
   }
@@ -36,6 +21,7 @@ class VerificationController extends GetxController {
       List params = Get.arguments;
       String username = params[0];
       String checkCode = params[1];
+      String name = params[2];
       GenerateTokenRequest payload = new GenerateTokenRequest(
         username: username,
         password: '$code@$checkCode',
@@ -50,20 +36,18 @@ class VerificationController extends GetxController {
     } catch (error) {}
   }
 
-  void onEndTimer() {
-    isStartTimer.value = false;
-  }
-
   void onResentCode() async {
     try {
       List params = Get.arguments;
-      String username = params[0];
-      String checkCode = params[1];
-      SendVerificationCodeRequest payload = new SendVerificationCodeRequest(
-        username: username,
-        checkCode: checkCode,
+      String phone = params[0];
+      VerificationCodeRequest payload = new VerificationCodeRequest(
+        phone: phone,
       );
       await apiRepository.sendVerificationCode(payload);
     } catch (error) {}
+  }
+
+  void onEndTimer() {
+    isStartTimer.value = false;
   }
 }
