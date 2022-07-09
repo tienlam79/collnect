@@ -48,7 +48,11 @@ class HomeScreen extends GetView<HomeController> {
       actions: [
         IconButton(
           onPressed: () => Get.toNamed(Routes.PROFILE),
-          icon: Icon(Icons.account_circle, size: 24),
+          icon: Icon(
+            Icons.account_circle,
+            size: 26,
+            color: ColorConstants.primaryColor,
+          ),
         )
       ],
     );

@@ -34,7 +34,6 @@ class SplashController extends GetxController {
         var newToken = await apiRepository.getRefershToken(
           new RefershTokenRequest(token: refreshToken),
         );
-        print('...token...${newToken.toJson()}');
         storage.setString(
           StorageConstants.token,
           newToken.accessToken,

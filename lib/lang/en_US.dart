@@ -53,5 +53,7 @@ const Map<String, String> en_US = {
   "cancel_pre_order_confirm": "Do you want to cancel this pre-order?",
   "confirm": "Confirm",
   "reload_completed": "Reload completed",
-  "pre_reload_again": "Pre-reload again"
+  "pre_reload_again": "Pre-reload again",
+  "omny_location": "OMNY Location",
+  "reload_omny_card": "Reload your OMNY card easier"
 };
