@@ -1,11 +1,12 @@
 import 'package:get/get.dart';
-import 'package:omny_locator/modules/pre_order_omny_card/pre_order_omny_card.dart';
-import 'package:omny_locator/modules/profile/profile_binding.dart';
-import 'package:omny_locator/modules/profile/profile_screen.dart';
 
 import '../modules/home/home.dart';
 import '../modules/login/login.dart';
 import '../modules/modules.dart';
+import '../modules/pending_pre_order_detail/pending_pre_order_detail.dart';
+import '../modules/pre_order_detail/pre_order_detail.dart';
+import '../modules/pre_order_omny_card/pre_order_omny_card.dart';
+import '../modules/profile/profile.dart';
 import '../modules/result/result_binding.dart';
 import '../modules/result/result_screen.dart';
 import '../modules/scan_card/scan_card_binding.dart';
@@ -57,6 +58,16 @@ class AppPages {
       name: Routes.RESULT,
       page: () => ResultScreen(),
       binding: ResultBinding(),
+    ),
+    GetPage(
+      name: Routes.PENDING_PRE_ORDER_DETAIL,
+      page: () => PendingPreOrderDetailScreen(),
+      binding: PendingPreOrderDetailBinding(),
+    ),
+    GetPage(
+      name: Routes.PRE_ORDER_DETAIL,
+      page: () => PreOrderDetailScreen(),
+      binding: PreOrderDetailBinding(),
     ),
   ];
 }

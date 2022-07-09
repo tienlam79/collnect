@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:omny_locator/models/enum_values/card_type.dart';
 import 'package:omny_locator/modules/result/result.dart';
+import 'package:omny_locator/modules/result/widgets/pre_order_qrcode.dart';
 import 'package:omny_locator/routes/routes.dart';
 import 'package:omny_locator/shared/shared.dart';
 import 'package:omny_locator/shared/widgets/common/custom_card.dart';
@@ -25,7 +26,15 @@ class ResultScreen extends GetView<ResultController> {
           SpacingMd(),
           _buildCardNumber(context),
           SpacingSm(),
-          _buildQrCode(context),
+          PreOrderQrCode(order: controller.order.value),
+          Text(
+            'find_qr_code'.tr,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                  fontSize: 14,
+                  fontStyle: FontStyle.italic,
+                ),
+          ),
         ],
       ),
     );
@@ -63,61 +72,6 @@ class ResultScreen extends GetView<ResultController> {
           ]
         ],
       ),
-    );
-  }
-
-  Widget _buildQrCode(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          'show_qr_code_desc'.tr,
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.subtitle1,
-        ),
-        SpacingSm(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              ImageConstants.homeIcon,
-              width: 20,
-              height: 20,
-            ),
-            SizedBox(
-              width: 8,
-            ),
-            GradientText(
-              'find_location_near_you'.tr,
-              style: Theme.of(context).textTheme.headline5,
-            ),
-          ],
-        ),
-        SpacingMd(),
-        QrCodeWrapper(
-          size: 150.0,
-          value:
-              '${controller.order.value.id}-${controller.order.value.customerPhone}-${controller.order.value.customerName}-${controller.order.value.amount}',
-        ),
-        SpacingXs(),
-        TextButton(
-          onPressed: () => {},
-          child: Text(
-            'save_qr_code'.tr,
-            style: Theme.of(context)
-                .textTheme
-                .subtitle1!
-                .copyWith(color: ColorConstants.primaryColor),
-          ),
-        ),
-        Text(
-          'find_qr_code'.tr,
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                fontSize: 14,
-                fontStyle: FontStyle.italic,
-              ),
-        ),
-      ],
     );
   }
 }

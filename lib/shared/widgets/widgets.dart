@@ -9,6 +9,7 @@ export 'field/amount_field.dart';
 export 'field/phone_field.dart';
 export 'button/primary_button.dart';
 export 'button/gradient_button.dart';
+export 'button/outlined_gradient_button.dart';
 export 'alert/alert_confirm.dart';
 export 'alert/alert_info.dart';
 export 'radio/gradient_radio.dart';

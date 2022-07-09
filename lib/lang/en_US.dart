@@ -43,5 +43,15 @@ const Map<String, String> en_US = {
   'account': "Account",
   'amount': "Amount",
   "detail": "Detail",
-  'pre_order_history': "Pre-order History"
+  'pre_order_history': "Pre-order History",
+  "no_transaction": "No transaction",
+  "no_transaction_desc": "You don’t have any transaction",
+  "omny_pre_order": "OMNY Pre-Order",
+  'cancel': "Cancel",
+  "pre_order_detail": "Pre-order detail",
+  "confirmation": "Confirmation",
+  "cancel_pre_order_confirm": "Do you want to cancel this pre-order?",
+  "confirm": "Confirm",
+  "reload_completed": "Reload completed",
+  "pre_reload_again": "Pre-reload again"
 };

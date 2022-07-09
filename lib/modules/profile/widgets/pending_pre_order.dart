@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:omny_locator/models/models.dart';
+import 'package:omny_locator/routes/app_pages.dart';
 import 'package:omny_locator/shared/shared.dart';
 import 'package:omny_locator/shared/widgets/common/custom_card.dart';
 
@@ -31,7 +32,7 @@ class PendingPreOrder extends StatelessWidget {
           Row(
             children: [
               QrCodeWrapper(
-                size: 100.0,
+                size: 95.0,
                 value:
                     '${order.id}-${order.customerPhone}-${order.customerName}-${order.amount}',
               ),
@@ -57,6 +58,10 @@ class PendingPreOrder extends StatelessWidget {
           SpacingSm(),
           GradientButton(
             text: 'detail'.tr,
+            onPressed: () => Get.toNamed(
+              Routes.PENDING_PRE_ORDER_DETAIL,
+              arguments: order,
+            ),
           ),
         ],
       ),

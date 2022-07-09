@@ -8,7 +8,8 @@ class GradientButton extends StatelessWidget {
   final Gradient? gradient;
   final double width;
   final double height;
-  final Function? onPressed;
+  final void Function()? onPressed;
+
   final bool disabled;
 
   const GradientButton({
@@ -49,7 +50,7 @@ class GradientButton extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: onPressed as void Function()?,
+          onTap: onPressed,
           child: Center(
             child: text != ""
                 ? Text(

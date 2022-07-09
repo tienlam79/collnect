@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_locator/shared/widgets/button/primary_button.dart';
-import 'package:omny_locator/shared/widgets/spacing/spacing_sm.dart';
+import 'package:omny_locator/shared/shared.dart';
 
 class AlertConfirm extends StatelessWidget {
   const AlertConfirm({
@@ -9,15 +8,15 @@ class AlertConfirm extends StatelessWidget {
     this.title = 'confirmation',
     this.desc = '',
     this.onConfirm,
-    this.confirmButtonText = 'confirm',
-    this.cancelButtonText = 'cancel',
+    this.confirmButtonText,
+    this.cancelButtonText,
     this.actions = const [],
   }) : super(key: key);
   final String title;
   final String desc;
   final Function? onConfirm;
-  final String confirmButtonText;
-  final String cancelButtonText;
+  final String? confirmButtonText;
+  final String? cancelButtonText;
   final List<Widget> actions;
 
   @override
@@ -34,28 +33,20 @@ class AlertConfirm extends StatelessWidget {
               ? actions
               : [
                   Text(desc),
-                  SpacingSm(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  SpacingMd(),
+                  Column(
                     children: [
-                      Expanded(
-                        child: PrimaryButton(
-                          text: cancelButtonText,
-                          onPressed: () => Get.back(),
-                        ),
+                      OutlinedGradientButton(
+                        text: cancelButtonText ?? 'cancel'.tr,
+                        onPressed: () => Get.back(),
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                        child: PrimaryButton(
-                          variant: 'danger',
-                          text: confirmButtonText,
-                          onPressed: () {
-                            Get.back();
-                            onConfirm!();
-                          },
-                        ),
+                      SpacingSm(),
+                      GradientButton(
+                        text: confirmButtonText ?? 'confirm'.tr,
+                        onPressed: () {
+                          Get.back();
+                          onConfirm!();
+                        },
                       ),
                     ],
                   )

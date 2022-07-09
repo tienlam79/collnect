@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:omny_locator/shared/shared.dart';
 
 class ItemTile extends StatelessWidget {
   const ItemTile({
@@ -24,10 +25,9 @@ class ItemTile extends StatelessWidget {
         child: Text(
           title,
           style: titleStyle ??
-              Theme.of(context)
-                  .textTheme
-                  .headline4!
-                  .copyWith(fontWeight: FontWeight.w400),
+              Theme.of(context).textTheme.headline4!.copyWith(
+                  fontWeight: FontWeight.w400,
+                  color: ColorConstants.lightLabelInputColor),
         ),
       ),
       subtitle: Text(value,

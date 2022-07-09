@@ -29,8 +29,8 @@ class EmptyList extends StatelessWidget {
           if (desc != null)
             Text(
               desc ?? '',
-              style: Theme.of(context).textTheme.overline!.copyWith(
-                  // color: ColorConstants.overlineColor,
+              style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                    color: ColorConstants.lightLabelInputColor,
                   ),
             ),
         ],

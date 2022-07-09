@@ -31,7 +31,7 @@ class Order {
   double baseAmount;
   double fee;
   String status;
-  String? transactionId;
+  int? transactionId;
   OrderProduct product;
   int? retailerId;
 

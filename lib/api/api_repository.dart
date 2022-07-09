@@ -109,6 +109,20 @@ class ApiRepository {
     }
   }
 
+  Future<PagingResponse> getPreOrders(int page, int pageSize) async {
+    try {
+      final res =
+          await apiProvider.getMethod('/customer-api/customer/orders', query: {
+        'page': '$page',
+        'page_size': '$pageSize',
+      });
+      print('...${res.body}');
+      return PagingResponse.fromJson(res.body);
+    } catch (error) {
+      throw error;
+    }
+  }
+
   Future<Order> getPreOrder(int id) async {
     try {
       final res = await apiProvider.getMethod(

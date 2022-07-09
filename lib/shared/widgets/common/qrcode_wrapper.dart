@@ -7,14 +7,16 @@ class QrCodeWrapper extends StatelessWidget {
     Key? key,
     required this.size,
     required this.value,
+    this.padding = const EdgeInsets.all(13),
   }) : super(key: key);
   final double size;
   final String value;
+  final EdgeInsets? padding;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(13),
+      padding: padding,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(CommonConstants.borderRadius),

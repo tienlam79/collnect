@@ -9,4 +9,6 @@ abstract class Routes {
   static const PRE_ORDER_OMNY_CARD = '/pre-order-omny-card';
   static const RESULT = '/result';
   static const SCAN_CARD = '/scan-card';
+  static const PENDING_PRE_ORDER_DETAIL = '/pending-pre-order-detail';
+  static const PRE_ORDER_DETAIL = '/pre-order-detail';
 }
