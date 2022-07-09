@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:omny_business/shared/utils/formatter.dart';
+import 'package:omny_locator/shared/utils/formatter.dart';
 
 class AmountText extends StatelessWidget {
   const AmountText({

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:omny_business/shared/constants/colors.dart';
+import 'package:omny_locator/shared/constants/colors.dart';
 
 class CommonConstants {
   static const double largeText = 40.0;

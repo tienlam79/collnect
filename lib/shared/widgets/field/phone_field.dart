@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:omny_business/shared/utils/phone_number_formatter.dart';
+import 'package:omny_locator/shared/utils/phone_number_formatter.dart';
 
 import '../../constants/constants.dart';
 import 'input_field.dart';

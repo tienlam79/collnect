@@ -1,4 +1,4 @@
-import 'package:omny_business/api/api_constants.dart';
+import 'package:omny_locator/api/api_constants.dart';
 
 enum Flavor { DEV, QA, PRODUCTION }
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/routes/routes.dart';
-import 'package:omny_business/shared/shared.dart';
-import 'package:omny_business/theme/theme_data.dart';
+import 'package:omny_locator/routes/routes.dart';
+import 'package:omny_locator/shared/shared.dart';
+import 'package:omny_locator/theme/theme_data.dart';
 import 'login_controller.dart';
 
 class LoginScreen extends GetView<LoginController> {

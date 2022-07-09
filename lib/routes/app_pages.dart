@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:omny_business/modules/add_credit/add_credit_binding.dart';
-import 'package:omny_business/modules/add_credit/add_credit_screen.dart';
-import 'package:omny_business/modules/add_credit_result/add_credit_result.dart';
+import 'package:omny_locator/modules/add_credit/add_credit_binding.dart';
+import 'package:omny_locator/modules/add_credit/add_credit_screen.dart';
+import 'package:omny_locator/modules/add_credit_result/add_credit_result.dart';
 
 import '../modules/activated_card/activated_card.dart';
 import '../modules/home/home.dart';

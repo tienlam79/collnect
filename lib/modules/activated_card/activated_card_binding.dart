@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:omny_business/modules/activated_card/activated_card_controller.dart';
+import 'package:omny_locator/modules/activated_card/activated_card_controller.dart';
 
 class ActivatedCardBinding implements Bindings {
   @override

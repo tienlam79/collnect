@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/models/enum_values/card_type.dart';
-import 'package:omny_business/modules/result/result.dart';
-import 'package:omny_business/routes/routes.dart';
-import 'package:omny_business/shared/shared.dart';
-import 'package:omny_business/shared/widgets/common/custom_card.dart';
+import 'package:omny_locator/models/enum_values/card_type.dart';
+import 'package:omny_locator/modules/result/result.dart';
+import 'package:omny_locator/routes/routes.dart';
+import 'package:omny_locator/shared/shared.dart';
+import 'package:omny_locator/shared/widgets/common/custom_card.dart';
 
 class ResultScreen extends GetView<ResultController> {
   const ResultScreen({Key? key}) : super(key: key);

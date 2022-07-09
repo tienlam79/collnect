@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/models/models.dart';
-import 'package:omny_business/shared/utils/formatter.dart';
-import 'package:omny_business/shared/widgets/field/amount_field.dart';
+import 'package:omny_locator/models/models.dart';
+import 'package:omny_locator/shared/utils/formatter.dart';
+import 'package:omny_locator/shared/widgets/field/amount_field.dart';
 
 import 'suggest_amount.dart';
 

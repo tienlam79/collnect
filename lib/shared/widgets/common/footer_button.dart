@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:omny_business/shared/constants/constants.dart';
-import 'package:omny_business/shared/widgets/button/primary_button.dart';
+import 'package:omny_locator/shared/constants/constants.dart';
+import 'package:omny_locator/shared/widgets/button/primary_button.dart';
 
 class FooterButton extends StatelessWidget {
   const FooterButton({

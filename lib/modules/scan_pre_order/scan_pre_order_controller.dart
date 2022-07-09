@@ -1,4 +1,4 @@
-import 'package:omny_business/api/api.dart';
+import 'package:omny_locator/api/api.dart';
 import 'package:get/get.dart';
 
 class ScanPreOrderController extends GetxController {

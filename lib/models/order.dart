@@ -1,4 +1,4 @@
-import 'package:omny_business/models/enum_values/order_status.dart';
+import 'package:omny_locator/models/enum_values/order_status.dart';
 
 import 'enum_values/card_type.dart';
 

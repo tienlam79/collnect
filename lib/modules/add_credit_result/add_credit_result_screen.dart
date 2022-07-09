@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/modules/add_credit_result/add_credit_result_controller.dart';
-import 'package:omny_business/modules/home/home.dart';
-import 'package:omny_business/routes/routes.dart';
-import 'package:omny_business/shared/shared.dart';
-import 'package:omny_business/shared/widgets/common/custom_card.dart';
+import 'package:omny_locator/modules/add_credit_result/add_credit_result_controller.dart';
+import 'package:omny_locator/modules/home/home.dart';
+import 'package:omny_locator/routes/routes.dart';
+import 'package:omny_locator/shared/shared.dart';
+import 'package:omny_locator/shared/widgets/common/custom_card.dart';
 
 class AddCreditResultScreen extends GetView<AddCreditResultController> {
   AddCreditResultScreen({Key? key}) : super(key: key);

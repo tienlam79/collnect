@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:omny_business/flavor_config.dart';
+import 'package:omny_locator/flavor_config.dart';
 
 import 'api.dart';
 

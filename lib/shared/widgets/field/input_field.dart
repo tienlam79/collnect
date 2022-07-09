@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:omny_business/shared/constants/colors.dart';
-import 'package:omny_business/shared/constants/common.dart';
+import 'package:omny_locator/shared/constants/colors.dart';
+import 'package:omny_locator/shared/constants/common.dart';
 
 class InputField extends StatefulWidget {
   final TextEditingController? controller;

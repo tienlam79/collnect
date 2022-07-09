@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/modules/activated_card/activated_card_controller.dart';
-import 'package:omny_business/modules/activated_card/widgets/enter_phone_number.dart';
-import 'package:omny_business/modules/activated_card/widgets/prepaid_credit.dart';
-import 'package:omny_business/routes/app_pages.dart';
-import 'package:omny_business/shared/shared.dart';
+import 'package:omny_locator/modules/activated_card/activated_card_controller.dart';
+import 'package:omny_locator/modules/activated_card/widgets/enter_phone_number.dart';
+import 'package:omny_locator/modules/activated_card/widgets/prepaid_credit.dart';
+import 'package:omny_locator/routes/app_pages.dart';
+import 'package:omny_locator/shared/shared.dart';
 
 class ActivatedCardScreen extends GetView<ActivatedCardController> {
   const ActivatedCardScreen({Key? key}) : super(key: key);

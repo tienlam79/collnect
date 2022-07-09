@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/shared/shared.dart';
+import 'package:omny_locator/shared/shared.dart';
 
 class ScanCardSample extends StatelessWidget {
   const ScanCardSample({Key? key}) : super(key: key);

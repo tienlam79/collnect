@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/modules/activated_card/activated_card_controller.dart';
-import 'package:omny_business/modules/activated_card/widgets/customer_info.dart';
-import 'package:omny_business/shared/shared.dart';
-import 'package:omny_business/shared/utils/helpers.dart';
+import 'package:omny_locator/modules/activated_card/activated_card_controller.dart';
+import 'package:omny_locator/modules/activated_card/widgets/customer_info.dart';
+import 'package:omny_locator/shared/shared.dart';
+import 'package:omny_locator/shared/utils/helpers.dart';
 import 'widgets/prepaid_credit.dart';
 
 class ScanBarCode extends StatelessWidget {

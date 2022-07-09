@@ -1,6 +1,6 @@
-import 'package:omny_business/api/api.dart';
+import 'package:omny_locator/api/api.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/models/models.dart';
+import 'package:omny_locator/models/models.dart';
 
 class AddCreditResultController extends GetxController {
   final ApiRepository apiRepository;

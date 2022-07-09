@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:omny_business/api/api.dart';
+import 'package:omny_locator/api/api.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/models/request/register_request.dart';
-import 'package:omny_business/routes/app_pages.dart';
-import 'package:omny_business/shared/utils/regex.dart';
+import 'package:omny_locator/models/request/register_request.dart';
+import 'package:omny_locator/routes/app_pages.dart';
+import 'package:omny_locator/shared/utils/regex.dart';
 
 class RegisterController extends GetxController {
   final ApiRepository apiRepository;

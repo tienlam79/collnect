@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:omny_business/api/api.dart';
+import 'package:omny_locator/api/api.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/models/models.dart';
-import 'package:omny_business/modules/home/home.dart';
-import 'package:omny_business/routes/app_pages.dart';
+import 'package:omny_locator/models/models.dart';
+import 'package:omny_locator/modules/home/home.dart';
+import 'package:omny_locator/routes/app_pages.dart';
 import 'package:uuid/uuid.dart';
 
 class AddCreditController extends GetxController {

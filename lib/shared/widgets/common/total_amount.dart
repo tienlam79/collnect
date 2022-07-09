@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:omny_business/shared/constants/common.dart';
-import 'package:omny_business/shared/utils/formatter.dart';
+import 'package:omny_locator/shared/constants/common.dart';
+import 'package:omny_locator/shared/utils/formatter.dart';
 
 class TotalAmount extends StatelessWidget {
   const TotalAmount({

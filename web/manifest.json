@@ -1,6 +1,6 @@
 {
-    "name": "omny_business",
-    "short_name": "omny_business",
+    "name": "omny_locator",
+    "short_name": "omny_locator",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

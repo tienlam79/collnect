@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/request/request.dart';
-import 'package:omny_business/shared/constants/storage.dart';
+import 'package:omny_locator/shared/constants/storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 FutureOr<Request> requestInterceptor(request) async {

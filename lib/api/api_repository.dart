@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:omny_business/models/models.dart';
+import 'package:omny_locator/models/models.dart';
 import 'api.dart';
 
 class ApiRepository {

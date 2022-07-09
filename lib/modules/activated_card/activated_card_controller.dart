@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:omny_business/api/api.dart';
+import 'package:omny_locator/api/api.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/models/models.dart';
-import 'package:omny_business/routes/routes.dart';
-import 'package:omny_business/shared/utils/formatter.dart';
+import 'package:omny_locator/models/models.dart';
+import 'package:omny_locator/routes/routes.dart';
+import 'package:omny_locator/shared/utils/formatter.dart';
 import 'package:uuid/uuid.dart';
 
 class ActivatedCardController extends GetxController {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:omny_business/flavor_config.dart';
-import 'package:omny_business/shared/shared.dart';
+import 'package:omny_locator/flavor_config.dart';
+import 'package:omny_locator/shared/shared.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/theme/theme_data.dart';
+import 'package:omny_locator/theme/theme_data.dart';
 
 import 'app_binding.dart';
 import 'di.dart';

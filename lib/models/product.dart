@@ -1,4 +1,4 @@
-import 'package:omny_business/models/enum_values/price_type.dart';
+import 'package:omny_locator/models/enum_values/price_type.dart';
 
 class Product {
   Product({

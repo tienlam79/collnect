@@ -1,6 +1,6 @@
-import 'package:omny_business/api/api.dart';
+import 'package:omny_locator/api/api.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/models/order.dart';
+import 'package:omny_locator/models/order.dart';
 
 class ResultController extends GetxController {
   final ApiRepository apiRepository;

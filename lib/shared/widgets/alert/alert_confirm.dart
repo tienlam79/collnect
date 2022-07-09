@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/shared/widgets/button/primary_button.dart';
-import 'package:omny_business/shared/widgets/spacing/spacing_sm.dart';
+import 'package:omny_locator/shared/widgets/button/primary_button.dart';
+import 'package:omny_locator/shared/widgets/spacing/spacing_sm.dart';
 
 class AlertConfirm extends StatelessWidget {
   const AlertConfirm({

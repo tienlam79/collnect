@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/models/models.dart';
-import 'package:omny_business/routes/app_pages.dart';
+import 'package:omny_locator/models/models.dart';
+import 'package:omny_locator/routes/app_pages.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../widgets/alert/alert_info.dart';

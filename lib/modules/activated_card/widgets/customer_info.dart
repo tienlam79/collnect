@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/shared/constants/colors.dart';
-import 'package:omny_business/shared/constants/common.dart';
-import 'package:omny_business/shared/widgets/widgets.dart';
+import 'package:omny_locator/shared/constants/colors.dart';
+import 'package:omny_locator/shared/constants/common.dart';
+import 'package:omny_locator/shared/widgets/widgets.dart';
 
 class CustomerInfo extends StatelessWidget {
   const CustomerInfo({

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/models/models.dart';
-import 'package:omny_business/shared/shared.dart';
-import 'package:omny_business/theme/theme_data.dart';
+import 'package:omny_locator/models/models.dart';
+import 'package:omny_locator/shared/shared.dart';
+import 'package:omny_locator/theme/theme_data.dart';
 import 'home_controller.dart';
 
 class HomeScreen extends GetView<HomeController> {

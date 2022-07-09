@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/shared/shared.dart';
-import 'package:omny_business/theme/theme_data.dart';
+import 'package:omny_locator/shared/shared.dart';
+import 'package:omny_locator/theme/theme_data.dart';
 import 'verification_controller.dart';
 import 'widgets/verification_code_input.dart';
 

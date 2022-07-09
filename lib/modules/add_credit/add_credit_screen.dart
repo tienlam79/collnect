@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/models/models.dart';
-import 'package:omny_business/modules/add_credit/add_credit_controller.dart';
-import 'package:omny_business/modules/home/home.dart';
-import 'package:omny_business/shared/shared.dart';
+import 'package:omny_locator/models/models.dart';
+import 'package:omny_locator/modules/add_credit/add_credit_controller.dart';
+import 'package:omny_locator/modules/home/home.dart';
+import 'package:omny_locator/shared/shared.dart';
 
 import '../activated_card/widgets/prepaid_credit.dart';
 
