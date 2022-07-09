@@ -1,3 +1,5 @@
+import 'enum_values/card_type.dart';
+
 class Order {
   Order({
     required this.id,

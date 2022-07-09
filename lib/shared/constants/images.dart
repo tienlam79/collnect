@@ -8,4 +8,5 @@ class ImageConstants {
   static const String scanBarCodeSample =
       'assets/images/scan_bar_code_sample.png';
   static const String emptyHistory = 'assets/images/empty_history.png';
+  static const String homeIcon = 'assets/images/home_icon.png';
 }

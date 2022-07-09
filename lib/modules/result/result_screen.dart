@@ -5,6 +5,7 @@ import 'package:omny_locator/modules/result/result.dart';
 import 'package:omny_locator/routes/routes.dart';
 import 'package:omny_locator/shared/shared.dart';
 import 'package:omny_locator/shared/widgets/common/custom_card.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class ResultScreen extends GetView<ResultController> {
   const ResultScreen({Key? key}) : super(key: key);
@@ -22,11 +23,9 @@ class ResultScreen extends GetView<ResultController> {
         children: [
           _buildHeader(context),
           SpacingMd(),
-          _buildCustomerInfo(context),
-          SpacingXs(),
           _buildCardNumber(context),
-          SpacingXs(),
-          if (controller.order.value.fee != 0.0) _buildFee(context)
+          SpacingSm(),
+          _buildQrCode(context),
         ],
       ),
     );
@@ -41,36 +40,9 @@ class ResultScreen extends GetView<ResultController> {
           color: ColorConstants.lightButtonBackgroundColor,
         ),
         SpacingSm(),
-        Text('successfully'.tr, style: Theme.of(context).textTheme.headline5),
-        SizedBox(
-          height: 4,
-        ),
-        Obx(
-          () => Text(
-              'transaction_id'
-                  .trParams({'id': '${controller.order.value.transactionId}'}),
-              style: Theme.of(context).textTheme.subtitle1),
-        ),
+        Text('pre_order_omny_card_successful'.tr,
+            style: Theme.of(context).textTheme.headline5),
       ],
-    );
-  }
-
-  Widget _buildCustomerInfo(BuildContext context) {
-    return CustomCard(
-      child: Column(
-        children: [
-          ItemTile(
-            title: 'customer_phone_number'.tr,
-            value: Formatter.formatPhoneNumber(
-                controller.order.value.customerPhone,
-                CommonConstants.USCountryCode),
-          ),
-          ItemTile(
-            title: 'name'.tr,
-            value: controller.order.value.customerName,
-          )
-        ],
-      ),
     );
   }
 
@@ -78,12 +50,6 @@ class ResultScreen extends GetView<ResultController> {
     return CustomCard(
       child: Column(
         children: [
-          if (controller.order.value.product.productFilter ==
-              CardType.ACTIVATION)
-            ItemTile(
-              title: 'omny_card_prefix'.tr,
-              value: controller.order.value.product.name,
-            ),
           ItemTile(
             title: 'omny_card_number'.tr,
             value: controller.order.value.productPin,
@@ -100,10 +66,67 @@ class ResultScreen extends GetView<ResultController> {
     );
   }
 
-  Widget _buildFee(BuildContext context) {
-    return FeeCard(
-      amount: controller.order.value.amount,
-      fee: controller.order.value.fee,
+  Widget _buildQrCode(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          'show_qr_code_desc'.tr,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.subtitle1,
+        ),
+        SpacingSm(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              ImageConstants.homeIcon,
+              width: 20,
+              height: 20,
+            ),
+            SizedBox(
+              width: 8,
+            ),
+            GradientText(
+              'find_location_near_you'.tr,
+              style: Theme.of(context).textTheme.headline5,
+            ),
+          ],
+        ),
+        SpacingMd(),
+        Container(
+          padding: const EdgeInsets.all(13),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
+          ),
+          child: QrImage(
+            data:
+                '${controller.order.value.id}-${controller.order.value.customerPhone}-${controller.order.value.customerName}-${controller.order.value.amount}',
+            version: QrVersions.auto,
+            padding: EdgeInsets.zero,
+            size: 150.0,
+          ),
+        ),
+        SpacingXs(),
+        TextButton(
+          onPressed: () => {},
+          child: Text(
+            'save_qr_code'.tr,
+            style: Theme.of(context)
+                .textTheme
+                .subtitle1!
+                .copyWith(color: ColorConstants.primaryColor),
+          ),
+        ),
+        Text(
+          'find_qr_code'.tr,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                fontSize: 14,
+                fontStyle: FontStyle.italic,
+              ),
+        ),
+      ],
     );
   }
 }

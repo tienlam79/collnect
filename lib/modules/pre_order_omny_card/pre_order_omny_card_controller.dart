@@ -120,7 +120,6 @@ class PreOrderOmnyCardController extends GetxController {
         product: product.value.id,
       );
       final res = await apiRepository.createPreOrder(payload);
-      print('....rest....${res.toJson()}');
       Get.until((route) => route.settings.name == '/home');
       Get.toNamed(Routes.RESULT, arguments: res);
     } catch (error) {}

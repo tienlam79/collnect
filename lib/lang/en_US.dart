@@ -27,5 +27,13 @@ const Map<String, String> en_US = {
       "Point your phone's camera to the OMNY card holder to scan",
   "reload_amount": "Reload amount",
   "submit_pre_order": "Submit pre-order",
-  "back_to_home": "Back to Home"
+  "back_to_home": "Back to Home",
+  "pre_order_omny_card_successful": "Pre-Order OMNY card successful",
+  "show_qr_code_desc":
+      "Show the QR code below to the store to reload your OMNY card",
+  "find_location_near_you": "Find OMNY location near you",
+  "save_qr_code": "Save QR code to photo library",
+  "find_qr_code":
+      "You can find above QR Code with latest Pre-Order in Account page",
+  "result": "Result"
 };
