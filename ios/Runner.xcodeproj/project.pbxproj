@@ -377,7 +377,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1478B83E2876A70B00A0CCCE /* dev.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = "[DebugDev] OMNY Retailer";
+				APP_DISPLAY_NAME = "[DebugDev] OMNY Locator";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
@@ -391,7 +391,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lunextelecom.omnylocator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -459,7 +458,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1478B83E2876A70B00A0CCCE /* dev.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = "[ReleaseDev] OMNY Retailer";
+				APP_DISPLAY_NAME = "[ReleaseDev] OMNY Locator";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
@@ -471,7 +470,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lunextelecom.omnylocator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -536,7 +534,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1478B83E2876A70B00A0CCCE /* dev.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = "[ProfileDev] OMNY Retailer";
+				APP_DISPLAY_NAME = "[ProfileDev] OMNY Locator";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
@@ -548,7 +546,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lunextelecom.omnylocator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -618,7 +615,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1478B83F2876A72200A0CCCE /* prod.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = "[DebugProd] OMNY Retailer";
+				APP_DISPLAY_NAME = "[DebugProd] OMNY Locator";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
@@ -632,7 +629,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lunextelecom.omnylocator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -700,7 +696,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1478B83F2876A72200A0CCCE /* prod.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = "[ReleaseProd] OMNY Retailer";
+				APP_DISPLAY_NAME = "[ReleaseProd] OMNY Locator";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
@@ -712,7 +708,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lunextelecom.omnylocator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -777,7 +772,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1478B83F2876A72200A0CCCE /* prod.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = "[ProfileProd] OMNY Retailer";
+				APP_DISPLAY_NAME = "[ProfileProd] OMNY Locator";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
@@ -789,7 +784,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lunextelecom.omnylocator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -854,7 +848,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = "[Profile] OMNY Retailer";
+				APP_DISPLAY_NAME = "[Profile] OMNY Locator";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
@@ -866,7 +860,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lunextelecom.omnylocator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -989,7 +982,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = "[Debug] OMNY Retailer ";
+				APP_DISPLAY_NAME = "[Debug] OMNY Locator";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
@@ -1003,7 +996,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lunextelecom.omnylocator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1018,7 +1010,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = "[Release] OMNY Retailer";
+				APP_DISPLAY_NAME = "[Release] OMNY Locator";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
@@ -1030,7 +1022,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lunextelecom.omnylocator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
