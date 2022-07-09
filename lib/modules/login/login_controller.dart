@@ -36,12 +36,17 @@ class LoginController extends GetxController {
 
   void onLogin() async {
     try {
-      print('.....123');
-      VerificationCodeRequest loginPayload =
-          new VerificationCodeRequest(phone: phoneNumber.value);
+      var str = nameController.text.split(' ');
+      String firstName = str[0];
+      String lastName = nameController.text.replaceFirst(firstName, '');
+      VerificationCodeRequest loginPayload = new VerificationCodeRequest(
+        phone: phoneNumber.value,
+        firstName: firstName,
+        lastName: lastName,
+      );
       var res = await apiRepository.sendVerificationCode(loginPayload);
       Get.toNamed(Routes.VERIFICATION,
-          arguments: [phoneNumber.value, res.checkCode, nameController.text]);
+          arguments: [phoneNumber.value, res.checkCode, firstName, lastName]);
     } catch (error) {}
   }
 }

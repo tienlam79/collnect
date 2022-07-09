@@ -16,6 +16,7 @@ class CommonConstants {
   static const String USCountryCode = '1';
   static const double lineHeight = 1.2;
   static const double titleSpacing = -10.0;
+  static const int pageSize = 20;
   static Gradient primaryGradientColors = LinearGradient(
     colors: <Color>[
       hexToColor('#326FCD'),

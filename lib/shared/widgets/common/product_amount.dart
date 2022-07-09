@@ -45,7 +45,7 @@ class ProductAmount extends StatelessWidget {
                 LengthLimitingTextInputFormatter(
                     Formatter.removeDecimalZeroFormat(maxValue).length),
               ],
-              labelText: 'PRODUCT_FORM_range'.trParams({
+              labelText: 'enter_load_amount'.trParams({
                 'min': Formatter.removeDecimalZeroFormat(minValue),
                 'max': Formatter.removeDecimalZeroFormat(maxValue),
               }),

@@ -19,8 +19,6 @@ class _QRViewExampleState extends State<ScanCardScreen> {
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
 
-  // In order to get hot reload to work we need to pause the camera if the platform
-  // is android, or resume the camera if the platform is iOS.
   @override
   void didUpdateWidget(ScanCardScreen oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -60,36 +58,12 @@ class _QRViewExampleState extends State<ScanCardScreen> {
               onPressed: howToUse,
             ),
           ),
-          // Container(
-          //   margin: const EdgeInsets.all(30.0),
-          //   alignment: Alignment.bottomCenter,
-          //   child: ElevatedButton.icon(
-          //     style: ElevatedButton.styleFrom(
-          //       elevation: 0,
-          //       primary: ColorConstants.primaryColor,
-          //       shape: RoundedRectangleBorder(
-          //         borderRadius: BorderRadius.circular(14),
-          //       ),
-          //       minimumSize: Size.fromHeight(50),
-          //     ),
-          //     onPressed: howToUse,
-          //     // icon: Icon(Icons.help_outline),
-          //     label: Text('how_to_scan_omny_card'.tr),
-          //   ),
-          // ),
         ],
       ),
     );
   }
 
   Widget _buildQrView(BuildContext context) {
-    // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
-    // var scanArea = (MediaQuery.of(context).size.width < 400 ||
-    //         MediaQuery.of(context).size.height < 400)
-    //     ? 150.0
-    //     : 300.0;
-    // To ensure the Scanner view is properly sizes after rotation
-    // we need to listen for Flutter SizeChanged notification and update controller
     return QRView(
       key: qrKey,
       onQRViewCreated: _onQRViewCreated,

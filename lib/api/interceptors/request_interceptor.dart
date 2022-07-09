@@ -12,7 +12,7 @@ FutureOr<Request> requestInterceptor(request) async {
   var storage = Get.find<SharedPreferences>();
   String? token = storage.getString(StorageConstants.token);
   request.headers['Authorization'] = 'Bearer $token';
-  request.headers['x-sku'] = ApiConstants.sku;
+  request.headers['x-sku'] = '${ApiConstants.sku}';
 
   EasyLoading.show(status: 'loading...');
   return request;

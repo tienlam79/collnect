@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_locator/modules/reload_card/reload_card.dart';
 import 'package:omny_locator/routes/app_pages.dart';
 import 'package:omny_locator/shared/shared.dart';
 import 'package:omny_locator/shared/utils/helpers.dart';
 
-import '../activated_card/widgets/customer_info.dart';
-import '../activated_card/widgets/prepaid_credit.dart';
+import 'pre_order_omny_card_controller.dart';
 
-class ReloadCardProductForm extends StatelessWidget {
-  ReloadCardProductForm({Key? key}) : super(key: key);
-
-  final ReloadCardController controller = Get.arguments;
+class PreOrderOmnyCardScreen extends GetView<PreOrderOmnyCardController> {
+  const PreOrderOmnyCardScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MainListWidget(
-      titleText: 'reload_card'.tr,
+      titleText: 'pre_order_omny_card'.tr,
       titleSpacing: CommonConstants.titleSpacing,
-      actions: [PrepaidCredit()],
+      child: _buildProductInputAmount(context),
       footer: Obx(
         () => Visibility(
           visible: controller.product.value.id != 0.0,
@@ -26,43 +22,11 @@ class ReloadCardProductForm extends StatelessWidget {
             onPressed: controller.onSubmit,
             disabled: !Helpers.checkValidAmount(
                 controller.product.value, controller.selectedAmount.value),
-            text: 'activate_load_card'.tr,
+            text: controller.selectedAmount.value == 0.0
+                ? 'submit'.tr
+                : 'submit_pre_order'.tr,
           ),
         ),
-      ),
-      child: _buildForm(context),
-    );
-  }
-
-  Widget _buildForm(BuildContext context) {
-    return Column(
-      children: [
-        CustomerInfo(
-          phoneNumber: controller.phoneController.text,
-          name: controller.nameText.value,
-        ),
-        SpacingSm(),
-        _buildProductInputAmount(context)
-      ],
-    );
-  }
-
-  Widget _buildCardNumberField(BuildContext context) {
-    return NumberField(
-      controller: controller.cardNumberController,
-      labelText: 'omny_card_number'.tr,
-      maxLines: 1,
-      suffixIconConstraints: BoxConstraints(
-        minWidth: CommonConstants.iconSize,
-        minHeight: CommonConstants.iconSize,
-      ),
-      suffixIcon: InkWell(
-        child: Image.asset(
-          ImageConstants.barCodeDarkIcon,
-          width: CommonConstants.iconSize,
-          height: CommonConstants.iconSize,
-        ),
-        onTap: () => Get.toNamed(Routes.SCAN_CARD, arguments: controller),
       ),
     );
   }
@@ -70,7 +34,23 @@ class ReloadCardProductForm extends StatelessWidget {
   Widget _buildProductInputAmount(BuildContext context) {
     return Column(
       children: [
-        _buildCardNumberField(context),
+        NumberField(
+          controller: controller.cardNumberController,
+          labelText: 'omny_card_number'.tr,
+          maxLines: 1,
+          suffixIconConstraints: BoxConstraints(
+            minWidth: CommonConstants.iconSize,
+            minHeight: CommonConstants.iconSize,
+          ),
+          suffixIcon: InkWell(
+            child: Image.asset(
+              ImageConstants.barCodeDarkIcon,
+              width: CommonConstants.iconSize,
+              height: CommonConstants.iconSize,
+            ),
+            onTap: () => Get.toNamed(Routes.SCAN_CARD, arguments: controller),
+          ),
+        ),
         Obx(
           () => Visibility(
             child: ProductAmount(
@@ -84,6 +64,7 @@ class ReloadCardProductForm extends StatelessWidget {
         ),
         Obx(
           () => Visibility(
+            visible: controller.selectedAmount.value != 0.0,
             child: Column(
               children: [
                 SpacingSm(),
@@ -93,7 +74,6 @@ class ReloadCardProductForm extends StatelessWidget {
                 ),
               ],
             ),
-            visible: controller.selectedAmount.value != 0.0,
           ),
         )
       ],

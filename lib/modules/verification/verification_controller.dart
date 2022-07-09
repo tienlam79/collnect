@@ -21,7 +21,7 @@ class VerificationController extends GetxController {
       List params = Get.arguments;
       String username = params[0];
       String checkCode = params[1];
-      String name = params[2];
+
       GenerateTokenRequest payload = new GenerateTokenRequest(
         username: username,
         password: '$code@$checkCode',
@@ -40,8 +40,13 @@ class VerificationController extends GetxController {
     try {
       List params = Get.arguments;
       String phone = params[0];
+      String firstName = params[2];
+      String lastName = params[3];
+
       VerificationCodeRequest payload = new VerificationCodeRequest(
         phone: phone,
+        firstName: firstName,
+        lastName: lastName,
       );
       await apiRepository.sendVerificationCode(payload);
     } catch (error) {}

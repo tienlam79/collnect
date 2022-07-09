@@ -1,144 +1,90 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_locator/models/models.dart';
+import 'package:omny_locator/modules/home/widgets/nearby_store_list.dart';
+import 'package:omny_locator/modules/pre_order_omny_card/pre_order_omny_card.dart';
+import 'package:omny_locator/routes/app_pages.dart';
 import 'package:omny_locator/shared/shared.dart';
-import 'package:omny_locator/theme/theme_data.dart';
 import 'home_controller.dart';
 
 class HomeScreen extends GetView<HomeController> {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
+  final PreOrderOmnyCardController preOrderController = Get.put(
+    PreOrderOmnyCardController(
+      apiRepository: Get.find(),
+    ),
+  );
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeConfig.blueTheme,
-      child: MainListWidget(
-        child: Column(
-          children: [
-            _buildCreditBalance(context),
-            SizedBox(
-              height: 24,
-            ),
-            _buildFeature(context),
-          ],
-        ),
-        title: Obx(
-          () => Text(
-            'welcome'.trParams({
-              'name': controller.profile.value.username ?? '',
-            }),
-            style: Theme.of(context).appBarTheme.titleTextStyle!.copyWith(
-                  color: Colors.white,
-                ),
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: controller.onLogout,
-            child: Text(
-              'logout'.tr,
-              style: Theme.of(context).textTheme.headline5!.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w400,
-                  ),
-            ),
-          )
+    return MainListWidget(
+      centerTitle: false,
+      showBackIcon: false,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildInstruction(context),
+          SpacingMd(),
+          _buildScanBarCodeButton(context),
+          SpacingMd(),
+          NearbyStoreList(),
+          // Expanded(child: NearbyStoreList()),
         ],
-        centerTitle: false,
-        showBackIcon: false,
-        backgroundColor: ColorConstants.primaryColor,
-        appBarBackgroundColor: ColorConstants.primaryColor,
-        elevation: 0,
       ),
+      title: Obx(
+        () => Text(
+          'welcome'.trParams({
+            'name': controller.profile.value.firstName ?? '',
+          }),
+          style: Theme.of(context).appBarTheme.titleTextStyle,
+        ),
+      ),
+      actions: [
+        IconButton(
+          onPressed: () => {},
+          // onPressed: controller.onLogout,
+          icon: Icon(Icons.account_circle, size: 24),
+        )
+      ],
     );
   }
 
-  Widget _buildCreditBalance(BuildContext context) {
-    return Card(
-      color: ColorConstants.lightBlue,
-      elevation: 0,
+  Widget _buildScanBarCodeButton(BuildContext context) {
+    return PrimaryButton(
+      onPressed: () => Get.toNamed(Routes.PRE_ORDER_OMNY_CARD,
+          arguments: preOrderController),
+      size: 120,
       child: ListTile(
-        title: Text(
-          'credit_balance'.tr,
-          style: Theme.of(context)
-              .textTheme
-              .bodyText1!
-              .copyWith(color: Colors.white),
-        ),
-        subtitle: Obx(
-          () => Text(
-            '\$${Formatter.formatLocaleMoney(controller.profile.value.balance)}',
-            style: Theme.of(context)
-                .textTheme
-                .headline3!
-                .copyWith(color: Colors.white, fontWeight: FontWeight.w800),
-          ),
-        ),
-        trailing: SizedBox(
-          width: 136,
-          height: 40,
-          child: PrimaryButton(
-            child: Text(
-              'add_credit'.tr,
-              style: Theme.of(context).textTheme.button!.copyWith(
-                    fontSize: 16,
-                    color: Colors.black,
-                  ),
-            ),
-            onPressed: controller.onAddCredit,
-            size: 40,
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildItem(BuildContext context, int index) {
-    Feature item = controller.featureList[index];
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
-        color: ColorConstants.lightGreen,
-        boxShadow: [
-          BoxShadow(
-            color: ColorConstants.lightGreen.withOpacity(0.2),
-            spreadRadius: 0,
-            blurRadius: 20,
-            offset: Offset(0, 4), // changes position of shadow
-          ),
-        ],
-      ),
-      child: ListTile(
-        onTap: () => Get.toNamed(item.route),
-        contentPadding: const EdgeInsets.symmetric(
-            vertical: 14, horizontal: CommonConstants.hPadding),
+        contentPadding: EdgeInsets.zero,
         leading: Image.asset(
-          item.icon,
-          width: 48,
-          height: 48,
+          ImageConstants.barCodeWhiteIcon,
+          width: 32,
+          height: 32,
         ),
         title: Text(
-          item.title.toUpperCase(),
+          'scan_code_pre_order'.tr,
           style: Theme.of(context).textTheme.headline2!.copyWith(
-                fontWeight: FontWeight.w800,
-                fontSize: 24,
-              ),
-        ),
-        subtitle: Text(
-          item.subTitle,
-          style: Theme.of(context).textTheme.headline4!.copyWith(
-                fontWeight: FontWeight.w800,
+                fontSize: 23,
+                color: Colors.white,
               ),
         ),
       ),
     );
   }
 
-  Widget _buildFeature(BuildContext context) {
-    return ListView.separated(
-      itemBuilder: _buildItem,
-      itemCount: controller.featureList.length,
-      shrinkWrap: true,
-      separatorBuilder: (BuildContext context, int index) => SpacingSm(),
+  Widget _buildInstruction(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SectionTitle(text: 'instruction'.tr),
+        SpacingXs(),
+        Text(
+          'instruction_1'.tr,
+          style: Theme.of(context).textTheme.subtitle1!.copyWith(height: 1.5),
+        ),
+        Text(
+          'instruction_2'.tr,
+          style: Theme.of(context).textTheme.subtitle1!.copyWith(height: 1.5),
+        ),
+      ],
     );
   }
 }

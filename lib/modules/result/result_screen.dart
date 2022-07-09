@@ -62,12 +62,12 @@ class ResultScreen extends GetView<ResultController> {
           ItemTile(
             title: 'customer_phone_number'.tr,
             value: Formatter.formatPhoneNumber(
-                controller.order.value.customerPhone ?? '',
+                controller.order.value.customerPhone,
                 CommonConstants.USCountryCode),
           ),
           ItemTile(
             title: 'name'.tr,
-            value: controller.order.value.customerName ?? '',
+            value: controller.order.value.customerName,
           )
         ],
       ),

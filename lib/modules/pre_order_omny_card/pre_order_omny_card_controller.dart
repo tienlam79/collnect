@@ -6,17 +6,13 @@ import 'package:omny_locator/routes/routes.dart';
 import 'package:omny_locator/shared/utils/formatter.dart';
 import 'package:uuid/uuid.dart';
 
-class ReloadCardController extends GetxController {
+class PreOrderOmnyCardController extends GetxController {
   final ApiRepository apiRepository;
-  ReloadCardController({required this.apiRepository});
+  PreOrderOmnyCardController({required this.apiRepository});
 
-  final phoneController = TextEditingController(text: '');
-  final nameController = TextEditingController(text: '');
   final amountController = TextEditingController(text: '');
   final cardNumberController = TextEditingController(text: '');
 
-  RxString phoneText = ''.obs;
-  RxString nameText = ''.obs;
   RxDouble selectedAmount = 0.0.obs;
   RxString cardNumber = ''.obs;
   RxString fullCardNumber = ''.obs;
@@ -38,14 +34,6 @@ class ReloadCardController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-
-    phoneController.addListener(() {
-      phoneText.value = phoneController.text.replaceAll('-', '');
-    });
-
-    nameController.addListener(() {
-      nameText.value = nameController.text;
-    });
 
     amountController.addListener(() {
       selectedAmount.value = amountController.text != ''
@@ -73,8 +61,6 @@ class ReloadCardController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-    phoneController.dispose();
-    nameController.dispose();
     amountController.dispose();
     cardNumberController.dispose();
   }
@@ -99,8 +85,7 @@ class ReloadCardController extends GetxController {
       String cardCode = fullCardNumber.value.replaceAll(res.prefix, '');
       cardNumber.value = cardCode;
       cardNumberController.text = cardCode;
-      Get.offAndToNamed(Routes.RELOAD_CARD + Routes.PRODUCT_FORM,
-          arguments: this);
+      Get.offAndToNamed(Routes.PRE_ORDER_OMNY_CARD);
     } catch (error) {
     } finally {
       isScanCode.value = false;
@@ -133,10 +118,9 @@ class ReloadCardController extends GetxController {
         productPin: cardNumberController.text,
         amount: selectedAmount.value.toString(),
         product: product.value.id,
-        customerName: nameController.text,
-        customerPhone: phoneText.value,
       );
-      final res = await apiRepository.createOrder(payload);
+      final res = await apiRepository.createPreOrder(payload);
+      print('....rest....${res.toJson()}');
       Get.until((route) => route.settings.name == '/home');
       Get.toNamed(Routes.RESULT, arguments: res);
     } catch (error) {}

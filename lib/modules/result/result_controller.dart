@@ -15,24 +15,17 @@ class ResultController extends GetxController {
     amount: 0.0,
     baseAmount: 0.0,
     fee: 0.0,
-    transactionId: 0,
-    product: new OrderProduct(name: ''),
+    productPrefix: '',
+    status: '',
+    customerName: '',
+    customerPhone: '',
+    product: new OrderProduct(name: '', productFilter: ''),
   ).obs;
   @override
   void onInit() {
     super.onInit();
     Order args = Get.arguments;
     order.value = args;
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
   }
 
   void getOrder() {}

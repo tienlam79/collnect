@@ -1,18 +1,15 @@
 import 'package:get/get.dart';
-import 'package:omny_locator/modules/add_credit/add_credit_binding.dart';
-import 'package:omny_locator/modules/add_credit/add_credit_screen.dart';
-import 'package:omny_locator/modules/add_credit_result/add_credit_result.dart';
+import 'package:omny_locator/modules/pre_order_omny_card/pre_order_omny_card.dart';
+import 'package:omny_locator/modules/profile/profile_binding.dart';
+import 'package:omny_locator/modules/profile/profile_screen.dart';
 
-import '../modules/activated_card/activated_card.dart';
 import '../modules/home/home.dart';
 import '../modules/login/login.dart';
 import '../modules/modules.dart';
-import '../modules/reload_card/reload_card.dart';
 import '../modules/result/result_binding.dart';
 import '../modules/result/result_screen.dart';
 import '../modules/scan_card/scan_card_binding.dart';
 import '../modules/scan_card/scan_card_screen.dart';
-import '../modules/scan_pre_order/scan_pre_order.dart';
 import '../modules/verification/verification.dart';
 
 part 'app_routes.dart';
@@ -42,35 +39,14 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: Routes.ACTIVATED_CARD,
-      page: () => ActivatedCardScreen(),
-      binding: ActivatedCardBinding(),
-      children: [
-        GetPage(
-          name: Routes.SCAN_BAR_CODE,
-          page: () => ScanBarCode(),
-        ),
-        GetPage(
-          name: Routes.PRODUCT_FORM,
-          page: () => ActivatedCardProductForm(),
-        ),
-      ],
+      name: Routes.PROFILE,
+      page: () => ProfileScreen(),
+      binding: ProfileBinding(),
     ),
     GetPage(
-      name: Routes.RELOAD_CARD,
-      page: () => ReloadCardScreen(),
-      binding: ReloadCardBinding(),
-      children: [
-        GetPage(
-          name: Routes.PRODUCT_FORM,
-          page: () => ReloadCardProductForm(),
-        ),
-      ],
-    ),
-    GetPage(
-      name: Routes.SCAN_PRE_ORDER,
-      page: () => ScanPreOrderScreen(),
-      binding: ScanPreOrderBinding(),
+      name: Routes.PRE_ORDER_OMNY_CARD,
+      page: () => PreOrderOmnyCardScreen(),
+      binding: PreOrdeOmnyCardBinding(),
     ),
     GetPage(
       name: Routes.SCAN_CARD,
@@ -81,16 +57,6 @@ class AppPages {
       name: Routes.RESULT,
       page: () => ResultScreen(),
       binding: ResultBinding(),
-    ),
-    GetPage(
-      name: Routes.ADD_CREDIT,
-      page: () => AddCreditScreen(),
-      binding: AddCreditBinding(),
-    ),
-    GetPage(
-      name: Routes.ADD_CREDIT_RESULT,
-      page: () => AddCreditResultScreen(),
-      binding: AddCreditResultBinding(),
     ),
   ];
 }

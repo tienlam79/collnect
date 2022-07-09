@@ -7,4 +7,5 @@ class ImageConstants {
   static const String barCodeDarkIcon = 'assets/images/bar_code_dark.png';
   static const String scanBarCodeSample =
       'assets/images/scan_bar_code_sample.png';
+  static const String emptyHistory = 'assets/images/empty_history.png';
 }
