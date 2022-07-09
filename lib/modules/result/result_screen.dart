@@ -6,7 +6,6 @@ import 'package:omny_locator/modules/result/widgets/pre_order_qrcode.dart';
 import 'package:omny_locator/routes/routes.dart';
 import 'package:omny_locator/shared/shared.dart';
 import 'package:omny_locator/shared/widgets/common/custom_card.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
 class ResultScreen extends GetView<ResultController> {
   const ResultScreen({Key? key}) : super(key: key);
