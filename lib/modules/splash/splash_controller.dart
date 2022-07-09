@@ -1,5 +1,7 @@
 import 'package:omny_locator/api/api_repository.dart';
 import 'package:omny_locator/models/models.dart';
+import 'package:omny_locator/modules/home/home.dart';
+import 'package:omny_locator/modules/login/login.dart';
 import 'package:omny_locator/routes/routes.dart';
 import 'package:omny_locator/shared/shared.dart';
 import 'package:get/get.dart';
@@ -20,10 +22,10 @@ class SplashController extends GetxController {
       if (storage.getString(StorageConstants.token) != null) {
         checkToken();
       } else {
-        Get.toNamed(Routes.LOGIN);
+        Get.offNamed(Routes.LOGIN);
       }
     } catch (e) {
-      Get.toNamed(Routes.LOGIN);
+      Get.offNamed(Routes.LOGIN);
     }
   }
 
@@ -42,12 +44,12 @@ class SplashController extends GetxController {
           StorageConstants.refreshToken,
           newToken.refreshToken,
         );
-        Get.toNamed(Routes.HOME);
+        Get.offNamed(Routes.HOME);
       } else {
-        Get.toNamed(Routes.LOGIN);
+        Get.offNamed(Routes.LOGIN);
       }
     } catch (error) {
-      Get.toNamed(Routes.LOGIN);
+      Get.offNamed(Routes.LOGIN);
     }
   }
 }
