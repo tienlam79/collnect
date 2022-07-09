@@ -11,10 +11,25 @@ class ProfileController extends GetxController {
 
   Rx<Profile> profile = new Profile().obs;
 
+  Rx<Order> pendingPreOrder = new Order(
+    id: 0,
+    cid: '',
+    productPin: '',
+    amount: 0.0,
+    baseAmount: 0.0,
+    fee: 0.0,
+    productPrefix: '',
+    status: '',
+    customerName: '',
+    customerPhone: '',
+    product: new OrderProduct(name: ''),
+  ).obs;
+
   @override
   void onInit() {
     super.onInit();
     getProfile();
+    getPendingPreOrder();
   }
 
   void getProfile() async {
@@ -24,8 +39,14 @@ class ProfileController extends GetxController {
     } catch (error) {}
   }
 
+  void getPendingPreOrder() async {
+    try {
+      var res = await apiRepository.getPendingPreOrder();
+      pendingPreOrder.value = res;
+    } catch (error) {}
+  }
+
   void onLogout() async {
-    print('lllog');
     var storage = Get.find<SharedPreferences>();
     var token = storage.getString(StorageConstants.token);
     final payload = new RefershTokenRequest(token: token);

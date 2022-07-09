@@ -62,13 +62,25 @@ class ApiRepository {
     }
   }
 
-  Future<PagingResponse> getNearbyStores(int page, int pageSize) async {
+  Future<PagingResponse> getNearbyStores(
+    int page,
+    int pageSize,
+    double xLatitude,
+    double xLongitude,
+  ) async {
     try {
-      final res = await apiProvider
-          .getMethod('/customer-api/customer/retailer-infos', query: {
-        'page': '$page',
-        'page_size': '$pageSize',
-      });
+      final res = await apiProvider.getMethod(
+        '/customer-api/customer/retailer-infos',
+        query: {
+          'page': '$page',
+          'page_size': '$pageSize',
+        },
+        headers: {
+          'x-latitude': '$xLatitude',
+          'x-longitude': '$xLongitude',
+        },
+      );
+      print('...res... ${res.body}');
       return PagingResponse.fromJson(res.body);
     } catch (error) {
       throw error;
@@ -86,16 +98,13 @@ class ApiRepository {
   }
 
   Future<Order> createPreOrder(CreateOrderRequest payload) async {
-    print('..payload. ${payload.toJson()}');
     try {
       final res = await apiProvider.postMethod(
         '/customer-api/customer/orders',
         payload,
       );
-      print('res,,${res.body}');
       return Order.fromJson(res.body);
     } catch (error) {
-      print('errro,,${error.toString()}');
       throw error;
     }
   }
@@ -104,6 +113,17 @@ class ApiRepository {
     try {
       final res = await apiProvider.getMethod(
         '/customer-api/customer/orders/$id',
+      );
+      return Order.fromJson(res.body);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  Future<Order> getPendingPreOrder() async {
+    try {
+      final res = await apiProvider.getMethod(
+        '/customer-api/customer/orders/pending',
       );
       return Order.fromJson(res.body);
     } catch (error) {

@@ -9,4 +9,6 @@ class ImageConstants {
       'assets/images/scan_bar_code_sample.png';
   static const String emptyHistory = 'assets/images/empty_history.png';
   static const String homeIcon = 'assets/images/home_icon.png';
+  static const String locationPermision =
+      'assets/images/location_permision.png';
 }

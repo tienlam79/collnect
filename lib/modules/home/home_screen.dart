@@ -25,8 +25,16 @@ class HomeScreen extends GetView<HomeController> {
           SpacingMd(),
           _buildScanBarCodeButton(context),
           SpacingMd(),
-          NearbyStoreList(),
-          // Expanded(child: NearbyStoreList()),
+          Obx(
+            () => controller.positon.value.latitude != 0.0 &&
+                    controller.positon.value.longitude != 0.0
+                ? NearbyStoreList(
+                    latitude: controller.positon.value.latitude,
+                    longitude: controller.positon.value.longitude,
+                  )
+                : Container(),
+          ),
+          // enableLocationDialog(),
         ],
       ),
       title: Obx(
@@ -39,8 +47,7 @@ class HomeScreen extends GetView<HomeController> {
       ),
       actions: [
         IconButton(
-          onPressed: () => {},
-          // onPressed: controller.onLogout,
+          onPressed: () => Get.toNamed(Routes.PROFILE),
           icon: Icon(Icons.account_circle, size: 24),
         )
       ],

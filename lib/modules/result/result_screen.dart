@@ -93,19 +93,10 @@ class ResultScreen extends GetView<ResultController> {
           ],
         ),
         SpacingMd(),
-        Container(
-          padding: const EdgeInsets.all(13),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
-          ),
-          child: QrImage(
-            data:
-                '${controller.order.value.id}-${controller.order.value.customerPhone}-${controller.order.value.customerName}-${controller.order.value.amount}',
-            version: QrVersions.auto,
-            padding: EdgeInsets.zero,
-            size: 150.0,
-          ),
+        QrCodeWrapper(
+          size: 150.0,
+          value:
+              '${controller.order.value.id}-${controller.order.value.customerPhone}-${controller.order.value.customerName}-${controller.order.value.amount}',
         ),
         SpacingXs(),
         TextButton(

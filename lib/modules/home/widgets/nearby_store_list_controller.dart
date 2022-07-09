@@ -7,8 +7,12 @@ import 'package:omny_locator/shared/constants/common.dart';
 class NearbyStoreListController extends GetxController {
   NearbyStoreListController({
     required this.apiRepository,
+    required this.longitude,
+    required this.latitude,
   });
 
+  final double longitude;
+  final double latitude;
   final ApiRepository apiRepository;
   final ScrollController scrollController = ScrollController();
 
@@ -45,7 +49,11 @@ class NearbyStoreListController extends GetxController {
   void getNearbyStores() async {
     try {
       final res = await apiRepository.getNearbyStores(
-          page.value, CommonConstants.pageSize);
+        page.value,
+        CommonConstants.pageSize,
+        latitude,
+        longitude,
+      );
       final list =
           res.results.map<Store>((entry) => Store.fromJson(entry)).toList();
       total.value = res.count;

@@ -35,5 +35,13 @@ const Map<String, String> en_US = {
   "save_qr_code": "Save QR code to photo library",
   "find_qr_code":
       "You can find above QR Code with latest Pre-Order in Account page",
-  "result": "Result"
+  "result": "Result",
+  "enable_location_service": "Enable Location Service",
+  "enable_location_service_desc":
+      "We need know where you are in order to find nearby stores",
+  "pending_pre_order": "Pending pre-order",
+  'account': "Account",
+  'amount': "Amount",
+  "detail": "Detail",
+  'pre_order_history': "Pre-order History"
 };

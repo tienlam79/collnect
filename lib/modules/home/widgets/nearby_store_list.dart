@@ -5,10 +5,21 @@ import 'package:omny_locator/modules/home/widgets/nearby_store_list_controller.d
 import 'package:omny_locator/shared/shared.dart';
 
 class NearbyStoreList extends StatelessWidget {
-  NearbyStoreList({Key? key}) : super(key: key);
+  final NearbyStoreListController controller;
+  NearbyStoreList({
+    Key? key,
+    required this.latitude,
+    required this.longitude,
+  }) : controller = Get.put(
+          NearbyStoreListController(
+            apiRepository: Get.find(),
+            latitude: latitude,
+            longitude: longitude,
+          ),
+        );
+  final double longitude;
+  final double latitude;
 
-  final NearbyStoreListController controller =
-      Get.put(NearbyStoreListController(apiRepository: Get.find()));
   @override
   Widget build(BuildContext context) {
     return Column(
