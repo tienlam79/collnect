@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_business/flavor_config.dart';
 import 'package:omny_business/routes/routes.dart';
 import 'package:omny_business/shared/shared.dart';
 import 'package:omny_business/theme/theme_data.dart';
@@ -11,14 +10,16 @@ class LoginScreen extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Theme(
       data: ThemeConfig.blueTheme,
-      child: LoginWrapper(
+      child: MainListWidget(
+        scrollable: false,
+        showBackIcon: false,
+        elevation: 0,
         child: Column(
           children: [
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SpacingMd(),
                   Text(
                     'login_title'.tr,
                     maxLines: 2,
@@ -28,7 +29,7 @@ class LoginScreen extends GetView<LoginController> {
                           fontWeight: FontWeight.w800,
                         ),
                   ),
-                  SpacingMd(),
+                  SpacingLg(),
                   InputField(
                     controller: controller.yourIdController,
                     labelText: 'your_id'.tr,

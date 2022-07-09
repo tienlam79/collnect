@@ -72,6 +72,9 @@ class _VerificationCodeInputState extends State<VerificationCodeInput> {
       onChanged: (value) => _change(value, index),
       textAlign: TextAlign.center,
       keyboardType: TextInputType.number,
+      // inputFormatters: [
+      //   new LengthLimitingTextInputFormatter(1),
+      // ],
       style: TextStyle(
         fontSize: 35,
         height: 1.2,

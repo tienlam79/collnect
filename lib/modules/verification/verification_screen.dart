@@ -12,11 +12,12 @@ class VerificationScreen extends GetView<VerificationController> {
     final int inputNumber = 6;
     return Theme(
       data: ThemeConfig.blueTheme,
-      child: LoginWrapper(
+      child: MainListWidget(
+        showBackIcon: false,
+        elevation: 0,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SpacingMd(),
             Text(
               'verification'.tr,
               style: Theme.of(context).textTheme.headline3!.copyWith(
@@ -32,7 +33,7 @@ class VerificationScreen extends GetView<VerificationController> {
                     fontWeight: FontWeight.w400,
                   ),
             ),
-            SpacingSm(),
+            SpacingMd(),
             VerificationCodeInput(
               length: 6,
               autofocus: true,
@@ -44,7 +45,7 @@ class VerificationScreen extends GetView<VerificationController> {
               onChangeCode: controller.onChangeCode,
               onCompleted: controller.onGenerateToken,
             ),
-            SpacingSm(),
+            SpacingMd(),
             Obx(
               () => controller.isStartTimer.value
                   ? TweenAnimationBuilder<Duration>(
@@ -87,7 +88,7 @@ class VerificationScreen extends GetView<VerificationController> {
                       ),
                     ),
             ),
-            SpacingSm(),
+            SpacingLg(),
             Obx(
               () => PrimaryButton(
                 text: 'submit'.tr,
