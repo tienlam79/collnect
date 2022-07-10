@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:omny_locator/models/models.dart';
+import 'package:omny_locator/models/request/favorite_store_request.dart';
 import 'package:omny_locator/models/response/verification_code_response.dart';
 import 'api.dart';
 
@@ -67,6 +68,7 @@ class ApiRepository {
     int pageSize,
     double xLatitude,
     double xLongitude,
+    String sortBy,
   ) async {
     try {
       final res = await apiProvider.getMethod(
@@ -78,9 +80,9 @@ class ApiRepository {
         headers: {
           'x-latitude': '$xLatitude',
           'x-longitude': '$xLongitude',
+          'order_by': sortBy
         },
       );
-      print('...res... ${res.body}');
       return PagingResponse.fromJson(res.body);
     } catch (error) {
       throw error;
@@ -116,7 +118,6 @@ class ApiRepository {
         'page': '$page',
         'page_size': '$pageSize',
       });
-      print('...${res.body}');
       return PagingResponse.fromJson(res.body);
     } catch (error) {
       throw error;
@@ -141,6 +142,45 @@ class ApiRepository {
       );
       return Order.fromJson(res.body);
     } catch (error) {
+      throw error;
+    }
+  }
+
+  Future<Store> getStoreById(int storeId) async {
+    try {
+      final res = await apiProvider.getMethod(
+        '/customer-api/customer/retailer-infos/$storeId',
+      );
+      return Store.fromJson(res.body);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  Future<PagingResponse> getStoreReviews(
+      int page, int pageSize, int? userId) async {
+    try {
+      final res = await apiProvider
+          .getMethod('/customer-api/customer/retailer-reviews', query: {
+        'page': '$page',
+        'page_size': '$pageSize',
+        'user': userId == null ? null : '$userId'
+      });
+      return PagingResponse.fromJson(res.body);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  Future<Comment> favoriteStore(FavoriteStoreRequest payload) async {
+    try {
+      final res = await apiProvider.postMethod(
+          '/customer-api/customer/retailer-reviews', payload);
+      print('...pyalod... ${payload.toJson()}');
+      print('...re... ${res.body}');
+      return Comment.fromJson(res.body);
+    } catch (error) {
+      print('error.. $error');
       throw error;
     }
   }

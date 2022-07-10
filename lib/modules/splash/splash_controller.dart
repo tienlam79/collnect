@@ -42,6 +42,7 @@ class SplashController extends GetxController {
           StorageConstants.refreshToken,
           newToken.refreshToken,
         );
+        print('...acessstoken...${newToken.toJson()}');
         Get.offNamed(Routes.HOME);
       } else {
         Get.offNamed(Routes.LOGIN);

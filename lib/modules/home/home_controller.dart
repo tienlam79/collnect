@@ -53,8 +53,7 @@ class HomeController extends GetxController {
   }
 
   void checkLocation() async {
-    var status = await Permission.location.status;
-
+    var status = await Permission.locationWhenInUse.status;
     if (status.isPermanentlyDenied) {
       enableLocationDialog();
       return;
@@ -65,11 +64,10 @@ class HomeController extends GetxController {
         final p = await Geolocator.getCurrentPosition();
         positon.value = p;
         return;
-        // return Get.toNamed(Routes.NEARBY_STORES, arguments: [position]);
       } else {
         Get.snackbar(
           "Permisson Denied",
-          "Please enable camera to scan barcodes",
+          "Please enable location to get nearby store",
         );
         return;
       }

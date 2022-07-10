@@ -23,28 +23,29 @@ class MainListWidget extends StatefulWidget {
   final double? elevation;
   final double? titleSpacing;
   final bool extendBodyBehindAppBar;
-  MainListWidget({
-    required this.child,
-    this.titleText = '',
-    this.backIcon = Icons.arrow_back,
-    this.callback,
-    this.showBackIcon = true,
-    this.actions,
-    this.centerTitle = false,
-    this.titleStyle,
-    this.bottomNavigationBar,
-    this.isCustomScrollView = false,
-    this.bodyPadding = const EdgeInsets.all(CommonConstants.hPadding),
-    this.title,
-    this.scrollable = true,
-    this.footer,
-    this.resizeToAvoidBottomInset,
-    this.backgroundColor,
-    this.appBarBackgroundColor,
-    this.elevation,
-    this.titleSpacing,
-    this.extendBodyBehindAppBar = false,
-  });
+  final FloatingActionButton? floatingActionButton;
+  MainListWidget(
+      {required this.child,
+      this.titleText = '',
+      this.backIcon = Icons.arrow_back,
+      this.callback,
+      this.showBackIcon = true,
+      this.actions,
+      this.centerTitle = false,
+      this.titleStyle,
+      this.bottomNavigationBar,
+      this.isCustomScrollView = false,
+      this.bodyPadding = const EdgeInsets.all(CommonConstants.hPadding),
+      this.title,
+      this.scrollable = true,
+      this.footer,
+      this.resizeToAvoidBottomInset,
+      this.backgroundColor,
+      this.appBarBackgroundColor,
+      this.elevation,
+      this.titleSpacing,
+      this.extendBodyBehindAppBar = false,
+      this.floatingActionButton});
 
   @override
   State<MainListWidget> createState() => _MainListWidgetState();
@@ -94,6 +95,7 @@ class _MainListWidgetState extends State<MainListWidget> {
       resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
       backgroundColor: widget.backgroundColor,
       extendBodyBehindAppBar: widget.extendBodyBehindAppBar,
+      floatingActionButton: widget.floatingActionButton,
       appBar: AppBar(
         elevation: widget.elevation,
         centerTitle: widget.centerTitle,

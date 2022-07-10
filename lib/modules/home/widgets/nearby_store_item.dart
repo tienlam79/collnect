@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:omny_locator/models/store.dart';
+import 'package:omny_locator/routes/routes.dart';
 import 'package:omny_locator/shared/constants/colors.dart';
-import 'package:omny_locator/shared/constants/common.dart';
+import 'package:omny_locator/shared/widgets/widgets.dart';
+
+import 'location_tag.dart';
 
 class NearbyStoreItem extends StatelessWidget {
   const NearbyStoreItem({
@@ -13,29 +17,43 @@ class NearbyStoreItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      child: Container(
-          decoration: BoxDecoration(
-            border: Border.all(color: hexToColor('#99B2FE')),
-            borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
-          ),
-          child: Column(
-            children: [
-              RichText(
-                text: TextSpan(
-                  text: store.storeName,
-                  style: Theme.of(context).textTheme.headline5,
-                  children: [
-                    TextSpan(
-                      text: 'bold',
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                            color: ColorConstants.lightLabelInputColor,
-                          ),
-                    ),
-                  ],
-                ),
+      onTap: () => Get.toNamed(Routes.STORE_DETAIL, arguments: store),
+      child: CustomCard(
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  StoreDetailItem(store: store),
+                  SpacingSm(),
+                  _buildProductType(context)
+                ],
               ),
-            ],
-          )),
+            ),
+            Icon(Icons.navigate_next),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildProductType(BuildContext context) {
+    return Row(
+      children: [
+        if (store.productCount! >= 1)
+          LocationTag(
+            text: 'reload'.tr,
+            textColor: Colors.black,
+            backgroundColor: ColorConstants.blueButtonBackgroundColor,
+          ),
+        if (store.productCount! > 1) ...[
+          SizedBox(
+            width: 4,
+          ),
+          LocationTag(text: 'activate'.tr)
+        ],
+      ],
     );
   }
 }

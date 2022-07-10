@@ -21,6 +21,14 @@ class NearbyStoreListController extends GetxController {
   RxInt total = 0.obs;
   RxBool initLoading = true.obs;
 
+  List<DropdownMenuItem<String>> sortByOptions = [
+    new DropdownMenuItem(child: Text('sort_by_distant'.tr), value: 'distant'),
+    new DropdownMenuItem(child: Text('sort_by_rating'.tr), value: 'rating'),
+  ];
+
+  RxString sortByOption = 'distant'.obs;
+  RxBool addMore = false.obs;
+
   @override
   void onInit() {
     super.onInit();
@@ -36,10 +44,20 @@ class NearbyStoreListController extends GetxController {
       },
       time: Duration(seconds: 1),
     );
+    debounce(
+      sortByOption,
+      (value) {
+        if (page.value == 1) {
+          getNearbyStores();
+        }
+      },
+      time: Duration(seconds: 1),
+    );
 
     scrollController.addListener(() {
       if (scrollController.position.maxScrollExtent ==
           scrollController.position.pixels) {
+        addMore.value = true;
         int nextPage = page.value + 1;
         page.value = nextPage;
       }
@@ -53,18 +71,31 @@ class NearbyStoreListController extends GetxController {
         CommonConstants.pageSize,
         latitude,
         longitude,
+        sortByOption.value,
       );
       final list =
           res.results.map<Store>((entry) => Store.fromJson(entry)).toList();
       total.value = res.count;
-      List<Store> newList = [
-        ...stores,
-        ...list,
-      ];
+      List<Store> newList = addMore.value
+          ? [
+              ...stores,
+              ...list,
+            ]
+          : [...list];
       stores.assignAll(newList);
     } catch (error) {
     } finally {
+      addMore.value = false;
       initLoading.value = false;
+    }
+  }
+
+  void onChangeSort(String? sortBy) {
+    if (sortBy != null) {
+      sortByOption.value = sortBy;
+      if (page.value != 1) {
+        page.value = 1;
+      }
     }
   }
 }

@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:omny_locator/modules/pre_order_detail/pre_order_detail_controller.dart';
 import 'package:omny_locator/shared/shared.dart';
-import 'package:omny_locator/shared/widgets/common/custom_card.dart';
 
 class PreOrderDetailScreen extends GetView<PreOrderDetailController> {
   const PreOrderDetailScreen({Key? key}) : super(key: key);

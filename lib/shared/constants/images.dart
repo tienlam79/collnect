@@ -12,4 +12,5 @@ class ImageConstants {
   static const String locationPermision =
       'assets/images/location_permision.png';
   static const String homeSplash = 'assets/images/home_splash.png';
+  static const String map = 'assets/images/map.png';
 }

@@ -10,6 +10,7 @@ class OutlinedGradientButton extends StatelessWidget {
   final double width;
   final double height;
   final void Function()? onPressed;
+  final double radius;
 
   final bool disabled;
 
@@ -22,6 +23,7 @@ class OutlinedGradientButton extends StatelessWidget {
     this.height = 60.0,
     this.onPressed,
     this.disabled = false,
+    this.radius = CommonConstants.borderRadius,
   }) : super(key: key);
 
   @override
@@ -43,12 +45,12 @@ class OutlinedGradientButton extends StatelessWidget {
           border: Border.all(
             color: Colors.transparent,
           ),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(radius),
         ),
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(6),
+            borderRadius: BorderRadius.circular(radius - 2),
           ),
           child: Center(
             child: text != ""

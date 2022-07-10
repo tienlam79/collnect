@@ -9,8 +9,8 @@ class GradientButton extends StatelessWidget {
   final double width;
   final double height;
   final void Function()? onPressed;
-
   final bool disabled;
+  final double radius;
 
   const GradientButton({
     Key? key,
@@ -21,6 +21,7 @@ class GradientButton extends StatelessWidget {
     this.height = 60.0,
     this.onPressed,
     this.disabled = false,
+    this.radius = CommonConstants.borderRadius,
   }) : super(key: key);
 
   @override
@@ -36,7 +37,7 @@ class GradientButton extends StatelessWidget {
       height: height,
       decoration: BoxDecoration(
         gradient: colors,
-        borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
+        borderRadius: BorderRadius.circular(radius),
         boxShadow: disabled
             ? null
             : [
@@ -59,11 +60,6 @@ class GradientButton extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                           color: disabled ? Colors.black : Colors.white,
                         ),
-                    // style: TextStyle(
-                    //   color: Colors.white,
-                    //   fontSize: CommonConstants.smallText,
-                    //   fontWeight: FontWeight.w700,
-                    // ),
                   )
                 : child,
           ),

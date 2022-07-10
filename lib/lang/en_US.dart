@@ -55,5 +55,19 @@ const Map<String, String> en_US = {
   "reload_completed": "Reload completed",
   "pre_reload_again": "Pre-reload again",
   "omny_location": "OMNY Location",
-  "reload_omny_card": "Reload your OMNY card easier"
+  "reload_omny_card": "Reload your OMNY card easier",
+  'activate': "Activate",
+  'reload': "Reload",
+  'sort_by_distant': "Sort by distant",
+  'sort_by_rating': "Sort by rating",
+  'store_detail': "Store detail",
+  "directions": "Directions",
+  'like': "Like",
+  'share': "Share",
+  'reload_detail': "Reload detail",
+  'leave_comment': "Leave comment",
+  "your_comment": "Your comment",
+  "rating": "Rating",
+  'add_photo': "Add photo",
+  "reviews": "Reviews"
 };

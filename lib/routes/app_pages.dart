@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../modules/comment/comment.dart';
 import '../modules/home/home.dart';
 import '../modules/login/login.dart';
 import '../modules/modules.dart';
@@ -11,6 +12,7 @@ import '../modules/result/result_binding.dart';
 import '../modules/result/result_screen.dart';
 import '../modules/scan_card/scan_card_binding.dart';
 import '../modules/scan_card/scan_card_screen.dart';
+import '../modules/store_detail/store_detail.dart';
 import '../modules/verification/verification.dart';
 
 part 'app_routes.dart';
@@ -68,6 +70,16 @@ class AppPages {
       name: Routes.PRE_ORDER_DETAIL,
       page: () => PreOrderDetailScreen(),
       binding: PreOrderDetailBinding(),
+    ),
+    GetPage(
+      name: Routes.STORE_DETAIL,
+      page: () => StoreDetailScreen(),
+      binding: StoreDetailBinding(),
+    ),
+    GetPage(
+      name: Routes.COMMENT,
+      page: () => CommentScreen(),
+      binding: CommentBinding(),
     ),
   ];
 }

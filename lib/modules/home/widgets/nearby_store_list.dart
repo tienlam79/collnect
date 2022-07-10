@@ -26,17 +26,22 @@ class NearbyStoreList extends StatelessWidget {
       children: [
         Row(
           children: [
-            SectionTitle(text: 'store_near_you'.tr),
+            Expanded(
+              child: SectionTitle(text: 'store_near_you'.tr),
+            ),
+            _buildSortBy(context),
           ],
         ),
         Obx(
-          () => controller.stores.length == 0 && !controller.initLoading.value
+          () => controller.stores.length == 0
               ? EmptyList(
                   image: ImageConstants.emptyHistory,
                   title: 'no_nearby_store'.tr,
                 )
-              : ListView.builder(
+              : ListView.separated(
                   shrinkWrap: true,
+                  separatorBuilder: (BuildContext context, int index) =>
+                      SpacingXs(),
                   controller: controller.scrollController,
                   itemCount: controller.stores.length,
                   itemBuilder: (BuildContext context, int index) =>
@@ -46,6 +51,22 @@ class NearbyStoreList extends StatelessWidget {
                 ),
         ),
       ],
+    );
+  }
+
+  Widget _buildSortBy(BuildContext context) {
+    return Obx(
+      () => DropdownButton<String>(
+        value: controller.sortByOption.value,
+        elevation: 16,
+        style: Theme.of(context).textTheme.subtitle1,
+        iconEnabledColor: Colors.black,
+        underline: Container(
+          height: 0,
+        ),
+        onChanged: controller.onChangeSort,
+        items: controller.sortByOptions,
+      ),
     );
   }
 }

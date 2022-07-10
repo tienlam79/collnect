@@ -19,7 +19,7 @@ class FlavorConfig {
   static FlavorConfig _instance = FlavorConfig._internal(
     Flavor.DEV,
     FlavorValues(
-      baseUrl: ApiConstants.baseUrl,
+      baseUrl: 'https://test-omnyapp.lunexgroup.com',
       sku: 1000,
     ),
     'OMNY Retailer Dev',

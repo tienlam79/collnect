@@ -11,4 +11,6 @@ abstract class Routes {
   static const SCAN_CARD = '/scan-card';
   static const PENDING_PRE_ORDER_DETAIL = '/pending-pre-order-detail';
   static const PRE_ORDER_DETAIL = '/pre-order-detail';
+  static const STORE_DETAIL = '/store_detail';
+  static const COMMENT = '/comment';
 }

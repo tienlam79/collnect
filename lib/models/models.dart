@@ -6,6 +6,7 @@ export 'request/refresh_token_request.dart';
 export 'request/product_request.dart';
 export 'request/create_order_request.dart';
 export 'request/create_ach_request.dart';
+export 'request/favorite_store_request.dart';
 
 export 'response/error_response.dart';
 export 'response/login_response.dart';
@@ -23,3 +24,4 @@ export 'profile.dart';
 export 'ach_option.dart';
 export 'ach_order.dart';
 export 'store.dart';
+export 'comment.dart';
