@@ -54,6 +54,7 @@ class HomeController extends GetxController {
 
   void checkLocation() async {
     var status = await Permission.location.status;
+
     if (status.isPermanentlyDenied) {
       enableLocationDialog();
       return;

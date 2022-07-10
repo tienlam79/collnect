@@ -14,5 +14,5 @@ void main() async {
   );
   Widget app = await initializeApp();
   runApp(app);
-  configLoading();
+  // configLoading();
 }
