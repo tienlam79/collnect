@@ -67,6 +67,10 @@ class StoreDetailScreen extends GetView<StoreDetailController> {
         Flexible(
           flex: 3,
           child: GradientButton(
+            onPressed: () => MapUtils.openMap(
+              controller.store.value.latitude,
+              controller.store.value.longitude,
+            ),
             height: 40,
             radius: 14,
             child: Row(

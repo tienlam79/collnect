@@ -60,8 +60,8 @@ class HomeScreen extends GetView<HomeController> {
 
   Widget _buildScanBarCodeButton(BuildContext context) {
     return PrimaryButton(
-      onPressed: () => Get.toNamed(Routes.PRE_ORDER_OMNY_CARD,
-          arguments: preOrderController),
+      onPressed: () =>
+          Get.toNamed(Routes.SCAN_CARD, arguments: preOrderController),
       size: 120,
       child: ListTile(
         contentPadding: EdgeInsets.zero,
