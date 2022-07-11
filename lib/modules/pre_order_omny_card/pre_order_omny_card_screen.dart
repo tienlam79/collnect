@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:omny_locator/routes/app_pages.dart';
 import 'package:omny_locator/shared/shared.dart';
 import 'package:omny_locator/shared/utils/helpers.dart';
-
 import 'pre_order_omny_card_controller.dart';
 
 class PreOrderOmnyCardScreen extends GetView<PreOrderOmnyCardController> {
@@ -11,6 +10,7 @@ class PreOrderOmnyCardScreen extends GetView<PreOrderOmnyCardController> {
 
   @override
   Widget build(BuildContext context) {
+    // print('.....params... ${Get.arguments}');
     return MainListWidget(
       titleText: 'pre_order_omny_card'.tr,
       titleSpacing: CommonConstants.titleSpacing,

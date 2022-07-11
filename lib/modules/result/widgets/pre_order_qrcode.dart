@@ -7,8 +7,10 @@ class PreOrderQrCode extends StatelessWidget {
   PreOrderQrCode({
     Key? key,
     required this.order,
+    required this.onFindLocation,
   }) : super(key: key);
   final Order order;
+  final Function() onFindLocation;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,22 +21,25 @@ class PreOrderQrCode extends StatelessWidget {
           style: Theme.of(context).textTheme.subtitle1,
         ),
         SpacingSm(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              ImageConstants.homeIcon,
-              width: 20,
-              height: 20,
-            ),
-            SizedBox(
-              width: 8,
-            ),
-            GradientText(
-              'find_location_near_you'.tr,
-              style: Theme.of(context).textTheme.headline5,
-            ),
-          ],
+        InkWell(
+          onTap: onFindLocation,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                ImageConstants.homeIcon,
+                width: 20,
+                height: 20,
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              GradientText(
+                'find_location_near_you'.tr,
+                style: Theme.of(context).textTheme.headline5,
+              ),
+            ],
+          ),
         ),
         SpacingMd(),
         QrCodeWrapper(

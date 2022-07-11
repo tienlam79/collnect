@@ -4,6 +4,7 @@ import '../modules/comment/comment.dart';
 import '../modules/home/home.dart';
 import '../modules/login/login.dart';
 import '../modules/modules.dart';
+import '../modules/nearby_store/nearby_store.dart';
 import '../modules/pending_pre_order_detail/pending_pre_order_detail.dart';
 import '../modules/pre_order_detail/pre_order_detail.dart';
 import '../modules/pre_order_omny_card/pre_order_omny_card.dart';
@@ -75,6 +76,11 @@ class AppPages {
       name: Routes.STORE_DETAIL,
       page: () => StoreDetailScreen(),
       binding: StoreDetailBinding(),
+    ),
+    GetPage(
+      name: Routes.NEARBY_STORE,
+      page: () => NearbyStoreScreen(),
+      binding: NearbyStoreBinding(),
     ),
     GetPage(
       name: Routes.COMMENT,

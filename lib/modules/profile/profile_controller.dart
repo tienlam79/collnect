@@ -43,7 +43,6 @@ class ProfileController extends GetxController {
   void getPendingPreOrder() async {
     try {
       var res = await apiRepository.getPendingPreOrder();
-      // print('...getPendingPreOrder ${res.toJson()}');
       pendingPreOrder.value = res;
     } catch (error) {}
   }
@@ -57,13 +56,10 @@ class ProfileController extends GetxController {
       await apiRepository.revokeToken(payload);
       storage.setString(StorageConstants.token, '');
       storage.setString(StorageConstants.refreshToken, '');
+      storage.setString(StorageConstants.xLatitude, '');
+      storage.setString(StorageConstants.xLongitude, '');
 
       Get.offAllNamed(Routes.LOGIN);
-    } catch (error) {
-      storage.setString(StorageConstants.token, '');
-      storage.setString(StorageConstants.refreshToken, '');
-      // storage.setString(StorageConstants.playerId, '');
-      Get.offAllNamed(Routes.LOGIN);
-    }
+    } catch (error) {}
   }
 }

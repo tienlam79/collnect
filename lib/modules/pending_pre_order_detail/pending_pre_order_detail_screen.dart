@@ -39,7 +39,10 @@ class PendingPreOrderDetailScreen
                 ),
           ),
           SpacingSm(),
-          PreOrderQrCode(order: controller.order.value),
+          PreOrderQrCode(
+            order: controller.order.value,
+            onFindLocation: controller.checkLocation,
+          ),
         ],
       ),
     );

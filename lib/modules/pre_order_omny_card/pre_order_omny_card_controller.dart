@@ -16,7 +16,6 @@ class PreOrderOmnyCardController extends GetxController {
   RxDouble selectedAmount = 0.0.obs;
   RxString cardNumber = ''.obs;
   RxString fullCardNumber = ''.obs;
-  RxBool isScanCode = false.obs;
   Rx<Product> product = new Product(
     id: 0,
     name: '',
@@ -34,6 +33,16 @@ class PreOrderOmnyCardController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+
+    var params = Get.arguments;
+    print('...params...$params');
+    if (params != null) {
+      String barCode = params[0];
+      print('..barCode..$barCode');
+      // double amount = params[1];
+      fullCardNumber.value = barCode;
+      getProduct();
+    }
 
     amountController.addListener(() {
       selectedAmount.value = amountController.text != ''
@@ -77,7 +86,7 @@ class PreOrderOmnyCardController extends GetxController {
   void getProduct() async {
     try {
       final payload = new ProductRequest(
-        filterCode: cardNumber.value,
+        filterCode: fullCardNumber.value,
         filterType: CardType.RELOAD,
       );
       final res = await apiRepository.getProduct(payload);
@@ -85,11 +94,14 @@ class PreOrderOmnyCardController extends GetxController {
       String cardCode = fullCardNumber.value.replaceAll(res.prefix, '');
       cardNumber.value = cardCode;
       cardNumberController.text = cardCode;
-      Get.offAndToNamed(Routes.PRE_ORDER_OMNY_CARD);
+      var params = Get.arguments;
+      if (params != null) {
+        if (params[1] != null) {
+          amountController.text = '${params[1]}';
+        }
+      }
     } catch (error) {
-    } finally {
-      isScanCode.value = false;
-    }
+    } finally {}
   }
 
   void resetProduct() {
@@ -115,7 +127,7 @@ class PreOrderOmnyCardController extends GetxController {
       var uuid = Uuid();
       var payload = new CreateOrderRequest(
         cid: uuid.v1(),
-        productPin: cardNumberController.text,
+        productPin: cardNumber.value,
         amount: selectedAmount.value.toString(),
         product: product.value.id,
       );

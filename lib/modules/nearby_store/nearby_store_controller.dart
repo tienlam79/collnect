@@ -4,15 +4,11 @@ import 'package:omny_locator/api/api_repository.dart';
 import 'package:omny_locator/models/models.dart';
 import 'package:omny_locator/shared/constants/common.dart';
 
-class NearbyStoreListController extends GetxController {
-  NearbyStoreListController({
+class NearbyStoreController extends GetxController {
+  NearbyStoreController({
     required this.apiRepository,
-    required this.longitude,
-    required this.latitude,
   });
 
-  final double longitude;
-  final double latitude;
   final ApiRepository apiRepository;
   final ScrollController scrollController = ScrollController();
 
@@ -69,8 +65,6 @@ class NearbyStoreListController extends GetxController {
       final res = await apiRepository.getNearbyStores(
         page.value,
         CommonConstants.pageSize,
-        latitude,
-        longitude,
         sortByOption.value,
       );
       final list =

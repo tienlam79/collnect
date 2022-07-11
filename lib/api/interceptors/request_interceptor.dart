@@ -11,9 +11,17 @@ import '../api_constants.dart';
 FutureOr<Request> requestInterceptor(request) async {
   var storage = Get.find<SharedPreferences>();
   String? token = storage.getString(StorageConstants.token);
+  String? xLatitude = storage.getString(StorageConstants.xLatitude);
+  String? xLongitude = storage.getString(StorageConstants.xLongitude);
   request.headers['Authorization'] = 'Bearer $token';
   request.headers['x-sku'] = '${ApiConstants.sku}';
-
+  if (xLatitude != null &&
+      xLongitude != null &&
+      xLatitude != '' &&
+      xLongitude != '') {
+    request.headers['x-latitude'] = xLatitude;
+    request.headers['x-longitude'] = xLongitude;
+  }
   EasyLoading.show(status: 'loading...');
   return request;
 }

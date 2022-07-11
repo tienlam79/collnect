@@ -1,15 +1,18 @@
 import 'package:omny_locator/api/api.dart';
 import 'package:get/get.dart';
 import 'package:omny_locator/models/models.dart';
+import 'package:omny_locator/shared/constants/storage.dart';
 import 'package:omny_locator/shared/widgets/alert/alert_info.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'widgets/enable_location_service.dart';
 
 class HomeController extends GetxController {
   final ApiRepository apiRepository;
   HomeController({required this.apiRepository});
+  var storage = Get.find<SharedPreferences>();
 
   Rx<Profile> profile = new Profile().obs;
   Rx<Position> positon = new Position(
@@ -55,13 +58,21 @@ class HomeController extends GetxController {
   void checkLocation() async {
     var status = await Permission.locationWhenInUse.status;
     if (status.isPermanentlyDenied) {
-      enableLocationDialog();
+      Get.dialog(
+        AlertInfo(
+          body: EnableLocationService(),
+          showCloseButton: false,
+        ),
+        barrierDismissible: false,
+      );
       return;
     }
     if (!status.isGranted) {
       var status = await Permission.locationWhenInUse.request();
       if (status.isGranted) {
         final p = await Geolocator.getCurrentPosition();
+        storage.setString(StorageConstants.xLatitude, '${p.latitude}');
+        storage.setString(StorageConstants.xLongitude, '${p.longitude}');
         positon.value = p;
         return;
       } else {
@@ -73,9 +84,10 @@ class HomeController extends GetxController {
       }
     } else {
       final p = await Geolocator.getCurrentPosition();
+      storage.setString(StorageConstants.xLatitude, '${p.latitude}');
+      storage.setString(StorageConstants.xLongitude, '${p.longitude}');
       positon.value = p;
       return;
-      // return Get.toNamed(Routes.NEARBY_STORES, arguments: [position]);
     }
   }
 }

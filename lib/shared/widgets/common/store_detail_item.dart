@@ -23,7 +23,7 @@ class StoreDetailItem extends StatelessWidget {
         _buildRating(context),
         SpacingSm(),
         Text(
-          '${store.street}${store.state != null ? ', ' : ''}${store.state}${store.suite != null && store.suite != '' ? ', ' : ''}${store.suite}${store.city != null ? ', ' : ''} ${store.city} ${store.zipCode}',
+          '${store.street}${store.state != null ? ', ' : ''}${store.state}${store.suite != null && store.suite != '' ? ', ' : ''}${store.suite == null ? '' : store.suite}${store.city != null ? ', ' : ''} ${store.city} ${store.zipCode}',
           style: Theme.of(context).textTheme.subtitle1!.copyWith(),
         ),
         // _buildProductType(context)

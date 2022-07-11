@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_locator/modules/home/widgets/nearby_store_list.dart';
-import 'package:omny_locator/modules/pre_order_omny_card/pre_order_omny_card.dart';
+import 'package:omny_locator/modules/nearby_store/nearby_store_list.dart';
 import 'package:omny_locator/routes/app_pages.dart';
 import 'package:omny_locator/shared/shared.dart';
+import '../nearby_store/nearby_store_controller.dart';
 import 'home_controller.dart';
 
 class HomeScreen extends GetView<HomeController> {
   HomeScreen({Key? key}) : super(key: key);
-  final PreOrderOmnyCardController preOrderController = Get.put(
-    PreOrderOmnyCardController(
-      apiRepository: Get.find(),
-    ),
-  );
+
+  final NearbyStoreController nearbyStoreController =
+      Get.put(NearbyStoreController(apiRepository: Get.find()));
   @override
   Widget build(BuildContext context) {
     return MainListWidget(
@@ -25,16 +23,27 @@ class HomeScreen extends GetView<HomeController> {
           SpacingMd(),
           _buildScanBarCodeButton(context),
           SpacingMd(),
+          // Obx(
+          //   () => NearbyStoreList(
+          //     stores: nearbyStoreController.stores,
+          //     scrollController: nearbyStoreController.scrollController,
+          //     sortByOption: nearbyStoreController.sortByOption.value,
+          //     sortByOptions: nearbyStoreController.sortByOptions,
+          //     onChangeSort: nearbyStoreController.onChangeSort,
+          //   ),
+          // ),
           Obx(
             () => controller.positon.value.latitude != 0.0 &&
                     controller.positon.value.longitude != 0.0
                 ? NearbyStoreList(
-                    latitude: controller.positon.value.latitude,
-                    longitude: controller.positon.value.longitude,
+                    stores: nearbyStoreController.stores,
+                    scrollController: nearbyStoreController.scrollController,
+                    sortByOption: nearbyStoreController.sortByOption.value,
+                    sortByOptions: nearbyStoreController.sortByOptions,
+                    onChangeSort: nearbyStoreController.onChangeSort,
                   )
                 : Container(),
           ),
-          // enableLocationDialog(),
         ],
       ),
       title: Obx(
@@ -60,8 +69,7 @@ class HomeScreen extends GetView<HomeController> {
 
   Widget _buildScanBarCodeButton(BuildContext context) {
     return PrimaryButton(
-      onPressed: () =>
-          Get.toNamed(Routes.SCAN_CARD, arguments: preOrderController),
+      onPressed: () => Get.toNamed(Routes.SCAN_CARD),
       size: 120,
       child: ListTile(
         contentPadding: EdgeInsets.zero,

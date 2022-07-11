@@ -1,12 +1,18 @@
+import 'package:geolocator/geolocator.dart';
 import 'package:omny_locator/api/api.dart';
 import 'package:get/get.dart';
 import 'package:omny_locator/models/models.dart';
+import 'package:omny_locator/modules/home/widgets/enable_location_service.dart';
 import 'package:omny_locator/modules/profile/profile_controller.dart';
-import 'package:omny_locator/modules/profile/widgets/pre_order_history_controller.dart';
+import 'package:omny_locator/routes/app_pages.dart';
+import 'package:omny_locator/shared/shared.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PendingPreOrderDetailController extends GetxController {
   final ApiRepository apiRepository;
   PendingPreOrderDetailController({required this.apiRepository});
+  var storage = Get.find<SharedPreferences>();
 
   Rx<Order> order = new Order(
     id: 0,
@@ -38,5 +44,42 @@ class PendingPreOrderDetailController extends GetxController {
           .getPendingPreOrder(); // preOrderHistoryController.getPreOrderHistories(1);
       Get.back();
     } catch (error) {}
+  }
+
+  void checkLocation() async {
+    var status = await Permission.locationWhenInUse.status;
+    if (status.isPermanentlyDenied) {
+      Get.dialog(
+        AlertInfo(
+          body: EnableLocationService(),
+          showCloseButton: false,
+        ),
+        barrierDismissible: false,
+      );
+      return;
+    }
+    if (!status.isGranted) {
+      var status = await Permission.locationWhenInUse.request();
+      if (status.isGranted) {
+        final p = await Geolocator.getCurrentPosition();
+        storage.setString(StorageConstants.xLatitude, '${p.latitude}');
+        storage.setString(StorageConstants.xLongitude, '${p.longitude}');
+        Get.toNamed(Routes.NEARBY_STORE);
+
+        return;
+      } else {
+        Get.snackbar(
+          "Permisson Denied",
+          "Please enable location to get nearby store",
+        );
+        return;
+      }
+    } else {
+      final p = await Geolocator.getCurrentPosition();
+      storage.setString(StorageConstants.xLatitude, '${p.latitude}');
+      storage.setString(StorageConstants.xLongitude, '${p.longitude}');
+      Get.toNamed(Routes.NEARBY_STORE);
+      return;
+    }
   }
 }

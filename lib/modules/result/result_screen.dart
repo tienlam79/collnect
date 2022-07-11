@@ -25,7 +25,10 @@ class ResultScreen extends GetView<ResultController> {
           SpacingMd(),
           _buildCardNumber(context),
           SpacingSm(),
-          PreOrderQrCode(order: controller.order.value),
+          PreOrderQrCode(
+            order: controller.order.value,
+            onFindLocation: controller.checkLocation,
+          ),
           Text(
             'find_qr_code'.tr,
             textAlign: TextAlign.center,

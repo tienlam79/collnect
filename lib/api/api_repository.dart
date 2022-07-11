@@ -52,11 +52,12 @@ class ApiRepository {
     }
   }
 
-  Future<GenerateTokenResponse> revokeToken(RefershTokenRequest data) async {
+  Future<dynamic> revokeToken(RefershTokenRequest data) async {
     try {
       final res =
           await apiProvider.postMethod('/customer-api/auth/token/revoke', data);
-      return GenerateTokenResponse.fromJson(res.body);
+      return res.body;
+      // return GenerateTokenResponse.fromJson(res.body);
     } catch (error) {
       throw error;
     }
@@ -65,8 +66,8 @@ class ApiRepository {
   Future<PagingResponse> getNearbyStores(
     int page,
     int pageSize,
-    double xLatitude,
-    double xLongitude,
+    // double xLatitude,
+    // double xLongitude,
     String sortBy,
   ) async {
     try {
@@ -75,13 +76,14 @@ class ApiRepository {
         query: {
           'page': '$page',
           'page_size': '$pageSize',
+          'order_by': sortBy,
         },
-        headers: {
-          'x-latitude': '$xLatitude',
-          'x-longitude': '$xLongitude',
-          'order_by': sortBy
-        },
+        // headers: {
+        //   'x-latitude': '$xLatitude',
+        //   'x-longitude': '$xLongitude',
+        // },
       );
+      // print('....$xLatitude  $xLongitude $sortBy');
       return PagingResponse.fromJson(res.body);
     } catch (error) {
       throw error;

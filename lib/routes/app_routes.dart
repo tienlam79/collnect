@@ -13,4 +13,5 @@ abstract class Routes {
   static const PRE_ORDER_DETAIL = '/pre-order-detail';
   static const STORE_DETAIL = '/store_detail';
   static const COMMENT = '/comment';
+  static const NEARBY_STORE = '/nearby-store';
 }

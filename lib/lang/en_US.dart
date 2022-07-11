@@ -70,5 +70,6 @@ const Map<String, String> en_US = {
   "rating": "Rating",
   'add_photo': "Add photo",
   "reviews": "Reviews",
-  "reload_at": "Reload at "
+  "reload_at": "Reload at ",
+  "omny_location_near_you": "OMNY location near you"
 };

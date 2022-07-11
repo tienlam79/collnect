@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:omny_locator/routes/app_pages.dart';
 import 'package:omny_locator/shared/shared.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-
 import 'scan_card_sample.dart';
 
 class ScanCardScreen extends StatefulWidget {
@@ -79,7 +79,6 @@ class _QRViewExampleState extends State<ScanCardScreen> {
   }
 
   void _onQRViewCreated(QRViewController c) {
-    var parentController = Get.arguments;
     if (controller == null) {
       if (Platform.isAndroid) {
         c.pauseCamera();
@@ -91,8 +90,7 @@ class _QRViewExampleState extends State<ScanCardScreen> {
     });
     c.scannedDataStream.listen((scanData) {
       if (scanData.code != null) {
-        parentController.setCode(scanData.code);
-        // Get.until((route) => route.settings.name == Routes.ACTIVATED_CARD);
+        Get.offNamed(Routes.PRE_ORDER_OMNY_CARD, arguments: [scanData.code]);
       }
     });
   }
