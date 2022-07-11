@@ -40,11 +40,15 @@ class ProfileScreen extends GetView<ProfileController> {
           SpacingSm(),
           Obx(
             () => Visibility(
-              child: PendingPreOrder(order: controller.pendingPreOrder.value),
+              child: Column(children: [
+                PendingPreOrder(
+                  order: controller.pendingPreOrder.value,
+                ),
+                SpacingMd(),
+              ]),
               visible: controller.pendingPreOrder.value.id != 0.0,
             ),
           ),
-          SpacingMd(),
           PreOrderHistory(),
         ],
       ),

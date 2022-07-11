@@ -16,18 +16,19 @@ class PreOrderHistoryController extends GetxController {
   RxInt page = 1.obs;
   RxInt total = 0.obs;
   RxBool initLoading = true.obs;
+  RxBool addMore = false.obs;
 
   @override
   void onInit() {
     super.onInit();
-    getPreOrderHistories();
+    getPreOrderHistories(page.value);
 
     debounce(
       page,
       (value) {
         int itemCount = page.value * CommonConstants.pageSize;
         if (itemCount <= total.value) {
-          getPreOrderHistories();
+          getPreOrderHistories(page.value);
         }
       },
       time: Duration(seconds: 1),
@@ -38,27 +39,31 @@ class PreOrderHistoryController extends GetxController {
           scrollController.position.pixels) {
         int nextPage = page.value + 1;
         page.value = nextPage;
+        addMore.value = true;
       }
     });
   }
 
-  void getPreOrderHistories() async {
+  void getPreOrderHistories(int page) async {
     try {
       final res = await apiRepository.getPreOrders(
-        page.value,
+        page,
         CommonConstants.pageSize,
       );
       final list =
           res.results.map<Order>((entry) => Order.fromJson(entry)).toList();
       total.value = res.count;
-      List<Order> newList = [
-        ...orders,
-        ...list,
-      ];
+      List<Order> newList = addMore.value
+          ? [
+              ...orders,
+              ...list,
+            ]
+          : list;
       orders.assignAll(newList);
     } catch (error) {
       print('errorr..${error.toString()}');
     } finally {
+      addMore.value = false;
       initLoading.value = false;
     }
   }

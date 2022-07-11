@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:omny_locator/models/enum_values/card_type.dart';
 import 'package:omny_locator/modules/result/widgets/pre_order_qrcode.dart';
 import 'package:omny_locator/shared/shared.dart';
-import 'package:omny_locator/shared/widgets/common/custom_card.dart';
 
 import 'pending_pre_order_detail_controller.dart';
 
@@ -70,7 +69,7 @@ class PendingPreOrderDetailScreen
     Get.dialog(
       AlertConfirm(
         desc: 'cancel_pre_order_confirm'.tr,
-        onConfirm: () => {},
+        onConfirm: controller.onCancel,
       ),
     );
   }

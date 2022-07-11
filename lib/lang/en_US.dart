@@ -69,5 +69,6 @@ const Map<String, String> en_US = {
   "your_comment": "Your comment",
   "rating": "Rating",
   'add_photo': "Add photo",
-  "reviews": "Reviews"
+  "reviews": "Reviews",
+  "reload_at": "Reload at "
 };

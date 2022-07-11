@@ -122,6 +122,8 @@ class PreOrderOmnyCardController extends GetxController {
       final res = await apiRepository.createPreOrder(payload);
       Get.until((route) => route.settings.name == '/home');
       Get.toNamed(Routes.RESULT, arguments: res);
-    } catch (error) {}
+    } catch (error) {
+      print('errr...$error');
+    }
   }
 }

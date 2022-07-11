@@ -16,7 +16,7 @@ class Order {
     required this.status,
     this.transactionId,
     required this.product,
-    this.retailerId,
+    required this.retailerId,
   });
 
   int id;
@@ -33,7 +33,7 @@ class Order {
   String status;
   int? transactionId;
   OrderProduct product;
-  int? retailerId;
+  int retailerId;
 
   factory Order.fromJson(Map<String, dynamic> json) => Order(
         id: json["id"],
@@ -55,7 +55,7 @@ class Order {
         transactionId:
             json["transaction_id"] == null ? null : json["transaction_id"],
         product: OrderProduct.fromJson(json["product"]),
-        retailerId: json["retailer_id"] == null ? null : json["retailer_id"],
+        retailerId: json["retailer_id"] == null ? 0 : json["retailer_id"],
       );
 
   Map<String, dynamic> toJson() => {

@@ -8,8 +8,10 @@ class StoreDetailItem extends StatelessWidget {
   const StoreDetailItem({
     Key? key,
     required this.store,
+    this.storeNamePrefix,
   }) : super(key: key);
   final Store store;
+  final String? storeNamePrefix;
 
   @override
   Widget build(BuildContext context) {
@@ -43,15 +45,27 @@ class StoreDetailItem extends StatelessWidget {
         ),
         RichText(
           text: TextSpan(
-            text: store.storeName,
-            style: Theme.of(context).textTheme.headline5,
+            // text: store.storeName,
+            // style: Theme.of(context).textTheme.headline5,
             children: [
+              if (storeNamePrefix != null)
+                TextSpan(
+                  text: storeNamePrefix,
+                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        color: ColorConstants.lightLabelInputColor,
+                      ),
+                ),
               TextSpan(
-                text: ' ${store.radius} miles',
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      color: ColorConstants.lightLabelInputColor,
-                    ),
+                text: store.storeName,
+                style: Theme.of(context).textTheme.headline5,
               ),
+              if (store.radius != null)
+                TextSpan(
+                  text: ' ${store.radius} miles',
+                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        color: ColorConstants.lightLabelInputColor,
+                      ),
+                ),
             ],
           ),
         ),

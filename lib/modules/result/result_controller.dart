@@ -20,6 +20,7 @@ class ResultController extends GetxController {
     customerName: '',
     customerPhone: '',
     product: new OrderProduct(name: ''),
+    retailerId: 0,
   ).obs;
   @override
   void onInit() {

@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:omny_locator/models/models.dart';
-import 'package:omny_locator/models/request/favorite_store_request.dart';
 import 'package:omny_locator/models/response/verification_code_response.dart';
 import 'api.dart';
 
@@ -176,11 +175,19 @@ class ApiRepository {
     try {
       final res = await apiProvider.postMethod(
           '/customer-api/customer/retailer-reviews', payload);
-      print('...pyalod... ${payload.toJson()}');
-      print('...re... ${res.body}');
       return Comment.fromJson(res.body);
     } catch (error) {
-      print('error.. $error');
+      throw error;
+    }
+  }
+
+  Future<Order> cancelPendingPreOrder(preOrderId) async {
+    try {
+      final res = await apiProvider.postMethod(
+          '/customer-api/customer/orders/$preOrderId/cancel', null);
+      return Order.fromJson(res.body);
+    } catch (error) {
+      print('error cancelPendingPreOrder.. $error');
       throw error;
     }
   }

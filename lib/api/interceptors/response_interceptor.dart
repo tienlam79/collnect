@@ -10,7 +10,6 @@ FutureOr<dynamic> responseInterceptor(
     Request request, Response response) async {
   print('response.statusCode. ${response.statusCode}');
   EasyLoading.dismiss();
-  // print('response.statusCode. ${response.statusCode}');
   if (response.statusCode != 200 && response.statusCode != 201) {
     handleErrorStatus(response);
     return throw Future.error('Api request error');

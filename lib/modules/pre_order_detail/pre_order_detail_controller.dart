@@ -18,12 +18,23 @@ class PreOrderDetailController extends GetxController {
     customerName: '',
     customerPhone: '',
     product: new OrderProduct(name: ''),
+    retailerId: 0,
+  ).obs;
+
+  Rx<Store> store = new Store(
+    id: 0,
+    storeName: '',
+    street: '',
+    latitude: 0.0,
+    longitude: 0.0,
   ).obs;
   @override
   void onInit() {
     super.onInit();
     Order args = Get.arguments;
     order.value = args;
+
+    getStoreDetail(args.retailerId);
   }
 
   @override
@@ -34,5 +45,12 @@ class PreOrderDetailController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+  }
+
+  void getStoreDetail(int storeId) async {
+    try {
+      var res = await apiRepository.getStoreById(storeId);
+      store.value = res;
+    } catch (error) {}
   }
 }

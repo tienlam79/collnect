@@ -21,6 +21,15 @@ class PreOrderDetailScreen extends GetView<PreOrderDetailController> {
           _buildHeader(context),
           SpacingSm(),
           _buildCardNumber(context),
+          SpacingSm(),
+          Obx(
+            () => controller.store.value.id != 0
+                ? StoreDetailItem(
+                    store: controller.store.value,
+                    storeNamePrefix: 'reload_at'.tr,
+                  )
+                : Container(),
+          ),
         ],
       ),
     );

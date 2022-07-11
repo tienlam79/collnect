@@ -23,6 +23,7 @@ class ProfileController extends GetxController {
     customerName: '',
     customerPhone: '',
     product: new OrderProduct(name: ''),
+    retailerId: 0,
   ).obs;
 
   @override
@@ -42,6 +43,7 @@ class ProfileController extends GetxController {
   void getPendingPreOrder() async {
     try {
       var res = await apiRepository.getPendingPreOrder();
+      // print('...getPendingPreOrder ${res.toJson()}');
       pendingPreOrder.value = res;
     } catch (error) {}
   }
