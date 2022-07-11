@@ -56,8 +56,8 @@ class ProfileController extends GetxController {
       await apiRepository.revokeToken(payload);
       storage.setString(StorageConstants.token, '');
       storage.setString(StorageConstants.refreshToken, '');
-      storage.setString(StorageConstants.xLatitude, '');
-      storage.setString(StorageConstants.xLongitude, '');
+      // storage.setString(StorageConstants.xLatitude, '');
+      // storage.setString(StorageConstants.xLongitude, '');
 
       Get.offAllNamed(Routes.LOGIN);
     } catch (error) {}
