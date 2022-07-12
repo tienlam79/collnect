@@ -35,11 +35,8 @@ class PreOrderOmnyCardController extends GetxController {
     super.onInit();
 
     var params = Get.arguments;
-    print('...params...$params');
     if (params != null) {
       String barCode = params[0];
-      print('..barCode..$barCode');
-      // double amount = params[1];
       fullCardNumber.value = barCode;
       getProduct();
     }
