@@ -19,12 +19,14 @@ class ReviewItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: CommonConstants.hPadding),
-            child:
-                Text('John Wick', style: Theme.of(context).textTheme.headline5),
-          ),
+          if (review.createdBy != null)
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: CommonConstants.hPadding),
+              child: Text(
+                  '${review.createdBy?.firstName ?? ''} ${review.createdBy?.lastName ?? ''}',
+                  style: Theme.of(context).textTheme.headline5),
+            ),
           SpacingXs(),
           Padding(
             padding: const EdgeInsets.symmetric(

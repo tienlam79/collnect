@@ -21,7 +21,7 @@ class Comment {
   bool? like;
   String? comment;
   int user;
-  String? createdBy;
+  CreatedBy? createdBy;
 
   factory Comment.fromJson(Map<String, dynamic> json) => Comment(
         id: json["id"],
@@ -39,10 +39,12 @@ class Comment {
             ? null
             : DateTime.parse(json["deleted_at"]),
         rating: json["rating"] == null ? null : json["rating"].toDouble(),
-        like: json["like"] == null ? null : json["like"],
+        like: json["liked"] == null ? null : json["liked"],
         comment: json["comment"] == null ? null : json["comment"],
         user: json["user"],
-        createdBy: json["created_by"] == null ? null : json["created_by"],
+        createdBy: json["created_by"] == null
+            ? null
+            : CreatedBy.fromJson(json["created_by"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -57,7 +59,7 @@ class Comment {
         "like": like,
         "comment": comment,
         "user": user,
-        "created_by": createdBy,
+        "created_by": createdBy == null ? null : createdBy?.toJson(),
       };
 }
 
@@ -74,5 +76,25 @@ class CommentImage {
 
   Map<String, dynamic> toJson() => {
         "image": image,
+      };
+}
+
+class CreatedBy {
+  CreatedBy({
+    this.firstName,
+    this.lastName,
+  });
+
+  String? firstName;
+  String? lastName;
+
+  factory CreatedBy.fromJson(Map<String, dynamic> json) => CreatedBy(
+        firstName: json["first_name"] == null ? null : json["first_name"],
+        lastName: json["last_name"] == null ? null : json["last_name"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "first_name": firstName,
+        "last_name": lastName,
       };
 }

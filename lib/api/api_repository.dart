@@ -152,6 +152,8 @@ class ApiRepository {
       final res = await apiProvider.getMethod(
         '/customer-api/customer/retailer-infos/$storeId',
       );
+      print('....getStoreById...${res.body}');
+
       return Store.fromJson(res.body);
     } catch (error) {
       throw error;

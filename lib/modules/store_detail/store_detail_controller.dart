@@ -1,13 +1,13 @@
 import 'package:omny_locator/api/api.dart';
 import 'package:get/get.dart';
 import 'package:omny_locator/models/models.dart';
-import 'package:omny_locator/shared/constants/storage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
+import 'package:omny_locator/modules/nearby_store/nearby_store_controller.dart';
 
 class StoreDetailController extends GetxController {
   final ApiRepository apiRepository;
   StoreDetailController({required this.apiRepository});
+
+  final NearbyStoreController nearbyStoreController = Get.find();
 
   Rx<Store> store = new Store(
     id: 0,
@@ -29,12 +29,10 @@ class StoreDetailController extends GetxController {
       Store params = Get.arguments;
       var res = await apiRepository.getStoreById(params.id);
       store.value = res;
-      print('...store.. ${res.toJson()}');
     } catch (error) {}
   }
 
   void onFavorite() async {
-    // store.value.like = store.value.like == true ? false : true;
     try {
       var payload = new FavoriteStoreRequest(
         like: store.value.like == null || store.value.like == false
@@ -46,8 +44,8 @@ class StoreDetailController extends GetxController {
       );
       await apiRepository.favoriteStore(payload);
       getStoreDetail();
+      nearbyStoreController.getNearbyStores();
     } catch (error) {
-      print('error....');
     } finally {}
   }
 }

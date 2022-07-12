@@ -43,7 +43,7 @@ class Store {
         id: json["id"],
         radius: json["radius"] == null ? null : json["radius"].toDouble(),
         rating: json["rating"] == null ? null : json["rating"].toDouble(),
-        like: json["like"] == null ? null : json["like"],
+        like: json["liked"] == null ? null : json["liked"],
         storeName: json["store_name"],
         street: json["street"],
         city: json["city"] == null ? null : json["city"],

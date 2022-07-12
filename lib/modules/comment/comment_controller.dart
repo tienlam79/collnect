@@ -5,6 +5,7 @@ import 'package:omny_locator/api/api.dart';
 import 'package:get/get.dart';
 import 'package:omny_locator/models/models.dart';
 import 'package:http/http.dart' as http;
+import 'package:omny_locator/modules/nearby_store/nearby_store_controller.dart';
 import 'package:omny_locator/modules/store_detail/store_detail.dart';
 import 'package:omny_locator/modules/store_detail/widgets/review_controller.dart';
 import 'package:omny_locator/shared/constants/storage.dart';
@@ -18,6 +19,7 @@ class CommentController extends GetxController {
   final commentController = TextEditingController(text: '');
   final ReviewController reviewController = Get.find();
   final StoreDetailController storeDetailController = Get.find();
+  final NearbyStoreController nearbyStoreController = Get.find();
 
   RxDouble rating = 0.0.obs;
   RxString comment = ''.obs;
@@ -74,6 +76,7 @@ class CommentController extends GetxController {
       if (response.statusCode == 200 || response.statusCode == 201) {
         reviewController.onRefreshReviews(1);
         storeDetailController.getStoreDetail();
+        nearbyStoreController.getNearbyStores();
         Get.back();
       }
     } catch (error) {

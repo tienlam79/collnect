@@ -30,7 +30,8 @@ class HomeScreen extends GetView<HomeController> {
       title: Obx(
         () => Text(
           'welcome'.trParams({
-            'name': controller.profile.value.firstName ?? '',
+            'name':
+                '${controller.profile.value.firstName} ${controller.profile.value.lastName}',
           }),
           style: Theme.of(context).appBarTheme.titleTextStyle,
         ),
