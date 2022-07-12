@@ -74,6 +74,7 @@ class HomeController extends GetxController {
         storage.setString(StorageConstants.xLatitude, '${p.latitude}');
         storage.setString(StorageConstants.xLongitude, '${p.longitude}');
         positon.value = p;
+        print('...get location...${p.toJson()}');
         return;
       } else {
         Get.snackbar(
@@ -86,6 +87,7 @@ class HomeController extends GetxController {
       final p = await Geolocator.getCurrentPosition();
       storage.setString(StorageConstants.xLatitude, '${p.latitude}');
       storage.setString(StorageConstants.xLongitude, '${p.longitude}');
+      print('...get location...${p.toJson()}');
       positon.value = p;
       return;
     }

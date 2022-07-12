@@ -62,6 +62,7 @@ class NearbyStoreController extends GetxController {
 
   void getNearbyStores() async {
     try {
+      print('...call nearbystore...');
       final res = await apiRepository.getNearbyStores(
         page.value,
         CommonConstants.pageSize,
