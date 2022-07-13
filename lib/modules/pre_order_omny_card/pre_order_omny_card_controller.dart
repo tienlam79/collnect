@@ -48,7 +48,7 @@ class PreOrderOmnyCardController extends GetxController {
     });
 
     cardNumberController.addListener(() {
-      fullCardNumber.value = cardNumberController.text;
+      cardNumber.value = cardNumberController.text;
     });
 
     debounce(

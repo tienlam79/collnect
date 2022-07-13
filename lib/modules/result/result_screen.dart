@@ -5,7 +5,6 @@ import 'package:omny_locator/modules/result/result.dart';
 import 'package:omny_locator/modules/result/widgets/pre_order_qrcode.dart';
 import 'package:omny_locator/routes/routes.dart';
 import 'package:omny_locator/shared/shared.dart';
-import 'package:omny_locator/shared/widgets/common/custom_card.dart';
 
 class ResultScreen extends GetView<ResultController> {
   const ResultScreen({Key? key}) : super(key: key);
@@ -58,21 +57,24 @@ class ResultScreen extends GetView<ResultController> {
   }
 
   Widget _buildCardNumber(BuildContext context) {
-    return CustomCard(
-      child: Column(
-        children: [
-          ItemTile(
-            title: 'omny_card_number'.tr,
-            value: controller.order.value.productPin,
-          ),
-          if (controller.order.value.product.productFilter ==
-              CardType.RELOAD) ...[
-            SpacingSm(),
-            TotalAmount(
+    return Obx(
+      () => CustomCard(
+        child: Column(
+          children: [
+            ItemTile(
+              title: 'omny_card_number'.tr,
+              value: controller.order.value.productPin,
+            ),
+            if (controller.order.value.product.productFilter ==
+                CardType.RELOAD) ...[
+              SpacingSm(),
+              TotalAmount(
                 total: controller.order.value.amount.toString(),
-                label: 'reload_amount'.tr)
-          ]
-        ],
+                label: 'reload_amount'.tr,
+              ),
+            ]
+          ],
+        ),
       ),
     );
   }

@@ -44,7 +44,9 @@ class ProfileController extends GetxController {
     try {
       var res = await apiRepository.getPendingPreOrder();
       pendingPreOrder.value = res;
-    } catch (error) {}
+    } catch (error) {
+      print('error.getPendingPreOrder.$error');
+    }
   }
 
   void onLogout() async {

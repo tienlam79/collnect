@@ -36,9 +36,16 @@ class ResultController extends GetxController {
     super.onInit();
     Order args = Get.arguments;
     order.value = args;
+    getOrder();
   }
 
-  void getOrder() {}
+  void getOrder() async {
+    try {
+      Order args = Get.arguments;
+      final res = await apiRepository.getPreOrder(args.id);
+      order.value = res;
+    } catch (error) {}
+  }
 
   void checkLocation() async {
     var status = await Permission.locationWhenInUse.status;
