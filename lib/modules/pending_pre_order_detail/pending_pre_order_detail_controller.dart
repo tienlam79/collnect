@@ -8,7 +8,6 @@ import 'package:omny_locator/routes/app_pages.dart';
 import 'package:omny_locator/shared/shared.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:gallery_saver/gallery_saver.dart';
 
 class PendingPreOrderDetailController extends GetxController {
   final ApiRepository apiRepository;
