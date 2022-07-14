@@ -39,6 +39,7 @@ class LoginScreen extends GetView<LoginController> {
           InputField(
             labelText: 'your_name_optional'.tr,
             controller: controller.nameController,
+            textCapitalization: TextCapitalization.words,
           ),
           SpacingSm(),
           Obx(

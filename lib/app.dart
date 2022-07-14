@@ -8,6 +8,7 @@ import 'package:omny_locator/theme/theme_data.dart';
 import 'app_binding.dart';
 import 'di.dart';
 import 'lang/lang.dart';
+import 'modules/result/result_controller.dart';
 import 'routes/routes.dart';
 import 'theme/theme.dart';
 
@@ -38,7 +39,11 @@ class App extends StatelessWidget {
     );
   }
 
-  void onRoutingCallback(Routing? routing) {}
+  void onRoutingCallback(Routing? routing) {
+    if (routing?.current != Routes.RESULT) {
+      Get.delete<ResultController>();
+    }
+  }
 }
 
 void configLoading() {

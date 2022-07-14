@@ -43,7 +43,24 @@ class ProfileController extends GetxController {
   void getPendingPreOrder() async {
     try {
       var res = await apiRepository.getPendingPreOrder();
-      pendingPreOrder.value = res;
+      if (res != null) {
+        pendingPreOrder.value = res;
+      } else {
+        pendingPreOrder.value = new Order(
+          id: 0,
+          cid: '',
+          productPin: '',
+          amount: 0.0,
+          baseAmount: 0.0,
+          fee: 0.0,
+          productPrefix: '',
+          status: '',
+          customerName: '',
+          customerPhone: '',
+          product: new OrderProduct(name: ''),
+          retailerId: 0,
+        );
+      }
     } catch (error) {
       print('error.getPendingPreOrder.$error');
     }

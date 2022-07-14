@@ -136,11 +136,14 @@ class ApiRepository {
     }
   }
 
-  Future<Order> getPendingPreOrder() async {
+  Future<Order?> getPendingPreOrder() async {
     try {
       final res = await apiProvider.getMethod(
         '/customer-api/customer/orders/pending',
       );
+      if (res.body.isEmpty) {
+        return null;
+      }
       return Order.fromJson(res.body);
     } catch (error) {
       throw error;
@@ -152,8 +155,6 @@ class ApiRepository {
       final res = await apiProvider.getMethod(
         '/customer-api/customer/retailer-infos/$storeId',
       );
-      print('....getStoreById...${res.body}');
-
       return Store.fromJson(res.body);
     } catch (error) {
       throw error;
