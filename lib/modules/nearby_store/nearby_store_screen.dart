@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_locator/modules/home/widgets/nearby_store_item.dart';
 import 'package:omny_locator/modules/nearby_store/nearby_store_list.dart';
 import 'package:omny_locator/shared/shared.dart';
 

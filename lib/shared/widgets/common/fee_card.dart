@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:omny_locator/shared/shared.dart';
 
-import 'custom_card.dart';
 
 class FeeCard extends StatelessWidget {
   FeeCard({

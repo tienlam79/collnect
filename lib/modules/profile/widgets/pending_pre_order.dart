@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:omny_locator/models/models.dart';
 import 'package:omny_locator/routes/app_pages.dart';
 import 'package:omny_locator/shared/shared.dart';
-import 'package:omny_locator/shared/widgets/common/custom_card.dart';
 
 class PendingPreOrder extends StatelessWidget {
   PendingPreOrder({
