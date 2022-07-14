@@ -127,6 +127,7 @@ class StoreDetailScreen extends GetView<StoreDetailController> {
           child: OutlinedGradientButton(
             height: 40,
             radius: 14,
+            onPressed: controller.onShareStore,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

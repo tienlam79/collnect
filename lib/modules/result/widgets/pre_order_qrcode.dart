@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gallery_saver/gallery_saver.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:omny_locator/models/order.dart';
 import 'package:omny_locator/shared/shared.dart';
 
@@ -61,5 +63,18 @@ class PreOrderQrCode extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void saveImageToGallery() async {
+    XFile? pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.camera,
+      maxWidth: 1800,
+      maxHeight: 1800,
+    );
+    if (pickedFile != null) {
+      CommonWidget.toast('saving in progress...');
+      await GallerySaver.saveImage(pickedFile.path);
+      CommonWidget.toast('image saved!');
+    }
   }
 }
