@@ -20,20 +20,21 @@ class VerificationScreen extends GetView<VerificationController> {
     final double inputMarginLeft = 10.0;
     final int inputNumber = 6;
     return MainListWidget(
-      showBackIcon: false,
       elevation: 0,
+      titleText: 'verification'.tr,
+      titleSpacing: CommonConstants.titleSpacing,
+      backIconColor: Colors.white,
+      titleStyle: Theme.of(context).textTheme.headline3!.copyWith(
+            fontWeight: FontWeight.w800,
+          ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'verification'.tr,
-            style: Theme.of(context).textTheme.headline3!.copyWith(
-                  fontWeight: FontWeight.w800,
-                ),
-          ),
-          SpacingSm(),
-          Text(
-            'verificaion_desc'.tr,
+            'verificaion_desc'.trParams({
+              'phone': Formatter.formatPhoneNumber(
+                  Get.arguments[0], CommonConstants.USCountryCode)
+            }),
             style: Theme.of(context).textTheme.subtitle1!.copyWith(
                   fontWeight: FontWeight.w400,
                 ),
@@ -51,6 +52,15 @@ class VerificationScreen extends GetView<VerificationController> {
             onCompleted: controller.onGenerateToken,
           ),
           SpacingMd(),
+          Obx(
+            () => PrimaryButton(
+              text: 'submit'.tr,
+              disabled: controller.code.value.length < inputNumber,
+              onPressed: () =>
+                  controller.onGenerateToken(controller.code.value),
+            ),
+          ),
+          SpacingLg(),
           Obx(
             () => controller.isStartTimer.value
                 ? TweenAnimationBuilder<Duration>(
@@ -88,15 +98,6 @@ class VerificationScreen extends GetView<VerificationController> {
                       ),
                     ),
                   ),
-          ),
-          SpacingLg(),
-          Obx(
-            () => PrimaryButton(
-              text: 'submit'.tr,
-              disabled: controller.code.value.length < inputNumber,
-              onPressed: () =>
-                  controller.onGenerateToken(controller.code.value),
-            ),
           ),
         ],
       ),

@@ -14,6 +14,7 @@ import '../modules/result/result_screen.dart';
 import '../modules/scan_card/scan_card_binding.dart';
 import '../modules/scan_card/scan_card_screen.dart';
 import '../modules/store_detail/store_detail.dart';
+import '../modules/update_profile/update_profile.dart';
 import '../modules/verification/verification.dart';
 
 part 'app_routes.dart';
@@ -86,6 +87,11 @@ class AppPages {
       name: Routes.COMMENT,
       page: () => CommentScreen(),
       binding: CommentBinding(),
+    ),
+    GetPage(
+      name: Routes.UPDATE_PROFILE,
+      page: () => UpdateProfileScreen(),
+      binding: UpdateProfileBinding(),
     ),
   ];
 }

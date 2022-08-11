@@ -7,6 +7,7 @@ export 'request/product_request.dart';
 export 'request/create_order_request.dart';
 export 'request/create_ach_request.dart';
 export 'request/favorite_store_request.dart';
+export 'request/update_profile_request.dart';
 
 export 'response/error_response.dart';
 export 'response/login_response.dart';

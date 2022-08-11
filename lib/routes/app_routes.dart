@@ -14,4 +14,5 @@ abstract class Routes {
   static const STORE_DETAIL = '/store_detail';
   static const COMMENT = '/comment';
   static const NEARBY_STORE = '/nearby-store';
+  static const UPDATE_PROFILE = '/update-profile';
 }

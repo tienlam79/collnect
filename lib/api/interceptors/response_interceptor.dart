@@ -8,7 +8,6 @@ import 'package:omny_locator/shared/shared.dart';
 
 FutureOr<dynamic> responseInterceptor(
     Request request, Response response) async {
-  print('response.statusCode. ${response.statusCode}');
   EasyLoading.dismiss();
   if (response.statusCode != 200 && response.statusCode != 201) {
     handleErrorStatus(response);

@@ -79,11 +79,17 @@ class HomeScreen extends GetView<HomeController> {
         SpacingXs(),
         Text(
           'instruction_1'.tr,
-          style: Theme.of(context).textTheme.subtitle1!.copyWith(height: 1.5),
+          style: Theme.of(context)
+              .textTheme
+              .headline4!
+              .copyWith(height: 1.5, fontWeight: FontWeight.w400),
         ),
         Text(
           'instruction_2'.tr,
-          style: Theme.of(context).textTheme.subtitle1!.copyWith(height: 1.5),
+          style: Theme.of(context)
+              .textTheme
+              .headline4!
+              .copyWith(height: 1.5, fontWeight: FontWeight.w400),
         ),
       ],
     );

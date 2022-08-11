@@ -192,7 +192,16 @@ class ApiRepository {
           '/customer-api/customer/orders/$preOrderId/cancel', null);
       return Order.fromJson(res.body);
     } catch (error) {
-      print('error cancelPendingPreOrder.. $error');
+      throw error;
+    }
+  }
+
+  Future<Profile> updateProfile(UpdateProfileRequest payload) async {
+    try {
+      final res = await apiProvider.putMethod(
+          '/customer-api/customer/profile', payload);
+      return Profile.fromJson(res.body);
+    } catch (error) {
       throw error;
     }
   }

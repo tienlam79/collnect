@@ -24,28 +24,31 @@ class MainListWidget extends StatefulWidget {
   final double? titleSpacing;
   final bool extendBodyBehindAppBar;
   final FloatingActionButton? floatingActionButton;
-  MainListWidget(
-      {required this.child,
-      this.titleText = '',
-      this.backIcon = Icons.arrow_back,
-      this.callback,
-      this.showBackIcon = true,
-      this.actions,
-      this.centerTitle = false,
-      this.titleStyle,
-      this.bottomNavigationBar,
-      this.isCustomScrollView = false,
-      this.bodyPadding = const EdgeInsets.all(CommonConstants.hPadding),
-      this.title,
-      this.scrollable = true,
-      this.footer,
-      this.resizeToAvoidBottomInset,
-      this.backgroundColor,
-      this.appBarBackgroundColor,
-      this.elevation,
-      this.titleSpacing,
-      this.extendBodyBehindAppBar = false,
-      this.floatingActionButton});
+  final Color? backIconColor;
+  MainListWidget({
+    required this.child,
+    this.titleText = '',
+    this.backIcon = Icons.arrow_back,
+    this.callback,
+    this.showBackIcon = true,
+    this.actions,
+    this.centerTitle = false,
+    this.titleStyle,
+    this.bottomNavigationBar,
+    this.isCustomScrollView = false,
+    this.bodyPadding = const EdgeInsets.all(CommonConstants.hPadding),
+    this.title,
+    this.scrollable = true,
+    this.footer,
+    this.resizeToAvoidBottomInset,
+    this.backgroundColor,
+    this.appBarBackgroundColor,
+    this.elevation,
+    this.titleSpacing,
+    this.extendBodyBehindAppBar = false,
+    this.floatingActionButton,
+    this.backIconColor = Colors.black,
+  });
 
   @override
   State<MainListWidget> createState() => _MainListWidgetState();
@@ -106,7 +109,7 @@ class _MainListWidgetState extends State<MainListWidget> {
             ? IconButton(
                 icon: Icon(
                   widget.backIcon,
-                  color: Colors.black,
+                  color: widget.backIconColor,
                 ),
                 onPressed: () {
                   if (widget.callback != null) {

@@ -21,6 +21,7 @@ class PhoneField extends StatelessWidget {
   final String country;
   final int? maxLength;
   final TextStyle? hintStyle;
+  final bool readOnly;
 
   final _mobileFormatter = PhoneNumberTextInputFormatter(
     sample: 'xxx-xxx-xxxx',
@@ -48,6 +49,7 @@ class PhoneField extends StatelessWidget {
     this.country = CommonConstants.USCountryCode,
     this.maxLength,
     this.hintStyle,
+    this.readOnly = false,
   }) : super(key: key);
 
   @override
@@ -71,6 +73,7 @@ class PhoneField extends StatelessWidget {
       hintStyle: hintStyle,
       maxLength: maxLength,
       counterText: '',
+      readOnly: readOnly,
     );
   }
 }

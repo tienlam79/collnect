@@ -34,8 +34,8 @@ class NearbyStoreList extends StatelessWidget {
         Obx(
           () => stores.length == 0
               ? EmptyList(
-                  image: ImageConstants.emptyHistory,
-                  title: 'no_nearby_store'.tr,
+                  image: ImageConstants.emptyLocation,
+                  desc: 'no_nearby_store'.tr,
                 )
               : ListView.separated(
                   shrinkWrap: true,

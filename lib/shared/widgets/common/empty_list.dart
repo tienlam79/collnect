@@ -5,12 +5,12 @@ class EmptyList extends StatelessWidget {
   const EmptyList({
     Key? key,
     required this.image,
-    required this.title,
+    this.title,
     this.desc,
   }) : super(key: key);
 
   final String image;
-  final String title;
+  final String? title;
   final String? desc;
 
   @override
@@ -24,13 +24,14 @@ class EmptyList extends StatelessWidget {
             height: 110,
           ),
           SpacingSm(),
-          Text(title, style: Theme.of(context).textTheme.headline5),
+          if (title != null)
+            Text(title ?? '', style: Theme.of(context).textTheme.headline5),
           SpacingXs(),
           if (desc != null)
             Text(
               desc ?? '',
               style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                    color: ColorConstants.lightLabelInputColor,
+                  // color: ColorConstants.lightLabelInputColor,
                   ),
             ),
         ],

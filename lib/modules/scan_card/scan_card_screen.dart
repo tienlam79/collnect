@@ -30,6 +30,7 @@ class _QRViewExampleState extends State<ScanCardScreen> {
       titleText: 'scan_bar_code'.tr,
       scrollable: false,
       resizeToAvoidBottomInset: false,
+      titleSpacing: CommonConstants.titleSpacing,
       bodyPadding: const EdgeInsets.all(0),
       child: Stack(
         children: <Widget>[
