@@ -10,7 +10,7 @@ void main() async {
       baseUrl: 'https://test-omnyapp.lunexgroup.com',
       sku: 1000,
     ),
-    name: 'OMNY Locator Prod',
+    name: 'OMNY PreOrder Prod',
   );
   Widget app = await initializeApp();
   runApp(app);
