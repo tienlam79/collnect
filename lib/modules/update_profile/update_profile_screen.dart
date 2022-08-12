@@ -11,9 +11,15 @@ class UpdateProfileScreen extends GetView<UpdateProfileController> {
     return MainListWidget(
         titleSpacing: CommonConstants.titleSpacing,
         titleText: 'update_information'.tr,
-        footer: GradientButton(
-          text: 'update'.tr,
-          onPressed: controller.updateProfile,
+        footer: Obx(
+          () => GradientButton(
+            text: 'update'.tr,
+            onPressed: controller.updateProfile,
+            disabled:
+                '${controller.profile.value.firstName ?? ''} ${controller.profile.value.lastName ?? ''}'
+                        .trim() ==
+                    controller.name.value.trim(),
+          ),
         ),
         child: Column(
           children: [
@@ -24,7 +30,7 @@ class UpdateProfileScreen extends GetView<UpdateProfileController> {
             PhoneField(
               labelText: 'your_phone_number'.tr,
               controller: controller.phoneController,
-              readOnly: true,
+              enabled: false,
               height: 60,
               style: TextStyle(
                 fontSize: 18,

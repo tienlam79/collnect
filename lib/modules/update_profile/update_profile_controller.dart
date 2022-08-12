@@ -19,17 +19,25 @@ class UpdateProfileController extends GetxController {
   final ProfileController profileController = Get.find();
   final HomeController homeController = Get.find();
 
+  RxString name = ''.obs;
+
   @override
   void onInit() {
     super.onInit();
     getProfile();
+
+    nameController.addListener(() {
+      name.value = nameController.text.trim();
+    });
   }
 
   void getProfile() async {
     try {
       var res = await apiRepository.getProfile();
       profile.value = res;
-      nameController.text = '${res.firstName} ${res.lastName}';
+      String fullName = '${res.firstName} ${res.lastName}';
+      name.value = fullName;
+      nameController.text = fullName;
       phoneController.text = Formatter.formatPhoneNumber(
           res.username ?? '', CommonConstants.USCountryCode);
     } catch (error) {}

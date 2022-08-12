@@ -22,6 +22,7 @@ class PhoneField extends StatelessWidget {
   final int? maxLength;
   final TextStyle? hintStyle;
   final bool readOnly;
+  final bool enabled;
 
   final _mobileFormatter = PhoneNumberTextInputFormatter(
     sample: 'xxx-xxx-xxxx',
@@ -50,6 +51,7 @@ class PhoneField extends StatelessWidget {
     this.maxLength,
     this.hintStyle,
     this.readOnly = false,
+    this.enabled = true,
   }) : super(key: key);
 
   @override
@@ -74,6 +76,7 @@ class PhoneField extends StatelessWidget {
       maxLength: maxLength,
       counterText: '',
       readOnly: readOnly,
+      enabled: enabled,
     );
   }
 }
