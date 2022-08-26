@@ -1,7 +1,6 @@
-import 'package:omny_locator/api/api_repository.dart';
-import 'package:omny_locator/models/models.dart';
-import 'package:omny_locator/routes/routes.dart';
-import 'package:omny_locator/shared/shared.dart';
+import 'package:collnect/api/api_repository.dart';
+import 'package:collnect/routes/routes.dart';
+import 'package:collnect/shared/shared.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -30,23 +29,22 @@ class SplashController extends GetxController {
   void checkToken() async {
     try {
       var refreshToken = storage.getString(StorageConstants.refreshToken);
-      if (refreshToken != null) {
-        var newToken = await apiRepository.getRefershToken(
-          new RefershTokenRequest(token: refreshToken),
-        );
-        storage.setString(
-          StorageConstants.token,
-          newToken.accessToken,
-        );
-        storage.setString(
-          StorageConstants.refreshToken,
-          newToken.refreshToken,
-        );
-        print('...acessstoken...${newToken.toJson()}');
-        Get.offNamed(Routes.HOME);
-      } else {
-        Get.offNamed(Routes.LOGIN);
-      }
+      // if (refreshToken != null) {
+      //   var newToken = await apiRepository.getRefershToken(
+      //     new RefershTokenRequest(token: refreshToken),
+      //   );
+      //   storage.setString(
+      //     StorageConstants.token,
+      //     newToken.accessToken,
+      //   );
+      //   storage.setString(
+      //     StorageConstants.refreshToken,
+      //     newToken.refreshToken,
+      //   );
+      //   Get.offNamed(Routes.HOME);
+      // } else {
+      //   Get.offNamed(Routes.LOGIN);
+      // }
     } catch (error) {
       Get.offNamed(Routes.LOGIN);
     }

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:omny_locator/flavor_config.dart';
-import 'package:omny_locator/shared/shared.dart';
+import 'package:collnect/flavor_config.dart';
+import 'package:collnect/shared/shared.dart';
 import 'package:get/get.dart';
-import 'package:omny_locator/theme/theme_data.dart';
+import 'package:collnect/theme/theme_data.dart';
 
 import 'app_binding.dart';
 import 'di.dart';
 import 'lang/lang.dart';
-import 'modules/result/result_controller.dart';
 import 'routes/routes.dart';
 import 'theme/theme.dart';
 
@@ -39,24 +38,17 @@ class App extends StatelessWidget {
     );
   }
 
-  void onRoutingCallback(Routing? routing) {
-    if (routing?.current != Routes.RESULT) {
-      Get.delete<ResultController>();
-    }
-  }
+  void onRoutingCallback(Routing? routing) {}
 }
 
 void configLoading() {
   EasyLoading.instance
     ..indicatorType = EasyLoadingIndicatorType.threeBounce
     ..loadingStyle = EasyLoadingStyle.custom
-    // ..indicatorSize = 45.0
     ..radius = 10.0
-    // ..progressColor = Colors.yellow
     ..backgroundColor = ColorConstants.lightGray
     ..indicatorColor = ColorConstants.primaryColor
     ..textColor = ColorConstants.primaryColor
-    // ..maskColor = Colors.red
     ..userInteractions = false
     ..dismissOnTap = false
     ..animationStyle = EasyLoadingAnimationStyle.scale;

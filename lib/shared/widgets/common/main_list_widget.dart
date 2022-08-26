@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_locator/shared/constants/common.dart';
+import 'package:collnect/shared/constants/common.dart';
 
 class MainListWidget extends StatefulWidget {
   final child;
@@ -25,6 +25,7 @@ class MainListWidget extends StatefulWidget {
   final bool extendBodyBehindAppBar;
   final FloatingActionButton? floatingActionButton;
   final Color? backIconColor;
+  final Widget? leading;
   MainListWidget({
     required this.child,
     this.titleText = '',
@@ -48,6 +49,7 @@ class MainListWidget extends StatefulWidget {
     this.extendBodyBehindAppBar = false,
     this.floatingActionButton,
     this.backIconColor = Colors.black,
+    this.leading,
   });
 
   @override
@@ -119,7 +121,7 @@ class _MainListWidgetState extends State<MainListWidget> {
                   }
                 },
               )
-            : null,
+            : widget.leading,
         actions: widget.actions,
         title: widget.titleText != ''
             ? Text(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:omny_locator/shared/shared.dart';
+import 'package:collnect/shared/shared.dart';
 
 class ThemeConfig {
   static ThemeData createTheme({
@@ -42,13 +42,15 @@ class ThemeConfig {
             fontWeight: FontWeight.w400,
             fontSize: 18,
             height: CommonConstants.lineHeight,
-            fontFamily: 'Lato',
+            fontFamily: CommonConstants.fontFamily,
           ),
         ),
       ),
       dividerTheme: DividerThemeData(color: iconColor),
       appBarTheme: AppBarTheme(
+        // color: Colors.red,
         backgroundColor: appBarBackgroundColor,
+        elevation: 0,
         iconTheme: IconThemeData(
           color: iconColor,
           size: 24,
@@ -58,7 +60,7 @@ class ThemeConfig {
           fontSize: 18,
           fontWeight: FontWeight.w800,
           height: CommonConstants.lineHeight,
-          fontFamily: 'Lato',
+          fontFamily: CommonConstants.fontFamily,
         ),
       ),
       iconTheme: IconThemeData(
@@ -92,53 +94,40 @@ class ThemeConfig {
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
-        fillColor: Colors.transparent,
+        fillColor: Colors.white,
         filled: true,
         isDense: true,
         suffixIconColor: secondaryText,
-        focusColor: Colors.red,
-        contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+        contentPadding: const EdgeInsets.symmetric(
+          vertical: 15.0,
+          horizontal: 10.0,
+        ),
         errorStyle: TextStyle(color: errorColor),
-        floatingLabelStyle: TextStyle(
-          fontFamily: 'Lato',
-          fontWeight: FontWeight.w400,
-          fontSize: 15,
-          height: CommonConstants.lineHeight,
-          color: labelInputColor,
-          letterSpacing: 0,
-        ),
-        labelStyle: TextStyle(
-          fontFamily: 'Lato',
-          fontWeight: FontWeight.w400,
-          fontSize: 15,
-          height: CommonConstants.lineHeight,
-          color: labelInputColor,
-          letterSpacing: 0,
-        ),
         hintStyle: TextStyle(
-          color: labelInputColor,
-          fontSize: 20,
-          fontWeight: FontWeight.w300,
+          fontSize: 16,
+          height: 1.5,
+          fontWeight: FontWeight.w400,
+          color: secondaryText,
         ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
+        // border: OutlineInputBorder(
+        //   borderRadius: BorderRadius.circular(3),
+        //   borderSide: BorderSide(
+        //     color: Colors.red,
+        //     width: 1,
+        //   ),
+        // ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(3),
           borderSide: BorderSide(
             color: borderInputColor,
             width: 1,
           ),
         ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
-          borderSide: BorderSide(
-            color: enabledBorderInputColor,
-            width: 2,
-          ),
-        ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
+          borderRadius: BorderRadius.circular(3),
           borderSide: BorderSide(
             color: enabledBorderInputColor,
-            width: 2.0,
+            width: 1.0,
           ),
         ),
         prefixStyle: TextStyle(
@@ -147,51 +136,51 @@ class ThemeConfig {
           color: labelInputColor,
         ),
       ),
-      fontFamily: 'Lato',
+      fontFamily: CommonConstants.fontFamily,
       primaryTextTheme: ThemeData.light().textTheme.apply(
-            fontFamily: 'Lato',
+            fontFamily: CommonConstants.fontFamily,
           ),
       textTheme: TextTheme(
         headline1: baseTextTheme.headline1!.copyWith(
           color: primaryText,
           fontSize: 34.0,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Lato',
+          fontFamily: CommonConstants.fontFamily,
           height: CommonConstants.lineHeight,
         ),
         headline2: baseTextTheme.headline2!.copyWith(
           color: primaryText,
           fontSize: 22,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Lato',
+          fontFamily: CommonConstants.fontFamily,
           height: CommonConstants.lineHeight,
         ),
         headline3: baseTextTheme.headline3!.copyWith(
           color: primaryText,
           fontSize: 20,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Lato',
+          fontFamily: CommonConstants.fontFamily,
           height: CommonConstants.lineHeight,
         ),
         headline4: baseTextTheme.headline4!.copyWith(
           color: primaryText,
           fontSize: 18,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Lato',
+          fontFamily: CommonConstants.fontFamily,
           height: CommonConstants.lineHeight,
         ),
         headline5: baseTextTheme.headline5!.copyWith(
           color: primaryText,
           fontSize: 16,
           fontWeight: FontWeight.w700,
-          fontFamily: 'Lato',
+          fontFamily: CommonConstants.fontFamily,
           height: CommonConstants.lineHeight,
         ),
         headline6: baseTextTheme.headline6!.copyWith(
           color: primaryText,
           fontSize: 14,
           fontWeight: FontWeight.w700,
-          fontFamily: 'Lato',
+          fontFamily: CommonConstants.fontFamily,
           height: CommonConstants.lineHeight,
         ),
         bodyText1: baseTextTheme.bodyText1!.copyWith(
@@ -204,42 +193,42 @@ class ThemeConfig {
           color: primaryText,
           fontSize: 13,
           fontWeight: FontWeight.w400,
-          fontFamily: 'Lato',
+          fontFamily: CommonConstants.fontFamily,
           height: CommonConstants.lineHeight,
         ),
         button: baseTextTheme.button!.copyWith(
           color: buttonText,
           fontSize: 20.0,
           fontWeight: FontWeight.w700,
-          fontFamily: 'Lato',
+          fontFamily: CommonConstants.fontFamily,
           height: CommonConstants.lineHeight,
         ),
         caption: baseTextTheme.caption!.copyWith(
           color: primaryText,
           fontSize: 11.0,
           fontWeight: FontWeight.w300,
-          fontFamily: 'Lato',
+          fontFamily: CommonConstants.fontFamily,
           height: CommonConstants.lineHeight,
         ),
         overline: baseTextTheme.overline!.copyWith(
           color: secondaryText,
           fontSize: 11.0,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Lato',
+          fontFamily: CommonConstants.fontFamily,
           height: CommonConstants.lineHeight,
         ),
         subtitle1: baseTextTheme.subtitle1!.copyWith(
           color: primaryText,
           fontSize: 16.0,
           fontWeight: FontWeight.w400,
-          fontFamily: 'Lato',
+          fontFamily: CommonConstants.fontFamily,
           height: CommonConstants.lineHeight,
         ),
         subtitle2: baseTextTheme.subtitle2!.copyWith(
           color: secondaryText,
           fontSize: 11.0,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Lato',
+          fontFamily: CommonConstants.fontFamily,
           height: CommonConstants.lineHeight,
         ),
       ),
@@ -250,14 +239,14 @@ class ThemeConfig {
           fontWeight: FontWeight.bold,
           fontSize: 20,
           height: CommonConstants.lineHeight,
-          fontFamily: 'Lato',
+          fontFamily: CommonConstants.fontFamily,
         ),
         contentTextStyle: TextStyle(
           fontSize: 16,
           color: primaryText,
           fontWeight: FontWeight.w400,
           height: CommonConstants.lineHeight,
-          fontFamily: 'Lato',
+          fontFamily: CommonConstants.fontFamily,
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(4),
@@ -276,7 +265,7 @@ class ThemeConfig {
         buttonText: ColorConstants.lightButtonTextColor,
         labelInputColor: ColorConstants.lightLabelInputColor,
         borderInputColor: ColorConstants.lightBorderInputColor,
-        enabledBorderInputColor: ColorConstants.lightEnabledBorderInputColor,
+        enabledBorderInputColor: ColorConstants.primaryColor,
         iconColor: ColorConstants.lightIconColor,
         appBarBackgroundColor: Colors.white,
         errorColor: Colors.red,

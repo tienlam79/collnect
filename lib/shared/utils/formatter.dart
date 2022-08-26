@@ -1,5 +1,5 @@
 import 'package:intl/intl.dart';
-import 'package:omny_locator/shared/constants/common.dart';
+import 'package:collnect/shared/constants/common.dart';
 
 class Formatter {
   static String formatPhoneNumber(String phone, String countryCode) {

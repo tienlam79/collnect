@@ -1,4 +1,3 @@
-
 enum Flavor { DEV, QA, PRODUCTION }
 
 class FlavorValues {

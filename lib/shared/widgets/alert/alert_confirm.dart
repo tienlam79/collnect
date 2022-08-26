@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_locator/shared/shared.dart';
+import 'package:collnect/shared/shared.dart';
 
 class AlertConfirm extends StatelessWidget {
   const AlertConfirm({

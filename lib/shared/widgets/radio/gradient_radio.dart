@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:omny_locator/shared/constants/common.dart';
+import 'package:collnect/shared/constants/common.dart';
 
 class GradientRadio<T> extends StatelessWidget {
   final T value;

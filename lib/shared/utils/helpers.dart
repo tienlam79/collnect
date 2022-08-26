@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_locator/models/models.dart';
-import 'package:omny_locator/routes/app_pages.dart';
+import 'package:collnect/models/models.dart';
+import 'package:collnect/routes/app_pages.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../widgets/alert/alert_info.dart';
@@ -14,15 +14,6 @@ class Helpers {
   //   int priceIndex = priceList.indexWhere((element) => amount == element);
   //   return priceIndex != -1 ? product.destAmountList[priceIndex] : null;
   // }
-
-  static bool checkValidAmount(Product product, double amount) {
-    if (product.priceType == PriceType.OPEN) {
-      return amount != 0.0 &&
-          amount >= (product.minPrice) &&
-          amount <= (product.maxPrice);
-    }
-    return amount != 0.0;
-  }
 
   static checkCameraPermission(BuildContext context, dynamic controller) async {
     var status = await Permission.camera.status;
@@ -41,7 +32,7 @@ class Helpers {
       final result = await Permission.camera.request();
 
       if (result.isGranted) {
-        Get.toNamed(Routes.SCAN_CARD, arguments: controller);
+        // Get.toNamed(Routes.SCAN_CARD, arguments: controller);
       } else {
         // showDialog(
         //   context: context,
@@ -56,7 +47,7 @@ class Helpers {
         );
       }
     } else {
-      Get.toNamed(Routes.SCAN_CARD, arguments: controller);
+      // Get.toNamed(Routes.SCAN_CARD, arguments: controller);
     }
   }
 }

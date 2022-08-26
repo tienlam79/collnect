@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:omny_locator/api/api.dart';
+import 'package:collnect/api/api.dart';
 import 'package:get/get.dart';
-import 'package:omny_locator/models/models.dart';
-import 'package:omny_locator/routes/app_pages.dart';
+import 'package:collnect/models/models.dart';
+import 'package:collnect/routes/app_pages.dart';
 
 class LoginController extends GetxController {
   final ApiRepository apiRepository;
@@ -34,19 +34,5 @@ class LoginController extends GetxController {
     nameController.dispose();
   }
 
-  void onLogin() async {
-    try {
-      var str = nameController.text.split(' ');
-      String firstName = str[0];
-      String lastName = nameController.text.replaceFirst(firstName, '');
-      VerificationCodeRequest loginPayload = new VerificationCodeRequest(
-        phone: phoneNumber.value,
-        firstName: firstName,
-        lastName: lastName,
-      );
-      var res = await apiRepository.sendVerificationCode(loginPayload);
-      Get.toNamed(Routes.VERIFICATION,
-          arguments: [phoneNumber.value, res.checkCode, firstName, lastName]);
-    } catch (error) {}
-  }
+  void onLogin() async {}
 }

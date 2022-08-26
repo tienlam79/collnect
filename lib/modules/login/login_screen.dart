@@ -1,23 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_locator/shared/shared.dart';
-import 'package:omny_locator/theme/theme_data.dart';
+import 'package:collnect/shared/shared.dart';
 import 'login_controller.dart';
 
 class LoginScreen extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeConfig.blueTheme,
-      child: Builder(
-        builder: (BuildContext c) {
-          return _buildContent(c);
-        },
-      ),
-    );
-  }
-
-  Widget _buildContent(BuildContext context) {
     return MainListWidget(
       scrollable: false,
       showBackIcon: false,

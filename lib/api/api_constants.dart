@@ -1,4 +1,4 @@
-import 'package:omny_locator/flavor_config.dart';
+import 'package:collnect/flavor_config.dart';
 
 class ApiConstants {
   static String baseUrl = FlavorConfig.instance.values.baseUrl;

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:omny_locator/shared/constants/colors.dart';
+import 'package:collnect/shared/constants/colors.dart';
 
 class CommonConstants {
+  static const String fontFamily = 'Nunito';
   static const double largeText = 40.0;
   static const double normalText = 22.0;
   static const double smallText = 16.0;
@@ -18,12 +19,18 @@ class CommonConstants {
   static const double titleSpacing = -10.0;
   static const int pageSize = 20;
   static Gradient primaryGradientColors = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    // stops: [0, 0, 0.6, 1],
     colors: <Color>[
-      hexToColor('#326FCD'),
-      hexToColor('#183FB9'),
+      hexToColor('#5A5B9E'),
+      hexToColor('#2A2C99'),
     ],
   );
   static Gradient secondaryGradientColors = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    // stops: [0, 0, 0.6, 1],
     colors: <Color>[
       hexToColor('#FFFFFF'),
       hexToColor('#FFFFFF'),

@@ -11,13 +11,13 @@ class ColorConstants {
   static Color bluePrimaryColor = hexToColor('#183FB9');
   static Color blueDisabledButtonBackgroundColor = hexToColor('#C6C6C6');
 
-  static Color lightScaffoldBackgroundColor = hexToColor('#F0F0F9');
-  static Color lightPrimaryTextColor = hexToColor('#000000');
+  static Color lightScaffoldBackgroundColor = hexToColor('#ffffff');
+  static Color lightPrimaryTextColor = hexToColor('#333333');
   static Color lightSecodaryTextColor = hexToColor('#999999');
-  static Color lightButtonBackgroundColor = hexToColor('#18BA71');
+  static Color lightButtonBackgroundColor = hexToColor('#DF492B');
   static Color lightButtonTextColor = Colors.white;
   static Color lightLabelInputColor = hexToColor('#666666');
-  static Color lightBorderInputColor = hexToColor('#E0E0E0');
+  static Color lightBorderInputColor = hexToColor('#CECECE');
   static Color lightPrimaryColor = hexToColor('#183FB9');
   static Color lightEnabledBorderInputColor = hexToColor('#183FB9');
   static Color lightDisabledButtonBackgroundColor = hexToColor('#C6C6C6');
@@ -25,11 +25,13 @@ class ColorConstants {
   static Color lightIconColor = hexToColor('#333333');
 
   static Color iconColor = hexToColor('#666666');
-  static Color primaryColor = hexToColor('#183FB9');
+  // static Color primaryColor = hexToColor('#183FB9');
   static Color lightGray = Color(0xFFF6F6F6);
   static Color lightGreen = hexToColor('#18BA71');
   static Color lightBlue = hexToColor('#2147BB');
   static Color lightOrange = hexToColor('#DE6C1A');
+  static Color primaryColor = hexToColor('#5A5B9E');
+  static Color zanah = hexToColor("#D4EDDA");
 
   // static Color darkScaffoldBackgroundColor = hexToColor('#2F2E2E');
   // static Color secondaryAppColor = hexToColor('#18BA71');

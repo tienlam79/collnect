@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:omny_locator/shared/constants/colors.dart';
-import 'package:omny_locator/shared/constants/common.dart';
-import 'package:omny_locator/shared/widgets/widgets.dart';
+import 'package:collnect/shared/constants/colors.dart';
+import 'package:collnect/shared/constants/common.dart';
 
 class OutlinedGradientButton extends StatelessWidget {
   final String text;
@@ -54,7 +53,7 @@ class OutlinedGradientButton extends StatelessWidget {
           ),
           child: Center(
             child: text != ""
-                ? GradientText(
+                ? Text(
                     text,
                     style: Theme.of(context).textTheme.button,
                   )

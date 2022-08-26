@@ -1,6 +1,6 @@
 {
-    "name": "omny_locator",
-    "short_name": "omny_locator",
+    "name": "collnect",
+    "short_name": "collnect",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

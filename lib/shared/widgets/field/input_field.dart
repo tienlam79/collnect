@@ -1,7 +1,6 @@
+import 'package:collnect/shared/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:omny_locator/shared/constants/colors.dart';
-import 'package:omny_locator/shared/constants/common.dart';
 
 class InputField extends StatefulWidget {
   final TextEditingController? controller;
@@ -57,15 +56,14 @@ class InputField extends StatefulWidget {
     this.focusNode,
     this.labelStyle,
     this.style = const TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
       height: 1.2,
-      color: Colors.black,
     ),
     this.autocorrect = false,
     this.autofocus = false,
     this.textAlign = TextAlign.left,
-    this.height = 60.0,
+    this.height = 100.0,
     this.cursorHeight,
     this.hintText,
     this.readOnly = false,
@@ -81,110 +79,65 @@ class InputField extends StatefulWidget {
 }
 
 class _TextFieldFocusState extends State<InputField> {
-  FocusNode _focus = FocusNode();
-  Color _borderColor = ColorConstants.lightBorderInputColor;
-  double _borderWidth = 1.0;
-  var formKey = GlobalKey<FormState>();
-  bool autoValidate = false;
-
   @override
   void initState() {
     super.initState();
-    _focus.addListener(_onFocusChange);
   }
 
   @override
   void dispose() {
     super.dispose();
-    _focus.removeListener(_onFocusChange);
-    _focus.dispose();
-  }
-
-  void _onFocusChange() {
-    if (_focus.hasFocus) {
-      setState(() {
-        _borderColor = Theme.of(context).primaryColor;
-        _borderWidth = Theme.of(context)
-            .inputDecorationTheme
-            .enabledBorder!
-            .borderSide
-            .width;
-      });
-    } else {
-      setState(() {
-        _borderColor =
-            Theme.of(context).inputDecorationTheme.border!.borderSide.color;
-        _borderWidth =
-            Theme.of(context).inputDecorationTheme.border!.borderSide.width;
-      });
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      height: widget.height,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
-        color: widget.enabled == true
-            ? Colors.white
-            : ColorConstants.lightBorderInputColor,
-        // gradient: LinearGradient(
-        //   colors: [
-        //     Colors.black,
-        //     Colors.pinkAccent,
-        //   ],
-        // ),
-        border: Border.all(
-          width: _borderWidth,
-          color: _borderColor,
-        ),
-      ),
-      child: TextFormField(
-        enabled: widget.enabled,
-        maxLines: widget.maxLines,
-        maxLength: widget.maxLength,
-        focusNode: _focus,
-        readOnly: widget.readOnly,
-        textAlignVertical: TextAlignVertical.center,
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.zero,
-          floatingLabelBehavior: FloatingLabelBehavior.auto,
-          labelText: widget.labelText,
-          // hintText: _focus.hasFocus ? null : widget.labelText,
-          suffixIcon: widget.suffixIcon,
-          suffixIconConstraints: widget.suffixIconConstraints,
-          prefix: widget.prefix,
-          prefixIconConstraints: widget.prefixIconConstraints,
-          labelStyle: widget.labelStyle,
-          counterText: widget.counterText,
-          border: InputBorder.none,
-          enabledBorder: InputBorder.none,
-          focusedBorder: InputBorder.none,
-          hintStyle: TextStyle(
-            fontSize: 16,
-            height: 1.5,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-        style: widget.style,
-        controller: widget.controller,
-        keyboardType: widget.keyboardType,
-        autocorrect: widget.autocorrect,
-        validator: widget.validator,
-        inputFormatters: widget.formatter,
-        onChanged: widget.onChanged,
-        onTap: widget.onTap,
-        initialValue: widget.initialValue,
-        autofocus: widget.autofocus,
-        textAlign: widget.textAlign,
-        textCapitalization: widget.textCapitalization,
-        enableSuggestions: widget.enableSuggestions,
-        obscureText: widget.obscureText,
-      ),
-    );
+        alignment: Alignment.center,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (widget.labelText != null)
+              Text(
+                widget.labelText ?? '',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  height: 1.2,
+                  color: ColorConstants.lightPrimaryTextColor,
+                ),
+              ),
+            TextFormField(
+              enabled: widget.enabled,
+              maxLines: widget.maxLines,
+              maxLength: widget.maxLength,
+              readOnly: widget.readOnly,
+              textAlignVertical: TextAlignVertical.center,
+              decoration: InputDecoration(
+                floatingLabelBehavior: FloatingLabelBehavior.never,
+                hintText: widget.hintText,
+                suffixIcon: widget.suffixIcon,
+                suffixIconConstraints: widget.suffixIconConstraints,
+                prefix: widget.prefix,
+                prefixIconConstraints: widget.prefixIconConstraints,
+                labelStyle: widget.labelStyle,
+                counterText: widget.counterText,
+              ),
+              style: widget.style,
+              controller: widget.controller,
+              keyboardType: widget.keyboardType,
+              autocorrect: widget.autocorrect,
+              validator: widget.validator,
+              inputFormatters: widget.formatter,
+              onChanged: widget.onChanged,
+              onTap: widget.onTap,
+              initialValue: widget.initialValue,
+              autofocus: widget.autofocus,
+              textAlign: widget.textAlign,
+              textCapitalization: widget.textCapitalization,
+              enableSuggestions: widget.enableSuggestions,
+              obscureText: widget.obscureText,
+            ),
+          ],
+        ));
   }
 }

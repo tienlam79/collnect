@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:omny_locator/shared/constants/common.dart';
+import 'package:collnect/shared/constants/common.dart';
 
 class SpacingMd extends StatelessWidget {
   const SpacingMd({Key? key}) : super(key: key);

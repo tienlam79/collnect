@@ -1,4 +1,4 @@
-import 'package:omny_locator/api/api.dart';
+import 'package:collnect/api/api.dart';
 import 'package:get/get.dart';
 
 class AppBinding extends Bindings {

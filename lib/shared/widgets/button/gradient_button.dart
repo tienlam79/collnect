@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:omny_locator/shared/constants/colors.dart';
-import 'package:omny_locator/shared/constants/common.dart';
+import 'package:collnect/shared/constants/colors.dart';
+import 'package:collnect/shared/constants/common.dart';
 
 class GradientButton extends StatelessWidget {
   final String text;
@@ -27,10 +27,12 @@ class GradientButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = disabled
-        ? LinearGradient(colors: <Color>[
-            ColorConstants.disabledButtonBackgroundColor,
-            ColorConstants.disabledButtonBackgroundColor,
-          ])
+        ? LinearGradient(
+            colors: <Color>[
+              ColorConstants.disabledButtonBackgroundColor,
+              ColorConstants.disabledButtonBackgroundColor,
+            ],
+          )
         : (gradient ?? CommonConstants.primaryGradientColors);
     return Container(
       width: width,

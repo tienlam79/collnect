@@ -1,7 +1,8 @@
+import 'package:collnect/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omny_locator/shared/shared.dart';
-import 'package:omny_locator/theme/theme_data.dart';
+import 'package:collnect/shared/shared.dart';
+import 'package:collnect/theme/theme_data.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
@@ -18,7 +19,7 @@ class SplashScreen extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(ImageConstants.linearBg),
+          image: AssetImage(ImageConstants.splashBg),
           fit: BoxFit.contain,
           alignment: Alignment.topCenter,
         ),
@@ -29,28 +30,32 @@ class SplashScreen extends StatelessWidget {
           padding: const EdgeInsets.all(CommonConstants.hPadding),
           child: Column(
             children: [
-              SizedBox(
-                height: 136,
-              ),
-              Image.asset(
-                ImageConstants.homeSplash,
-                width: 100,
-                height: 100,
-              ),
-              SpacingMd(),
-              Text(
-                'omny_location'.tr,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline1!
-                    .copyWith(fontSize: 30, fontWeight: FontWeight.w800),
-              ),
-              SpacingXs(),
-              Text(
-                'reload_omny_card'.tr,
-                style: Theme.of(context).textTheme.headline4!.copyWith(
-                      fontWeight: FontWeight.w400,
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      ImageConstants.logo,
+                      height: 70,
                     ),
+                    SpacingMd(),
+                    Text(
+                      'logan'.tr,
+                      style: Theme.of(context).textTheme.headline5!.copyWith(
+                          fontWeight: FontWeight.w800,
+                          color: ColorConstants.primaryColor),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: GradientButton(
+                    text: 'getting_started'.tr,
+                    onPressed: () => Get.toNamed(Routes.SIGNUP),
+                  ),
+                ),
               ),
             ],
           ),

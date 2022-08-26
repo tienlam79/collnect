@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/request/request.dart';
-import 'package:omny_locator/models/models.dart';
-import 'package:omny_locator/shared/shared.dart';
+import 'package:collnect/models/models.dart';
+import 'package:collnect/shared/shared.dart';
 
 FutureOr<dynamic> responseInterceptor(
     Request request, Response response) async {
