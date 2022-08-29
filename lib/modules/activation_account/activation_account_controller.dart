@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:collnect/api/api.dart';
 import 'package:get/get.dart';
 
-class LoginController extends GetxController {
+class ActivationAccountController extends GetxController {
   final ApiRepository apiRepository;
-  LoginController({required this.apiRepository});
+  ActivationAccountController({required this.apiRepository});
 
   final phoneController = TextEditingController(text: '');
   final nameController = TextEditingController(text: '');
