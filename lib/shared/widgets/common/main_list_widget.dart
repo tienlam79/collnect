@@ -27,6 +27,7 @@ class MainListWidget extends StatefulWidget {
   final FloatingActionButton? floatingActionButton;
   final Color? backIconColor;
   final Widget? leading;
+  final Widget? drawer;
   MainListWidget({
     required this.child,
     this.titleText = '',
@@ -51,6 +52,7 @@ class MainListWidget extends StatefulWidget {
     this.floatingActionButton,
     this.backIconColor = Colors.black,
     this.leading,
+    this.drawer,
   });
 
   @override
@@ -102,6 +104,7 @@ class _MainListWidgetState extends State<MainListWidget> {
       backgroundColor: widget.backgroundColor,
       extendBodyBehindAppBar: widget.extendBodyBehindAppBar,
       floatingActionButton: widget.floatingActionButton,
+      drawer: widget.drawer,
       body: DefaultTextStyle(
         child: _buldBodyContent(context),
         style: TextStyle(
@@ -115,7 +118,7 @@ class _MainListWidgetState extends State<MainListWidget> {
       appBar: AppBar(
         elevation: widget.elevation,
         centerTitle: widget.centerTitle,
-        automaticallyImplyLeading: false,
+        // automaticallyImplyLeading: false,
         titleSpacing: widget.titleSpacing,
         backgroundColor: widget.appBarBackgroundColor,
         leading: widget.showBackIcon
