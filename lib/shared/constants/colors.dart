@@ -35,6 +35,7 @@ class ColorConstants {
   static Color primaryColor = hexToColor('#5A5B9E');
   static Color zanah = hexToColor("#D4EDDA");
   static Color alto = hexToColor("#DADADA");
+  static Color thunderbird = hexToColor("#AD3218");
 
   // static Color darkScaffoldBackgroundColor = hexToColor('#2F2E2E');
   // static Color secondaryAppColor = hexToColor('#18BA71');

@@ -10,6 +10,7 @@ class HomeBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 60,
+      // color: Colors.red,
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

@@ -60,5 +60,27 @@ const Map<String, String> en_US = {
   "unread": "Unread",
   "contacts": "Contacts",
   "opt_out": "Opt outs",
-  "opt_in": "Opt ins"
+  "opt_in": "Opt ins",
+  "add_contacts": "Add Contacts",
+  "add_contacts_desc":
+      "Adding 10 contacts a day\neveryday, will drive fortune to\n your way",
+  "send_messages": "Send Messages",
+  "send_messages_desc":
+      "Enjoy the power of connecting\nwith your customers regularly.",
+  "create_qr_code": "Create QR Code",
+  "create_qr_code_desc":
+      "Open a whole new world of marketing\nyour business using QR codes.",
+  "create_keyword": "Create Keyword",
+  "create_keyword_desc":
+      "Make it easy for customers to\nconnect with your business\nusing keywords!",
+  "send_gift_card": "Send Gift Card",
+  "send_gift_card_desc":
+      "Sending eGift cards to your VIP\ncustomers can drive long lasting\nrelationships",
+  "create_gift_card": "Create Your Gift Card",
+  "create_gift_card_desc":
+      "YES, your business can have egift\ncard too! It's simple.",
+  "marketing_management": "Marketing Management",
+  "marketing_management_desc":
+      "Need help growing your business?\nWe have got your back!",
+  "feature_title": "What would you like to do today?"
 };
