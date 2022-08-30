@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:collnect/models/models.dart';
-import 'package:collnect/routes/app_pages.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../widgets/alert/alert_info.dart';

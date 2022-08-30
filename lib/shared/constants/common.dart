@@ -18,6 +18,7 @@ class CommonConstants {
   static const double lineHeight = 1.2;
   static const double titleSpacing = -10.0;
   static const int pageSize = 20;
+  static const double btnBorderRadius = 3.0;
   static Gradient primaryGradientColors = LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,

@@ -18,12 +18,6 @@ class ThemeConfig {
     required Color appBarBackgroundColor,
     required Color surface,
     required Color appBarTextColor,
-    // Color? accentColor,
-    // Color? divider,
-    // required Color? buttonBackground,
-    // required Color buttonText,
-    // Color? cardBackground,
-    // Color? disabled,
   }) {
     final baseTextTheme = brightness == Brightness.dark
         ? Typography.blackMountainView
@@ -40,7 +34,7 @@ class ThemeConfig {
           primary: buttonBackground, // This is a custom color variable
           textStyle: TextStyle(
             fontWeight: FontWeight.w400,
-            fontSize: 18,
+            fontSize: 16,
             height: CommonConstants.lineHeight,
             fontFamily: CommonConstants.fontFamily,
           ),
@@ -48,7 +42,6 @@ class ThemeConfig {
       ),
       dividerTheme: DividerThemeData(color: iconColor),
       appBarTheme: AppBarTheme(
-        // color: Colors.red,
         backgroundColor: appBarBackgroundColor,
         elevation: 0,
         iconTheme: IconThemeData(
@@ -89,7 +82,8 @@ class ThemeConfig {
           padding:
               const EdgeInsets.symmetric(horizontal: CommonConstants.hPadding),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(CommonConstants.borderRadius),
+            borderRadius:
+                BorderRadius.circular(CommonConstants.btnBorderRadius),
           ),
         ),
       ),
@@ -98,10 +92,7 @@ class ThemeConfig {
         filled: true,
         isDense: true,
         suffixIconColor: secondaryText,
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 15.0,
-          horizontal: 10.0,
-        ),
+        contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
         errorStyle: TextStyle(color: errorColor),
         hintStyle: TextStyle(
           fontSize: 16,
@@ -109,13 +100,6 @@ class ThemeConfig {
           fontWeight: FontWeight.w400,
           color: secondaryText,
         ),
-        // border: OutlineInputBorder(
-        //   borderRadius: BorderRadius.circular(3),
-        //   borderSide: BorderSide(
-        //     color: Colors.red,
-        //     width: 1,
-        //   ),
-        // ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(3),
           borderSide: BorderSide(
@@ -131,15 +115,15 @@ class ThemeConfig {
           ),
         ),
         prefixStyle: TextStyle(
-          fontSize: 18,
+          fontSize: 16,
           fontWeight: FontWeight.w600,
           color: labelInputColor,
         ),
       ),
       fontFamily: CommonConstants.fontFamily,
-      primaryTextTheme: ThemeData.light().textTheme.apply(
-            fontFamily: CommonConstants.fontFamily,
-          ),
+      // primaryTextTheme: ThemeData.light().textTheme.apply(
+      //       fontFamily: CommonConstants.fontFamily,
+      //     ),
       textTheme: TextTheme(
         headline1: baseTextTheme.headline1!.copyWith(
           color: primaryText,
@@ -198,7 +182,7 @@ class ThemeConfig {
         ),
         button: baseTextTheme.button!.copyWith(
           color: buttonText,
-          fontSize: 20.0,
+          fontSize: 18.0,
           fontWeight: FontWeight.w700,
           fontFamily: CommonConstants.fontFamily,
           height: CommonConstants.lineHeight,
@@ -212,7 +196,7 @@ class ThemeConfig {
         ),
         overline: baseTextTheme.overline!.copyWith(
           color: secondaryText,
-          fontSize: 11.0,
+          fontSize: 12.0,
           fontWeight: FontWeight.w500,
           fontFamily: CommonConstants.fontFamily,
           height: CommonConstants.lineHeight,
@@ -273,7 +257,7 @@ class ThemeConfig {
         surface: ColorConstants.lightDisabledButtonBackgroundColor,
         appBarTextColor: ColorConstants.lightAppBarTextColor,
       );
-  static ThemeData get blueTheme => createTheme(
+  static ThemeData get purpleTheme => createTheme(
         brightness: Brightness.light,
         background: ColorConstants.blueScaffoldBackgroundColor,
         primaryText: ColorConstants.bluePrimaryTextColor,
@@ -283,8 +267,8 @@ class ThemeConfig {
         labelInputColor: ColorConstants.blueLabelInputColor,
         borderInputColor: ColorConstants.blueBorderInputColor,
         primaryColor: ColorConstants.bluePrimaryColor,
-        appBarBackgroundColor: ColorConstants.blueScaffoldBackgroundColor,
-        iconColor: ColorConstants.iconColor,
+        appBarBackgroundColor: ColorConstants.blueAppBarBackgroundColor,
+        iconColor: ColorConstants.blueIconColor,
         errorColor: Colors.red,
         enabledBorderInputColor: ColorConstants.blueBorderInputColor,
         surface: ColorConstants.lightDisabledButtonBackgroundColor,

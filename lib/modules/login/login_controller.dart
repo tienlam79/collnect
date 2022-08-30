@@ -1,3 +1,4 @@
+import 'package:collnect/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:collnect/api/api.dart';
 import 'package:get/get.dart';
@@ -6,15 +7,15 @@ class LoginController extends GetxController {
   final ApiRepository apiRepository;
   LoginController({required this.apiRepository});
 
-  final phoneController = TextEditingController(text: '');
-  final nameController = TextEditingController(text: '');
+  final emailController = TextEditingController(text: '');
+  final passwordController = TextEditingController(text: '');
 
   RxString phoneNumber = ''.obs;
 
   @override
   void onInit() {
-    phoneController.addListener(() {
-      phoneNumber.value = phoneController.text.replaceAll('-', '');
+    emailController.addListener(() {
+      phoneNumber.value = emailController.text.replaceAll('-', '');
     });
 
     super.onInit();
@@ -28,9 +29,11 @@ class LoginController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-    phoneController.dispose();
-    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
   }
 
-  void onLogin() async {}
+  void onLogin() async {
+    Get.offAllNamed(Routes.HOME);
+  }
 }

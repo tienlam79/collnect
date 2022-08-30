@@ -1,41 +1,39 @@
+import 'package:collnect/modules/login/login_controller.dart';
+import 'package:collnect/modules/login/widgets/login_feature.dart';
+import 'package:collnect/modules/login/widgets/login_form.dart';
+import 'package:collnect/shared/shared.dart';
+import 'package:collnect/theme/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:collnect/shared/shared.dart';
-import 'login_controller.dart';
 
 class LoginScreen extends GetView<LoginController> {
+  const LoginScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    return Theme(
+      data: ThemeConfig.lightTheme,
+      child: Builder(
+        builder: (BuildContext c) => _buildMainContent(c),
+      ),
+    );
+  }
+
+  Widget _buildMainContent(BuildContext context) {
     return MainListWidget(
-      scrollable: false,
       showBackIcon: false,
-      elevation: 0,
+      bodyPadding: EdgeInsets.zero,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'login_title'.tr,
-            style: Theme.of(context).textTheme.headline3!.copyWith(
-                  fontWeight: FontWeight.w800,
-                ),
+          Container(
+            color: Colors.white,
+            padding: const EdgeInsets.all(CommonConstants.hPadding),
+            child: LoginForm(controller: controller),
           ),
-          SpacingLg(),
-          PhoneField(
-            controller: controller.phoneController,
-            labelText: 'your_phone_number'.tr,
-          ),
-          InputField(
-            labelText: 'your_name_optional'.tr,
-            controller: controller.nameController,
-            textCapitalization: TextCapitalization.words,
-          ),
-          SpacingSm(),
-          Obx(
-            () => PrimaryButton(
-              text: 'next'.tr,
-              onPressed: controller.onLogin,
-              disabled: controller.phoneNumber.value.length < 10,
-            ),
+          Container(
+            padding: const EdgeInsets.all(CommonConstants.hPadding),
+            child: LoginFeature(),
           ),
         ],
       ),

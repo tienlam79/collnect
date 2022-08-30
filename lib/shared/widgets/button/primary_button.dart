@@ -12,7 +12,7 @@ class PrimaryButton extends StatelessWidget {
     Key? key,
     this.text = "",
     this.child,
-    this.size = 60,
+    this.size = 50,
     this.onPressed,
     this.variant = 'success',
     this.disabled = false,
@@ -45,11 +45,7 @@ class PrimaryButton extends StatelessWidget {
             ? Text(
                 text,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.button!.copyWith(
-                      color: disabled
-                          ? Colors.black
-                          : Theme.of(context).textTheme.button!.color,
-                    ),
+                style: Theme.of(context).textTheme.button,
               )
             : child,
       ),

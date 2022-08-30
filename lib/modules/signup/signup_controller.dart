@@ -1,3 +1,4 @@
+import 'package:collnect/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:collnect/api/api.dart';
 import 'package:get/get.dart';
@@ -6,15 +7,12 @@ class SignupController extends GetxController {
   final ApiRepository apiRepository;
   SignupController({required this.apiRepository});
 
-  final phoneController = TextEditingController(text: '');
-  final nameController = TextEditingController(text: '');
   final firstNameController = TextEditingController(text: '');
   final lastNameController = TextEditingController(text: '');
   final emailController = TextEditingController(text: '');
   final passwordController = TextEditingController(text: '');
   final referralCodeController = TextEditingController(text: '');
 
-  RxBool isSuccess = false.obs;
   RxString phoneNumber = ''.obs;
 
   @override
@@ -34,9 +32,10 @@ class SignupController extends GetxController {
     lastNameController.dispose();
     emailController.dispose();
     passwordController.dispose();
+    referralCodeController.dispose();
   }
 
   void onSignIn() async {
-    isSuccess.value = true;
+    Get.toNamed(Routes.SIGNUP_SUCCESS);
   }
 }

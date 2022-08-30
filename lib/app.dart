@@ -29,7 +29,7 @@ class App extends StatelessWidget {
       initialBinding: AppBinding(),
       smartManagement: SmartManagement.keepFactory,
       title: FlavorConfig.instance.name,
-      theme: ThemeConfig.lightTheme,
+      theme: ThemeConfig.purpleTheme,
       locale: TranslationService.locale,
       fallbackLocale: TranslationService.fallbackLocale,
       translations: TranslationService(),

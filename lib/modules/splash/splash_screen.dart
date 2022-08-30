@@ -8,7 +8,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: ThemeConfig.blueTheme,
+      data: ThemeConfig.lightTheme,
       child: Builder(
         builder: (BuildContext c) => _buildContent(c),
       ),
@@ -53,7 +53,7 @@ class SplashScreen extends StatelessWidget {
                   alignment: Alignment.bottomCenter,
                   child: GradientButton(
                     text: 'getting_started'.tr,
-                    onPressed: () => Get.toNamed(Routes.SIGNUP),
+                    onPressed: () => Get.toNamed(Routes.HOME),
                   ),
                 ),
               ),

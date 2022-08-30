@@ -1,3 +1,4 @@
+import 'package:collnect/shared/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:collnect/shared/constants/common.dart';
@@ -101,6 +102,16 @@ class _MainListWidgetState extends State<MainListWidget> {
       backgroundColor: widget.backgroundColor,
       extendBodyBehindAppBar: widget.extendBodyBehindAppBar,
       floatingActionButton: widget.floatingActionButton,
+      body: DefaultTextStyle(
+        child: _buldBodyContent(context),
+        style: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+          height: CommonConstants.lineHeight,
+          color: ColorConstants.lightPrimaryTextColor,
+          fontFamily: CommonConstants.fontFamily,
+        ),
+      ),
       appBar: AppBar(
         elevation: widget.elevation,
         centerTitle: widget.centerTitle,
@@ -130,46 +141,52 @@ class _MainListWidgetState extends State<MainListWidget> {
               )
             : widget.title,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Expanded(
-            child: GestureDetector(
-              onTap: () {
-                FocusScope.of(context).requestFocus(new FocusNode());
-              },
-              child: Container(
-                padding: widget.bodyPadding,
-                child: widget.isCustomScrollView
-                    ? CustomScrollView(
-                        slivers: widget.child,
-                        clipBehavior: Clip.none,
-                        shrinkWrap: true,
-                        controller: _scrollController,
-                        keyboardDismissBehavior:
-                            ScrollViewKeyboardDismissBehavior.onDrag,
-                      )
-                    : (widget.scrollable
-                        ? SingleChildScrollView(
-                            child: widget.child,
-                            clipBehavior: Clip.none,
-                            controller: _scrollController,
-                            // shrinkWrap: true,
-                            keyboardDismissBehavior:
-                                ScrollViewKeyboardDismissBehavior.onDrag,
-                          )
-                        : widget.child),
-              ),
+    );
+  }
+
+  Widget _buldBodyContent(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              FocusScope.of(context).requestFocus(new FocusNode());
+            },
+            child: Container(
+              padding: widget.bodyPadding,
+              child: widget.isCustomScrollView
+                  ? CustomScrollView(
+                      slivers: widget.child,
+                      clipBehavior: Clip.none,
+                      shrinkWrap: true,
+                      controller: _scrollController,
+                      keyboardDismissBehavior:
+                          ScrollViewKeyboardDismissBehavior.onDrag,
+                    )
+                  : (widget.scrollable
+                      ? SingleChildScrollView(
+                          child: widget.child,
+                          clipBehavior: Clip.none,
+                          controller: _scrollController,
+                          keyboardDismissBehavior:
+                              ScrollViewKeyboardDismissBehavior.onDrag,
+                        )
+                      : widget.child),
             ),
           ),
-          if (widget.footer != null)
-            Container(
-              child: widget.footer,
-              padding: const EdgeInsets.fromLTRB(CommonConstants.hPadding, 0,
-                  CommonConstants.hPadding, CommonConstants.hPadding),
+        ),
+        if (widget.footer != null)
+          Container(
+            child: widget.footer,
+            padding: const EdgeInsets.fromLTRB(
+              CommonConstants.hPadding,
+              0,
+              CommonConstants.hPadding,
+              CommonConstants.hPadding,
             ),
-        ],
-      ),
+          ),
+      ],
     );
   }
 }

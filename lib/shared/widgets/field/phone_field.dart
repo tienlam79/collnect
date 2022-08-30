@@ -39,12 +39,12 @@ class PhoneField extends StatelessWidget {
     this.prefixIconConstraints,
     this.autofocus = false,
     this.style = const TextStyle(
-      fontSize: 44,
+      fontSize: 25,
       fontWeight: FontWeight.bold,
+      color: Color.fromARGB(255, 51, 51, 51),
+      letterSpacing: 0.1,
       height: 1.2,
-      color: Colors.black,
     ),
-    this.height = 88.0,
     this.hintText,
     this.labelStyle,
     this.country = CommonConstants.USCountryCode,
@@ -52,6 +52,7 @@ class PhoneField extends StatelessWidget {
     this.hintStyle,
     this.readOnly = false,
     this.enabled = true,
+    this.height,
   }) : super(key: key);
 
   @override

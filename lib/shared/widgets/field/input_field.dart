@@ -35,6 +35,7 @@ class InputField extends StatefulWidget {
   final bool obscureText;
   final bool enableSuggestions;
   final bool? enabled;
+  final Widget? labelRight;
 
   InputField({
     this.controller,
@@ -63,7 +64,7 @@ class InputField extends StatefulWidget {
     this.autocorrect = false,
     this.autofocus = false,
     this.textAlign = TextAlign.left,
-    this.height = 100.0,
+    this.height,
     this.cursorHeight,
     this.hintText,
     this.readOnly = false,
@@ -73,6 +74,7 @@ class InputField extends StatefulWidget {
     this.obscureText = false,
     this.enableSuggestions = false,
     this.enabled = true,
+    this.labelRight,
   });
   @override
   _TextFieldFocusState createState() => _TextFieldFocusState();
@@ -92,52 +94,60 @@ class _TextFieldFocusState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        alignment: Alignment.center,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (widget.labelText != null)
-              Text(
-                widget.labelText ?? '',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  height: 1.2,
-                  color: ColorConstants.lightPrimaryTextColor,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              if (widget.labelText != null)
+                Text(
+                  widget.labelText ?? '',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    height: 1.5,
+                    color: ColorConstants.lightPrimaryTextColor,
+                  ),
                 ),
-              ),
-            TextFormField(
-              enabled: widget.enabled,
-              maxLines: widget.maxLines,
-              maxLength: widget.maxLength,
-              readOnly: widget.readOnly,
-              textAlignVertical: TextAlignVertical.center,
-              decoration: InputDecoration(
-                floatingLabelBehavior: FloatingLabelBehavior.never,
-                hintText: widget.hintText,
-                suffixIcon: widget.suffixIcon,
-                suffixIconConstraints: widget.suffixIconConstraints,
-                prefix: widget.prefix,
-                prefixIconConstraints: widget.prefixIconConstraints,
-                labelStyle: widget.labelStyle,
-                counterText: widget.counterText,
-              ),
-              style: widget.style,
-              controller: widget.controller,
-              keyboardType: widget.keyboardType,
-              autocorrect: widget.autocorrect,
-              validator: widget.validator,
-              inputFormatters: widget.formatter,
-              onChanged: widget.onChanged,
-              onTap: widget.onTap,
-              initialValue: widget.initialValue,
-              autofocus: widget.autofocus,
-              textAlign: widget.textAlign,
-              textCapitalization: widget.textCapitalization,
-              enableSuggestions: widget.enableSuggestions,
-              obscureText: widget.obscureText,
+              widget.labelRight ?? Container()
+            ],
+          ),
+          TextFormField(
+            enabled: widget.enabled,
+            maxLines: widget.maxLines,
+            maxLength: widget.maxLength,
+            readOnly: widget.readOnly,
+            textAlignVertical: TextAlignVertical.center,
+            decoration: InputDecoration(
+              floatingLabelBehavior: FloatingLabelBehavior.never,
+              hintText: widget.hintText,
+              suffixIcon: widget.suffixIcon,
+              suffixIconConstraints: widget.suffixIconConstraints,
+              prefix: widget.prefix,
+              prefixIconConstraints: widget.prefixIconConstraints,
+              labelStyle: widget.labelStyle,
+              counterText: widget.counterText,
             ),
-          ],
-        ));
+            style: widget.style,
+            controller: widget.controller,
+            keyboardType: widget.keyboardType,
+            autocorrect: widget.autocorrect,
+            validator: widget.validator,
+            inputFormatters: widget.formatter,
+            onChanged: widget.onChanged,
+            onTap: widget.onTap,
+            initialValue: widget.initialValue,
+            autofocus: widget.autofocus,
+            textAlign: widget.textAlign,
+            textCapitalization: widget.textCapitalization,
+            enableSuggestions: widget.enableSuggestions,
+            obscureText: widget.obscureText,
+          ),
+        ],
+      ),
+    );
   }
 }

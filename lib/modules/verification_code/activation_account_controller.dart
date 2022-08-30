@@ -1,6 +1,6 @@
+import 'package:collnect/api/api.dart';
 import 'package:collnect/routes/app_pages.dart';
 import 'package:flutter/material.dart';
-import 'package:collnect/api/api.dart';
 import 'package:get/get.dart';
 
 class ActivationAccountController extends GetxController {
@@ -36,6 +36,6 @@ class ActivationAccountController extends GetxController {
   void onLogin() async {}
 
   void onSendVerificationCode() {
-    Get.toNamed(Routes.VERIFICATION_CODE, arguments: [phoneNumber.value]);
+    Get.toNamed(Routes.HOME);
   }
 }

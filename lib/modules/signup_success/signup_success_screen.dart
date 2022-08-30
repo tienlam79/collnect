@@ -1,12 +1,55 @@
+import 'package:collnect/routes/routes.dart';
+import 'package:collnect/theme/theme_data.dart';
+import 'package:flutter/gestures.dart';
+
+import '../signup/widgets/signup_banner.dart';
 import 'package:collnect/shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignUpSuccess extends StatelessWidget {
-  const SignUpSuccess({Key? key}) : super(key: key);
+class SignupSuccessScreen extends StatelessWidget {
+  const SignupSuccessScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    return Theme(
+      data: ThemeConfig.lightTheme,
+      child: Builder(
+        builder: (BuildContext c) => _buildMainContent(c),
+      ),
+    );
+  }
+
+  Widget _buildMainContent(BuildContext context) {
+    return MainListWidget(
+      bodyPadding: const EdgeInsets.all(0),
+      title: Container(
+        child: Image.asset(
+          ImageConstants.logo,
+          height: 40,
+        ),
+      ),
+      showBackIcon: false,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SignupBannner(),
+          Padding(
+            padding: const EdgeInsets.all(CommonConstants.hPadding),
+            child: _buildContent(context),
+          ),
+        ],
+      ),
+      actions: [
+        IconButton(
+          onPressed: () => Get.toNamed(Routes.ACTIVATION_ACCOUNT),
+          icon: Icon(Icons.menu),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildContent(BuildContext context) {
     return Container(
       child: Column(
         children: [
@@ -31,7 +74,6 @@ class SignUpSuccess extends StatelessWidget {
                 SpacingSm(),
                 Text(
                   'register_success_desc'.tr,
-                  style: Theme.of(context).textTheme.subtitle1,
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -41,10 +83,11 @@ class SignUpSuccess extends StatelessWidget {
           RichText(
             text: TextSpan(
               text: 'already_account'.tr,
-              style: Theme.of(context).textTheme.subtitle1,
               children: <TextSpan>[
                 TextSpan(
                   text: 'sign_in'.tr,
+                  recognizer: new TapGestureRecognizer()
+                    ..onTap = () => Get.toNamed(Routes.LOGIN),
                   style: TextStyle(
                     color: ColorConstants.lightButtonBackgroundColor,
                   ),

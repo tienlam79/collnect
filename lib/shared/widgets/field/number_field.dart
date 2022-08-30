@@ -41,8 +41,9 @@ class NumberField extends StatelessWidget {
     this.suffixIcon,
     this.hintText,
     this.style = const TextStyle(
-      fontSize: 18,
+      fontSize: 25,
       fontWeight: FontWeight.w700,
+      height: 1.2,
     ),
     this.maxLines,
     this.keyboardType,
