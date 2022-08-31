@@ -82,5 +82,23 @@ const Map<String, String> en_US = {
   "marketing_management": "Marketing Management",
   "marketing_management_desc":
       "Need help growing your business?\nWe have got your back!",
-  "feature_title": "What would you like to do today?"
+  "feature_title": "What would you like to do today?",
+  "dashboard": "Dashboard",
+  "chat_inbox": "Chat inbox",
+  "collnect_contact": "Collnect contact",
+  "add_contact": "Add contact",
+  "qr_code": "QR Code",
+  "keywords": "Keywords",
+  "contact_list": "Contact List",
+  "contact_imported": "Contact Imported",
+  "groups": "Groups",
+  "message": "Message",
+  "shedule_messages": "Scheduled/Draft Messages",
+  "sent_messages": "Sent Messages",
+  "report": "Report",
+  "service_other": "Services/Others",
+  "links": "Links",
+  "compliant_features": "Compliant Features",
+  "qa": "Q&A",
+  "send_message": "Send Message"
 };

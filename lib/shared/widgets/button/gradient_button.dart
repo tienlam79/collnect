@@ -11,18 +11,20 @@ class GradientButton extends StatelessWidget {
   final void Function()? onPressed;
   final bool disabled;
   final double radius;
+  final List<BoxShadow>? boxShadow;
 
-  const GradientButton({
-    Key? key,
-    this.text = "",
-    this.child,
-    this.gradient,
-    this.width = double.infinity,
-    this.height = 60.0,
-    this.onPressed,
-    this.disabled = false,
-    this.radius = CommonConstants.borderRadius,
-  }) : super(key: key);
+  const GradientButton(
+      {Key? key,
+      this.text = "",
+      this.child,
+      this.gradient,
+      this.width = double.infinity,
+      this.height = 60.0,
+      this.onPressed,
+      this.disabled = false,
+      this.radius = CommonConstants.borderRadius,
+      this.boxShadow})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +44,14 @@ class GradientButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius),
         boxShadow: disabled
             ? null
-            : [
-                BoxShadow(
-                  color: ColorConstants.primaryColor,
-                  offset: Offset(0.0, 1.5),
-                  blurRadius: 1.5,
-                ),
-              ],
+            : (boxShadow ??
+                [
+                  BoxShadow(
+                    color: ColorConstants.primaryColor,
+                    offset: Offset(0.0, 1.5),
+                    blurRadius: 1.5,
+                  ),
+                ]),
       ),
       child: Material(
         color: Colors.transparent,
@@ -60,7 +63,7 @@ class GradientButton extends StatelessWidget {
                     text,
                     style: Theme.of(context).textTheme.button!.copyWith(
                           fontWeight: FontWeight.w700,
-                          color: disabled ? Colors.black : Colors.white,
+                          color: Colors.white,
                         ),
                   )
                 : child,

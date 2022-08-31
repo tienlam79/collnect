@@ -28,6 +28,7 @@ class MainListWidget extends StatefulWidget {
   final Color? backIconColor;
   final Widget? leading;
   final Widget? drawer;
+  final GlobalKey<ScaffoldState>? key;
   MainListWidget({
     required this.child,
     this.titleText = '',
@@ -53,6 +54,7 @@ class MainListWidget extends StatefulWidget {
     this.backIconColor = Colors.black,
     this.leading,
     this.drawer,
+    this.key,
   });
 
   @override
@@ -99,6 +101,7 @@ class _MainListWidgetState extends State<MainListWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: widget.key,
       bottomNavigationBar: widget.bottomNavigationBar,
       resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
       backgroundColor: widget.backgroundColor,
@@ -119,6 +122,7 @@ class _MainListWidgetState extends State<MainListWidget> {
         elevation: widget.elevation,
         centerTitle: widget.centerTitle,
         // automaticallyImplyLeading: false,
+        automaticallyImplyLeading: false,
         titleSpacing: widget.titleSpacing,
         backgroundColor: widget.appBarBackgroundColor,
         leading: widget.showBackIcon

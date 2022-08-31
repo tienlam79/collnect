@@ -37,6 +37,9 @@ class ColorConstants {
   static Color alto = hexToColor("#DADADA");
   static Color thunderbird = hexToColor("#AD3218");
   static Color athensGray = hexToColor("#EFEFF5");
+  static Color froly = hexToColor("#F3696E");
+  static Color yellowSea = hexToColor("#F8A902");
+
   // static Color darkScaffoldBackgroundColor = hexToColor('#2F2E2E');
   // static Color secondaryAppColor = hexToColor('#18BA71');
   // static Color secondaryDarkAppColor = Colors.white;

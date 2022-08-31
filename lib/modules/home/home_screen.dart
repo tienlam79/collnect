@@ -8,14 +8,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends GetView<HomeController> {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
     return MainListWidget(
+      key: _scaffoldKey,
       showBackIcon: false,
-      bodyPadding: const EdgeInsets.all(0),
+      bodyPadding: EdgeInsets.zero,
       drawer: HomeDrawer(),
+      leading: IconButton(
+        icon: Icon(
+          Icons.message,
+        ),
+        onPressed: () => {},
+      ),
       actions: [
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -50,11 +58,11 @@ class HomeScreen extends GetView<HomeController> {
             children: [
               Container(
                 width: Get.width,
-                height: Get.height,
+                height: Get.height / 1.5,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(ImageConstants.homeBg),
-                    fit: BoxFit.fitWidth,
+                    fit: BoxFit.fill,
                   ),
                 ),
               ),

@@ -12,4 +12,9 @@ class ImageConstants {
   static const String promotionBanner = 'assets/images/promotion-banner.png';
   static const String sendGiftCard = 'assets/images/send-giftcard.png';
   static const String sendMessage = 'assets/images/send-message.png';
+  static const String chatInboxIcon = 'assets/images/chat-inbox-icon.svg';
+  static const String messageIcon = 'assets/images/message-icon.svg';
+  static const String contactIcon = 'assets/images/contact-icon.svg';
+  static const String serviceIcon = 'assets/images/service-icon.svg';
+  static const String dashboardIcon = 'assets/images/dashboard-icon.svg';
 }
