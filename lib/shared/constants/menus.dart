@@ -46,7 +46,7 @@ class Menus {
           route: Routes.CONTACT_IMPORTED,
         ),
         new Option(
-          title: 'contact_groups'.tr,
+          title: 'groups'.tr,
           route: Routes.CONTACT_GROUPS,
         ),
       ],
@@ -71,7 +71,7 @@ class Menus {
       icon: ImageConstants.contactIcon,
     ),
     new Menu(
-      title: 'service_ohter'.tr,
+      title: 'service_other'.tr,
       icon: ImageConstants.serviceIcon,
       options: [
         new Option(

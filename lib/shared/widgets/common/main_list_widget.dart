@@ -29,6 +29,7 @@ class MainListWidget extends StatefulWidget {
   final Widget? leading;
   final Widget? drawer;
   final GlobalKey<ScaffoldState>? key;
+  final bool showAppBar;
   MainListWidget({
     required this.child,
     this.titleText = '',
@@ -55,6 +56,7 @@ class MainListWidget extends StatefulWidget {
     this.leading,
     this.drawer,
     this.key,
+    this.showAppBar = true,
   });
 
   @override
@@ -118,36 +120,37 @@ class _MainListWidgetState extends State<MainListWidget> {
           fontFamily: CommonConstants.fontFamily,
         ),
       ),
-      appBar: AppBar(
-        elevation: widget.elevation,
-        centerTitle: widget.centerTitle,
-        // automaticallyImplyLeading: false,
-        automaticallyImplyLeading: false,
-        titleSpacing: widget.titleSpacing,
-        backgroundColor: widget.appBarBackgroundColor,
-        leading: widget.showBackIcon
-            ? IconButton(
-                icon: Icon(
-                  widget.backIcon,
-                  color: widget.backIconColor,
-                ),
-                onPressed: () {
-                  if (widget.callback != null) {
-                    widget.callback!();
-                  } else {
-                    Get.back(result: 'success');
-                  }
-                },
-              )
-            : widget.leading,
-        actions: widget.actions,
-        title: widget.titleText != ''
-            ? Text(
-                widget.titleText,
-                style: widget.titleStyle,
-              )
-            : widget.title,
-      ),
+      appBar: widget.showAppBar
+          ? AppBar(
+              elevation: widget.elevation,
+              centerTitle: widget.centerTitle,
+              automaticallyImplyLeading: false,
+              titleSpacing: widget.titleSpacing,
+              backgroundColor: widget.appBarBackgroundColor,
+              leading: widget.showBackIcon
+                  ? IconButton(
+                      icon: Icon(
+                        widget.backIcon,
+                        color: widget.backIconColor,
+                      ),
+                      onPressed: () {
+                        if (widget.callback != null) {
+                          widget.callback!();
+                        } else {
+                          Get.back(result: 'success');
+                        }
+                      },
+                    )
+                  : widget.leading,
+              actions: widget.actions,
+              title: widget.titleText != ''
+                  ? Text(
+                      widget.titleText,
+                      style: widget.titleStyle,
+                    )
+                  : widget.title,
+            )
+          : null,
     );
   }
 

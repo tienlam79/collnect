@@ -1,6 +1,7 @@
 import 'package:collnect/api/api.dart';
 import 'package:collnect/models/models.dart';
 import 'package:collnect/shared/constants/images.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../routes/app_pages.dart';
